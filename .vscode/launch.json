@@ -1,0 +1,43 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MyRendererSample",
+            "request": "launch",
+            "mainClass": "com.bubble.opengl.sample.MyRendererSample",
+            "projectName": "lwjgl"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - GlfwWindow",
+            "request": "launch",
+            "mainClass": "com.bubble.glfw.GlfwWindow",
+            "projectName": "lwjgl"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}",
+            "vmArgs": "-XstartOnFirstThread"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Renderer<lwjgl>",
+            "request": "launch",
+            "mainClass": "lwjgl.Renderer",
+            "projectName": "lwjgl"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Renderer2<lwjgl>",
+            "request": "launch",
+            "mainClass": "lwjgl.Renderer2",
+            "projectName": "lwjgl"
+        }
+    ]
+}
