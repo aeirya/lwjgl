@@ -40,19 +40,23 @@ public class Renderer implements IRenderer {
         
         vbb.begin();
 
-        vbb.addVertex(new Vertex(1.0f, 1.0f, 0.0f));
+        // Top Right
+        vbb.addVertex(new Vertex(0.5f, 0.5f, 0.0f));
         vbb.addVertex(new Vertex(1.0f, 1.0f, 0.0f));
         vbb.addVertex(new Vec2D(1.0f, 1.0f));
         
-        vbb.addVertex(new Vertex(1.0f, -1.0f, 0.0f));
+        // Bottom Right
+        vbb.addVertex(new Vertex(0.5f, -0.5f, 0.0f));
         vbb.addVertex(new Vertex(1.0f, 0.0f, 0.0f));
         vbb.addVertex(new Vec2D(1.0f, 0.0f));
         
-        vbb.addVertex(new Vertex(-1.0f, -1.0f, 0.0f));
+        // Bottom Left
+        vbb.addVertex(new Vertex(-0.5f, -0.5f, 0.0f));
         vbb.addVertex(new Vertex(0.0f, 0.0f, 1.0f));
         vbb.addVertex(new Vec2D(0.0f, 0.0f));
         
-        vbb.addVertex(new Vertex(-1.0f, 1.0f, 0.0f));
+        // Top Left
+        vbb.addVertex(new Vertex(-0.5f, 0.5f, 0.0f));
         vbb.addVertex(new Vertex(0.0f, 1.0f, 0.0f));
         vbb.addVertex(new Vec2D(0.0f, 1.0f));
         
