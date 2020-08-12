@@ -8,6 +8,7 @@ public class VertexBufferBuilder {
     private final List<Integer> indices;
     private final List<VertexAttribute> attributes;
     private int beginningIndex = 0;
+    private int offset = 0;
 
     public VertexBufferBuilder() {
         vertices = new ArrayList<>();
@@ -20,7 +21,8 @@ public class VertexBufferBuilder {
     }
 
     public void setAttribute(int location, int size, int stride) {
-        attributes.add(new VertexAttribute(location, size, stride));
+        attributes.add(new VertexAttribute(location, size, stride, offset));
+        offset += size;
     }
 
     public void begin() {

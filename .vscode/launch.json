@@ -6,6 +6,15 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - SimpleImageRendering",
+            "request": "launch",
+            "mainClass": "com.bubble.opengl.sample.SimpleImageRendering",
+            "projectName": "lwjgl",
+            "vmArgs": "-XstartOnFirstThread"
+    
+        },
+        {
+            "type": "java",
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "mainClass": "${file}",
