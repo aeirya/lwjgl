@@ -1,6 +1,12 @@
 package com.bubble.opengl.sample;
 
 import java.awt.image.BufferedImage;
+import java.awt.image.DataBuffer;
+import java.awt.image.DataBufferByte;
+import java.awt.image.DataBufferShort;
+import java.awt.image.DataBufferUShort;
+import java.awt.image.DataBufferInt;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -9,6 +15,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 
 import com.bubble.opengl.*;
+import com.bubble.util.TextureManager;
 
 import org.lwjgl.BufferUtils;
 import org.lwjgl.glfw.GLFW;
@@ -43,7 +50,8 @@ public class ImageRendererSample {
     + "uniform sampler2D texture1;\n"
     + "void main()\n"
     + "{\n"
-    + "    FragColor = texture(texture1, TexCoord);\n"
+    // + "    FragColor = texture(texture1, TexCoord);\n"
+    + "     FragColor = vec4(ourColor, 1);"
     + "}\n\0";
 
     public static void main(String[] args) throws IOException {
@@ -61,10 +69,10 @@ public class ImageRendererSample {
         // data
         float[] vertices = {
             // positions          // colors           // texture coords
-             0.0f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   1.0f, 1.0f, // top right
-             0.0f, -0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 0.0f, // bottom right
-            -1.0f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // bottom left
-            -1.0f,  0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   0.0f, 1.0f  // top left 
+            1.0f,  1.0f, 0.0f,   1.0f, 1.0f, 0.0f,   1.0f, 1.0f, // top right
+             1.0f, -1.0f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 0.0f, // bottom right
+            -1.0f, -1.0f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // bottom left
+            -1.0f,  1.0f, 0.0f,   0.0f, 1.0f, 0.0f,   0.0f, 1.0f  // top left 
         };
 
         int[] indices = {  // note that we start from 0!
@@ -79,10 +87,9 @@ public class ImageRendererSample {
         VertexAttribute texturePositions = new VertexAttribute(2, 2, 8);
     
         vb.upload(vertices, indices, positions, color, texturePositions);
-        
-        BufferedImage image = ImageIO.read(new File("./assets/container.jpg")); // TODO: Put an image path here.
 
-        Texture2D texture = new Texture2D(image.getWidth(), image.getHeight(), convertImage(image));
+
+        Texture texture = new TextureManager().getTexture("cat");
         texture.upload();
         
         vb.unbind();
@@ -137,27 +144,5 @@ public class ImageRendererSample {
         GLFW.glfwWindowHint(GLFW.GLFW_OPENGL_FORWARD_COMPAT, GLFW.GLFW_TRUE);
     }
 
-    public static ByteBuffer convertImage(BufferedImage image)
-    {     
-        int[] pixels = new int[image.getWidth() * image.getHeight()];
-        image.getRGB(0, 0, image.getWidth(), image.getHeight(), pixels, 0, image.getWidth());
-        
-        ByteBuffer buffer = BufferUtils.createByteBuffer(image.getWidth() * image.getHeight() * BYTES_PER_PIXEL);
-        
-        for(int y = 0; y < image.getHeight(); y++)
-        {
-            for(int x = 0; x < image.getWidth(); x++)
-            {
-                int pixel = pixels[y * image.getWidth() + x];
-                buffer.put((byte) ((pixel >> 16) & 0xFF));     // Red component
-                buffer.put((byte) ((pixel >> 8) & 0xFF));      // Green component
-                buffer.put((byte) (pixel & 0xFF));               // Blue component
-                buffer.put((byte) ((pixel >> 24) & 0xFF));    // Alpha component. Only for RGBA
-            }
-        }
     
-        buffer.flip();
-        
-        return buffer;
-    }
 }

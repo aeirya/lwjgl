@@ -4,6 +4,8 @@ import static org.lwjgl.glfw.GLFW.*;
 
 import java.util.logging.Logger;
 
+import com.bubble.render.IRenderer;
+
 import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.system.MemoryUtil;
@@ -12,7 +14,8 @@ public class GlfwWindow {
     private static final int WIDTH = 1000;
     private static final int HEIGHT = 800;
     private long window;
-    private String title = "XO";
+    private String title = "Window";
+    private IRenderer renderer;
 
     public GlfwWindow() {
         init();
@@ -25,12 +28,15 @@ public class GlfwWindow {
         glfwMakeContextCurrent(window);
         glfwSetFramebufferSizeCallback(window, this::framebufferSizeCallback);
         GL.createCapabilities();
+    }
+    
+    public void start() {
         update();
     }
 
     public void update() {
         while(!glfwWindowShouldClose(window)) {
-            processInput();
+            processInput();            
             render();
             refresh();
         }
@@ -60,12 +66,17 @@ public class GlfwWindow {
     }
 
     private void render() {
-        clear();
+        if (renderer != null) renderer.render();
     }
 
     private void refresh() {
         glfwSwapBuffers(window);
+        clear();
         glfwPollEvents();
+    }
+
+    public void setRenderer(IRenderer renderer) {
+        this.renderer = renderer;
     }
 
     public static void main(String[] args) {
