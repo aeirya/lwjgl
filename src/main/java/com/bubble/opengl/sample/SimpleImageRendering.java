@@ -7,8 +7,8 @@ import com.bubble.util.TextureManager;
 
 public class SimpleImageRendering {
     public static void main(String[] args) {
-        TextureManager textManager = new TextureManager();
         GlfwWindow window = new GlfwWindow();
+        TextureManager textManager = new TextureManager();
         IRenderer renderer = new Renderer(textManager);
         window.setRenderer(renderer);
         window.start();

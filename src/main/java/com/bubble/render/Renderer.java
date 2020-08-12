@@ -27,11 +27,12 @@ public class Renderer implements IRenderer {
     }
     
     public void render() {
-        System.out.println("rendering");
         texture.bind();
         shader.bind();
         vb.bind();
         vb.draw();
+        texture.unbind();
+        shader.unbind();
     }
 
     private VertexBuffer createVB() {

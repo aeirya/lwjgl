@@ -29,16 +29,17 @@ public class GlfwWindow {
         glfwSetFramebufferSizeCallback(window, this::framebufferSizeCallback);
         GL.createCapabilities();
     }
-    
+
     public void start() {
         update();
     }
 
     public void update() {
-        while(!glfwWindowShouldClose(window)) {
-            processInput();            
+        while (!glfwWindowShouldClose(window)) {
+            processInput();
             render();
             refresh();
+            sleep();
         }
         glfwTerminate();
     }
@@ -52,7 +53,7 @@ public class GlfwWindow {
 
     private void framebufferSizeCallback(long window, int width, int height) {
         GL11.glViewport(0, 0, width, height);
-        Logger.getGlobal().info(() ->  "changed size to " + width + "," + height);
+        Logger.getGlobal().info(() -> "changed size to " + width + "," + height);
     }
 
     private void processInput() {
@@ -66,7 +67,8 @@ public class GlfwWindow {
     }
 
     private void render() {
-        if (renderer != null) renderer.render();
+        if (renderer != null)
+            renderer.render();
     }
 
     private void refresh() {
@@ -77,6 +79,15 @@ public class GlfwWindow {
 
     public void setRenderer(IRenderer renderer) {
         this.renderer = renderer;
+    }
+
+    private void sleep() {
+        try {
+            Thread.sleep(16);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {

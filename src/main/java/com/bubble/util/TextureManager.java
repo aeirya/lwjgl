@@ -20,7 +20,7 @@ public class TextureManager {
     }
 
     private void addCat() {
-        String path = "./assets/container.png";
+        String path = "/Users/madscientist/Desktop/opengl/lwjgl/assets/container.png";
         textures.put("cat", loadTexture(path));
     }
 
