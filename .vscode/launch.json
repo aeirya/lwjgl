@@ -8,10 +8,16 @@
             "type": "java",
             "name": "CodeLens (Launch) - SimpleImageRendering",
             "request": "launch",
+            "mainClass": "com.bubble.sample.SimpleImageRendering",
+            "projectName": "lwjgl"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SimpleImageRendering",
+            "request": "launch",
             "mainClass": "com.bubble.opengl.sample.SimpleImageRendering",
             "projectName": "lwjgl",
             "vmArgs": "-XstartOnFirstThread"
-    
         },
         {
             "type": "java",

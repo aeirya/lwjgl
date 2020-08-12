@@ -1,7 +1,6 @@
 package com.bubble.render;
 
 import com.bubble.opengl.Program;
-import com.bubble.opengl.Shader;
 import com.bubble.opengl.Texture;
 import com.bubble.opengl.Vec2D;
 import com.bubble.opengl.Vertex;
@@ -14,7 +13,7 @@ public class Renderer implements IRenderer {
     private final Texture texture;
     private final TextureManager texManager;
     private final Program shader;
-    private static final String shaderPath = "./assets/shader/";
+    private static final String SHADER_PATH = "./assets/shader/";
     private final VertexBuffer vb;
 
     public Renderer(TextureManager texManager) {
@@ -73,7 +72,7 @@ public class Renderer implements IRenderer {
     }
 
     private Program loadShader() {
-        String filename = shaderPath + "shader";
+        String filename = SHADER_PATH + "shader";
         return new Program(
             load(filename + ".vert"),
             load(filename + ".frag")

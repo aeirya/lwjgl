@@ -1,4 +1,6 @@
-package com.bubble.opengl;
+package com.bubble.sample;
+
+import com.bubble.opengl.Program;
 
 public class DummyProgram extends Program {
 

@@ -3,8 +3,6 @@ package com.bubble.opengl;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL20.*;
 
-import org.lwjgl.system.MemoryUtil;
-
 public class VertexAttribute {
     private final int location;
     private final int size;

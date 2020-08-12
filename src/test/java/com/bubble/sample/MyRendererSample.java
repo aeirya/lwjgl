@@ -1,4 +1,4 @@
-package com.bubble.opengl.sample;
+package com.bubble.sample;
 
 import java.util.logging.Logger;
 
