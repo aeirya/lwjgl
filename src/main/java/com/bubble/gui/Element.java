@@ -6,7 +6,7 @@ import com.bubble.std.Color;
 import com.bubble.std.Dimension;
 import com.bubble.std.Point;
 
-abstract class Element implements IElement {
+public class Element implements IElement {
     private String id;
     private ElementType type;
     private Point position;
@@ -18,7 +18,7 @@ abstract class Element implements IElement {
     private boolean isDisabled;
     private MouseEvent events;
 
-    private List<IElement> children;
+    private List<Element> children;
 
     public String getId() {
         return id;
@@ -100,15 +100,50 @@ abstract class Element implements IElement {
         this.events = events;
     }
 
-    public List<IElement> getChildren() {
+    public List<Element> getChildren() {
         return children;
     }
 
-    public void setChildren(List<IElement> children) {
+    public void setChildren(List<Element> children) {
         this.children = children;
     }
 
-    // public void paintComponent(IGuiRenderer r) {
-    //     // nothing happens
-    // }
+    public void paintComponent(IGuiRenderer r) {
+        if (type != null) {
+            switch(type) {
+                case BUTTON:
+                r.drawButton(this);
+                // System.out.println("drawing button!");
+                break;
+                case PANEL:
+                r.drawPanel(this);
+                break;
+                default:
+                System.out.println("not rendering");
+                break;
+            }
+        }
+        if (children != null) {
+            children.forEach(c -> c.paintComponent(r));
+        }
+    }
+
+    public Element() {
+        //
+    }
+
+    public Element(String id, ElementType type, Point position, Dimension size, String text, String font, Color color,
+            String texture, boolean isDisabled, MouseEvent events, List<Element> children) {
+        this.id = id;
+        this.type = type;
+        this.position = position;
+        this.size = size;
+        this.text = text;
+        this.font = font;
+        this.color = color;
+        this.texture = texture;
+        this.isDisabled = isDisabled;
+        this.events = events;
+        this.children = children;
+    }
 }

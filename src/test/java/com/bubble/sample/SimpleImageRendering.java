@@ -3,8 +3,6 @@ package com.bubble.sample;
 import com.bubble.glfw.GlfwWindow;
 import com.bubble.opengl.Texture;
 import com.bubble.render.Graphics;
-import com.bubble.render.IRenderer;
-import com.bubble.render.Renderer;
 import com.bubble.render.Shader;
 import com.bubble.std.Color;
 import com.bubble.std.Dimension;

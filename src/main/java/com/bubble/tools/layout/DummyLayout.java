@@ -10,11 +10,11 @@ import com.google.gson.GsonBuilder;
 
 public class DummyLayout extends Layout {
     public DummyLayout() {
-        elements = Arrays.asList(new Element("id", "panel", new Dimension(10, 20), new Position(1, 3),
+        elements = Arrays.asList(new LayoutElement("id", "panel", new Dimension(10, 20), new Position(1, 3),
                 Arrays.asList(new DummyElement(), new DummyElement()), "text"));
     }
 
-    public class DummyElement extends Element {
+    public class DummyElement extends LayoutElement {
         public DummyElement() {
             super("id2", "button", new Dimension(2, 3), new Position(3, 2), null, "click");
         }

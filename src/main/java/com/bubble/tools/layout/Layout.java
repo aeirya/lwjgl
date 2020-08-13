@@ -4,25 +4,54 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.bubble.gui.Element;
+import com.bubble.gui.ElementType;
+import com.bubble.std.Point;
+import com.bubble.util.file.FileLoader;
+import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 public class Layout {
     
-    protected List<Element> elements;
+    protected List<LayoutElement> elements;
 
     public Layout() {
         elements = new ArrayList<>();
     }
 
-    public List<Element> getElementsByType(String type) {
+    public List<LayoutElement> getElementsByType(String type) {
         return elements.stream().filter(e -> e.type.equals(type)).collect(Collectors.toList());
     }
 
-    public Element getElementById(String id) {
+    public LayoutElement getElementById(String id) {
         return elements.stream().filter(e -> e.id.equals(id)).findFirst().orElse(null);
     }
 
-    class Element {
+    private List<LayoutElement> getElements() {
+        return elements;
+    }
+
+    public static List<Element> load(String path) {
+        return new Gson()
+        .fromJson(new Parser().parse(new FileLoader(path).load()), Layout.class)
+        .getElements()
+        .stream()
+        .map(LayoutElement::toElement)
+        .collect(Collectors.toList());
+    }
+
+    static class Parser {
+        String parse(String json) {
+            for (ElementType type : ElementType.values()) {
+                final String q = "\"";
+                final String swappable = q + type.toString() + q;
+                json = json.replace(swappable, swappable.toUpperCase());
+            }
+            return json;
+        }
+    }
+
+    class LayoutElement {
         private String id;
         private String type;
         private Position position;
@@ -34,9 +63,9 @@ public class Layout {
         private boolean isDisabled;
         private MouseEvent events;
 
-        private List<Element> children;
+        private List<LayoutElement> children;
 
-        public Element(String id, String type, Dimension size, Position position, List<Element> children, String text) {
+        public LayoutElement(String id, String type, Dimension size, Position position, List<LayoutElement> children, String text) {
             this.id = id;
             this.type = type;
             this.size = size;
@@ -44,23 +73,64 @@ public class Layout {
             this.children = children;
             this.text = text;
         }
+
+        public Element toElement() {
+            return new Element(
+                id, 
+                ElementType.valueOf(type), 
+                getPosition(), 
+                getDimension(), 
+                text, 
+                font, 
+                getColor(), 
+                texture, 
+                isDisabled, 
+                getMouseEvents(), 
+                getChildren()
+                );
+        }
+
+        private com.bubble.std.Color getColor() {
+            if(color == null) return null;
+            else return new com.bubble.std.Color(color.r, color.g, color.b, color.a);
+        }
+
+        private Point getPosition() {
+            if (position == null) return null;
+            else return new Point(position.x, position.y);
+        }
+
+        private com.bubble.std.Dimension getDimension() {
+            if (size == null) return null;
+            else return new com.bubble.std.Dimension(size.width, size.height);
+        }
+        
+        private List<Element> getChildren() {
+            if (children == null) return new ArrayList<>();
+            else return children.stream().map(LayoutElement::toElement).collect(Collectors.toList());
+        }
+
+        // TODO: change this
+        private com.bubble.gui.MouseEvent getMouseEvents() {
+            return null;
+        }
     }
 
     class Dimension {
         private float width;
         private float height;
 
-        public Dimension(int width, int height) {
+        public Dimension(float width, float height) {
             this.width = width;
             this.height = height;
         }
     }
 
     class Position {
-        private int x;
-        private int y;
+        private float x;
+        private float y;
 
-        public Position(int x, int y) {
+        public Position(float x, float y) {
             this.x = x;
             this.y = y;
         }

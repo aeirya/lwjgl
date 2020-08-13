@@ -19,7 +19,7 @@
             "isDisabled": false,
             "children": [
                 {
-                    "type": "button",
+                    "type": "BUTTON",
                     "size": {
                         "width": 0.5,
                         "height": 0.2
@@ -30,7 +30,7 @@
                     },
                     "text": "Start",
                     "color": {
-                        "r": 250,
+                        "r": 100,
                         "g": 150,
                         "b": 250
                     },

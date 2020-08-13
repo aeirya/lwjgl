@@ -1,4 +1,4 @@
-package com.bubble.render;
+package com.bubble.sample;
 
 import com.bubble.opengl.Program;
 import com.bubble.opengl.Texture;
@@ -6,6 +6,7 @@ import com.bubble.opengl.Vec2D;
 import com.bubble.opengl.Vertex;
 import com.bubble.opengl.VertexBuffer;
 import com.bubble.opengl.VertexBufferBuilder;
+import com.bubble.render.IRenderer;
 import com.bubble.util.TextureManager;
 import com.bubble.util.file.FileLoader;
 
