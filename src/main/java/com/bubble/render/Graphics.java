@@ -47,12 +47,12 @@ public class Graphics implements IRenderer {
     private VertexBuffer fillRectBuffer(float x, float y, float w, float h) {
         final VertexBufferBuilder vbb = new VertexBufferBuilder();
         vbb.begin();
-        vbb.addVertex(new Vertex(x, y, 0.0f));
         vbb.addVertex(new Vertex(x + w, y, 0.0f));
-        vbb.addVertex(new Vertex(x, y + h, 0.0f));
-        vbb.addVertex(new Vertex(x + w, y + h, 0.0f));
-        vbb.addTriangle(0, 1, 2);
-        vbb.addTriangle(2, 1, 3);
+        vbb.addVertex(new Vertex(x + w, y - h, 0.0f));
+        vbb.addVertex(new Vertex(x, y - h, 0.0f));
+        vbb.addVertex(new Vertex(x, y, 0.0f));
+        vbb.addTriangle(0, 1, 3);
+        vbb.addTriangle(1, 2, 3);
         vbb.setAttribute(0, 3, 3);
         vbb.end();
         return vbb.getVAO();
@@ -65,22 +65,18 @@ public class Graphics implements IRenderer {
     private VertexBuffer drawImageBuffer(float x, float y, float w, float h) {
         final VertexBufferBuilder vbb = new VertexBufferBuilder();
         vbb.begin();
-        vbb.addVertex(new Vertex(x, y, 0.0f));
-        // vbb.addVertex(new Vec2D(x, y));
-        vbb.addVertex(new Vec2D(0.0f, 0.0f));
         vbb.addVertex(new Vertex(x + w, y, 0.0f));
-        // vbb.addVertex(new Vec2D(x + w, y));
+        vbb.addVertex(new Vec2D(1.0f, 1.0f));
+        vbb.addVertex(new Vertex(x + w, y - h, 0.0f));
         vbb.addVertex(new Vec2D(1.0f, 0.0f));
-        vbb.addVertex(new Vertex(x, y + h, 0.0f));
-        // vbb.addVertex(new Vec2D(x, y + h));
-        vbb.addVertex(new Vec2D(0.0f,1.0f));
-        vbb.addVertex(new Vertex(x + w, y + h, 0.0f));
-        // vbb.addVertex(new Vec2D(x + w, y + h));
-        vbb.addVertex(new Vec2D(1.0f,1.0f));
-        vbb.addTriangle(0, 1, 2);
-        vbb.addTriangle(2, 1, 3);
+        vbb.addVertex(new Vertex(x, y - h, 0.0f));
+        vbb.addVertex(new Vec2D(0.0f, 0.0f));
+        vbb.addVertex(new Vertex(x, y, 0.0f));
+        vbb.addVertex(new Vec2D(0.0f, 1.0f));
+        vbb.addTriangle(0, 1, 3);
+        vbb.addTriangle(1, 2, 3);
         vbb.setAttribute(0, 3, 5);
-        vbb.setAttribute(3, 2, 5);
+        vbb.setAttribute(1, 2, 5);
         vbb.end();
         return vbb.getVAO();
     }
