@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - LoadLayoutTes",
+            "request": "launch",
+            "mainClass": "com.bubble.sample.LoadLayoutTes",
+            "projectName": "lwjgl"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - DummyLayout",
             "request": "launch",
             "mainClass": "com.bubble.tools.layout.DummyLayout",

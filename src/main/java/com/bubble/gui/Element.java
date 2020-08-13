@@ -6,7 +6,7 @@ import com.bubble.std.Color;
 import com.bubble.std.Dimension;
 import com.bubble.std.Point;
 
-abstract class Element implements IElement {
+public class Element implements IElement {
     private String id;
     private ElementType type;
     private Point position;
@@ -18,7 +18,7 @@ abstract class Element implements IElement {
     private boolean isDisabled;
     private MouseEvent events;
 
-    private List<IElement> children;
+    private List<Element> children;
 
     public String getId() {
         return id;
@@ -100,15 +100,31 @@ abstract class Element implements IElement {
         this.events = events;
     }
 
-    public List<IElement> getChildren() {
+    public List<Element> getChildren() {
         return children;
     }
 
-    public void setChildren(List<IElement> children) {
+    public void setChildren(List<Element> children) {
         this.children = children;
     }
 
-    // public void paintComponent(IGuiRenderer r) {
-    //     // nothing happens
-    // }
+    public void paintComponent(IGuiRenderer r) {
+        if (type != null) {
+            switch(type) {
+                case BUTTON:
+                r.drawButton(this);
+                // System.out.println("drawing button!");
+                break;
+                case PANEL:
+                r.drawPanel(this);
+                break;
+                default:
+                System.out.println("not rendering");
+                break;
+            }
+        }
+        if (children != null) {
+            children.forEach(c -> c.paintComponent(r));
+        }
+    }
 }

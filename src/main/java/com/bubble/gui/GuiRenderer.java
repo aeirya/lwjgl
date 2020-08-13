@@ -18,13 +18,21 @@ public class GuiRenderer implements IGuiRenderer {
         elements.add(e);
     }
 
+    public void addElements(List <? extends IElement> e) {
+        elements.addAll(e);
+    }
+
     @Override
     public void drawElement(IElement element) {
         element.paintComponent(this);
     }
 
-    public void drawButton(IButton button) {
+    public void drawButton(IElement button) {
         g.drawRect(button.getPosition(), button.getSize(), button.getColor());
+    }
+
+    public void drawPanel(IElement e) {
+        g.drawRect(e.getPosition(), e.getSize(), e.getColor());
     }
 
     public void render(IElement element) {
@@ -36,7 +44,7 @@ public class GuiRenderer implements IGuiRenderer {
     }
 
     public void render() {
-        g.clear();
+        // g.clear();
         elements.forEach(this::render);
         g.render();
     }

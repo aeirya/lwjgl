@@ -1,7 +1,7 @@
 package com.bubble.gui;
 
 public enum ElementType {
-    BUTTON;
+    BUTTON, PANEL;
 
     @Override
     public String toString() {

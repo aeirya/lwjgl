@@ -16,6 +16,6 @@ public interface IElement {
     String getFont();
     String getTexture();
     boolean isDisabled();
-    List<IElement> getChildren();
+    List<Element> getChildren();
     void paintComponent(IGuiRenderer r);
 }
