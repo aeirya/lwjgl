@@ -11,10 +11,12 @@ import com.bubble.util.resource.TextureManager;
 public class GuiRenderer implements IGuiRenderer {
     private final Graphics g;
     private List<IElement> elements;
+    private final TextureManager textures;
 
     public GuiRenderer() {
         g = new Graphics();
         elements = new ArrayList<>();
+        textures = new TextureManager();
     }
 
     public void addElement(IElement e) {
@@ -35,13 +37,12 @@ public class GuiRenderer implements IGuiRenderer {
     }
 
     public void drawButton(IElement button) {
-        // g.drawRect(button.getPosition(), button.getSize(), button.getColor());
-        final Texture btn = new TextureManager().getTexture("container");
-        g.drawElement(button.getPosition(), button.getSize(), btn, button.getColor());
+        final Texture tex = textures.getTexture("container");
+        g.drawElement(button.getPosition(), button.getSize(), tex, button.getColor());
     }
 
     public void drawPanel(IElement e) {
-        g.drawRect(e.getPosition(), e.getSize(), e.getColor());
+        g.drawElement(e.getPosition(), e.getSize(), null, e.getColor());
     }
 
     public void render(IElement element) {
