@@ -1,6 +1,5 @@
 package com.bubble.util.resource;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import com.bubble.opengl.Texture;
@@ -14,7 +13,7 @@ public class TextureManager {
     }
     
     public Texture getTexture(String name) {
-        return textures.get(name);
+        return textures.getOrDefault(name, null);
     }
 
     private Map<String, Texture> loadTextures(String path) {

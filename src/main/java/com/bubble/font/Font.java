@@ -1,4 +1,4 @@
-package com.ahraman.unbounded.client.renderer.font;
+package com.bubble.font;
 
 import org.lwjgl.stb.STBTTFontinfo;
 import org.lwjgl.stb.STBTruetype;
@@ -107,17 +107,12 @@ public class Font
 		File file = new File(resource);
 		if (file.isFile())
 		{
-			FileInputStream fis = new FileInputStream(file);
-			FileChannel fc = fis.getChannel();
-
-			buffer = MemoryUtil.memAlloc((int) fc.size() + 1);
-
-			//noinspection StatementWithEmptyBody
-			while (fc.read(buffer) != -1)
-			{}
-
-			fis.close();
-			fc.close();
+			try(FileInputStream fis = new FileInputStream(file); FileChannel fc = fis.getChannel();) {
+				buffer = MemoryUtil.memAlloc((int) fc.size() + 1);
+				//noinspection StatementWithEmptyBody
+				while (fc.read(buffer) != -1)
+				{}
+			}
 		}
 		else
 		{

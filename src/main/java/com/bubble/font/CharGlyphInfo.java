@@ -1,6 +1,5 @@
-package com.ahraman.unbounded.client.renderer.font;
+package com.bubble.font;
 
-import com.ahraman.unbounded.client.renderer.vertex.VertexBuilder;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.stb.STBTTAlignedQuad;
 import org.lwjgl.stb.STBTTBakedChar;

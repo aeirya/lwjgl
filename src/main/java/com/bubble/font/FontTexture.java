@@ -1,6 +1,7 @@
-package com.ahraman.unbounded.client.renderer.font;
+package com.bubble.font;
 
 import com.ahraman.unbounded.client.renderer.texture.Texture2D;
+
 import org.lwjgl.opengl.GL11;
 
 import java.nio.ByteBuffer;

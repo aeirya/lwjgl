@@ -8,6 +8,7 @@ public class Shader extends Program {
     private static Shader coloredShader;
     private static Shader elementShader;
     private static Shader shapeShader;
+    private static Shader fontShader;
 
     private static final String SHADER_PATH = "./assets/shader/";
 
@@ -20,6 +21,7 @@ public class Shader extends Program {
         textureShader = gen("image-shader");
         elementShader = gen("element-shader");
         shapeShader = gen("shape-shader");
+        fontShader = gen("font-shader");
     }
 
     public static Shader gen(String name) {
@@ -44,5 +46,9 @@ public class Shader extends Program {
 
     public static Shader getShapeShader() {
         return shapeShader;
+    }
+
+    public static Shader getFontShader() {
+        return fontShader;
     }
 }
