@@ -3,17 +3,17 @@
         {
             "type": "panel",
             "size": {
-                "width": 1.0,
-                "height": 1.0
+                "width": 1.5,
+                "height": 1.5
             },
             "position": {
-                "x": -0.5,
-                "y": 0.5
+                "x": -0.75,
+                "y": 0.75
             },
             "text": "Hello",
             "color": {
-                "r": 200,
-                "g": 100,
+                "r": 140,
+                "g": 200,
                 "b": 200
             },
             "isDisabled": false,

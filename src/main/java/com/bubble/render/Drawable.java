@@ -4,15 +4,12 @@ import com.bubble.opengl.VertexBuffer;
 
 public class Drawable implements IDrawable {
     private final VertexBuffer vb;
-    private final Shader shader;
 
-    public Drawable(VertexBuffer vb, Shader shader) {
-        this.shader = shader;
+    public Drawable(VertexBuffer vb) {
         this.vb = vb;
     }
 
     public void draw() {
-        // shader.bind(); binding it in the gui renderer
         vb.bind();
         vb.draw();
     }
