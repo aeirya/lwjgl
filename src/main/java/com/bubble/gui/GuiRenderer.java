@@ -3,7 +3,10 @@ package com.bubble.gui;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.bubble.opengl.Texture;
 import com.bubble.render.Graphics;
+import com.bubble.std.Color;
+import com.bubble.util.TextureManager;
 
 public class GuiRenderer implements IGuiRenderer {
     private final Graphics g;
@@ -32,7 +35,9 @@ public class GuiRenderer implements IGuiRenderer {
     }
 
     public void drawButton(IElement button) {
-        g.drawRect(button.getPosition(), button.getSize(), button.getColor());
+        // g.drawRect(button.getPosition(), button.getSize(), button.getColor());
+        final Texture btn = new TextureManager().getTexture("button");
+        g.drawElement(button.getPosition(), button.getSize(), btn, button.getColor());
     }
 
     public void drawPanel(IElement e) {
