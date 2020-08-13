@@ -38,7 +38,7 @@ public class Graphics implements IRenderer, IAdvancedGraphics {
     }
     
     public void drawElement(float x, float y, float w, float h, Texture texture) {
-        memory.addElement(gbb.drawElementBuffer(x, y, w, h, color), texture);
+        memory.add(gbb.drawElementBuffer(x, y, w, h, color), Shader.getElementShader(), texture);
     }
 
     private void draw(List<IDrawable> drawables) {

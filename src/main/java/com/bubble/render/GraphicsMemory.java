@@ -40,10 +40,6 @@ public class GraphicsMemory {
         }
     }
 
-    public void addElement(VertexBuffer vb, Texture texture) {
-        add(vb, Shader.getElementShader(), texture);
-    }
-
     public Map<Shader, List<IDrawable>> fetch() {
         return drawMap;
     }

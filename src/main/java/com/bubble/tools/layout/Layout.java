@@ -140,7 +140,7 @@ public class Layout {
         private int r;
         private int g;
         private int b;
-        private float a;
+        private float a = 1.0f;
 
         public Color(int r, int g, int b, float a) {
             this.r = r;

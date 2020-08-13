@@ -36,7 +36,7 @@ public class GuiRenderer implements IGuiRenderer {
 
     public void drawButton(IElement button) {
         // g.drawRect(button.getPosition(), button.getSize(), button.getColor());
-        final Texture btn = new TextureManager().getTexture("button");
+        final Texture btn = new TextureManager().getTexture("container");
         g.drawElement(button.getPosition(), button.getSize(), btn, button.getColor());
     }
 
