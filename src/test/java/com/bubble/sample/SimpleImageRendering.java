@@ -17,7 +17,7 @@ public class SimpleImageRendering {
         Shader.initiateShaders();
         Graphics g = new Graphics();
         final Texture cat = textManager.getTexture("cat");
-        g.fillRect(0.0f, 0.0f, 0.5f, 0.25f);
+        g.drawRect(0.0f, 0.0f, 0.5f, 0.25f);
         // g.drawImage(-0.5f, -0.5f, 0.24f, 0.3f, cat);
         g.drawImage(-1.0f, -1.0f, 1.0f, 1.0f,  cat);
         // g.drawElementImage(0.0f, 0.0f, 0.5f, 0.5f, cat);
