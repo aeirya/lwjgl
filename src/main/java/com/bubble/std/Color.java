@@ -7,11 +7,11 @@ public class Color {
     public final float a;
 
     /** RGB values from 0 to 255 */
-    public Color(int r, int g, int b, int a) {
+    public Color(int r, int g, int b, float a) {
         this.r = (float)(r)/ 255;
         this.g = (float)(g)/ 255;
         this.b = (float)(b)/ 255;
-        this.a = (float)(a)/ 255;
+        this.a = a;
     }
     
     /** float values form 0.0f to 1.0f */
@@ -23,11 +23,11 @@ public class Color {
     }
 
     public Color(float r, float g, float b) {
-        this(r,g,b, 1.0f);
+        this(r, g, b, 1.0f);
     }
 
     public Color(int r, int g, int b) {
-        this(r, g, b, 255);
+        this(r, g, b, 1.0f);
     }
 
     public int getRed() {
@@ -42,8 +42,8 @@ public class Color {
         return (int)(255 * b);
     }
 
-    public int getAlpha() {
-        return (int)(255 * a);
+    public float getAlpha() {
+        return a;
     }
 
     public String toString() {
