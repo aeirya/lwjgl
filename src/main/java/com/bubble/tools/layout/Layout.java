@@ -60,6 +60,7 @@ public class Layout {
         private String font;
         private Color color;
         private String texture;
+        private boolean isHidden;
         private boolean isDisabled;
         private MouseEvent events;
 
@@ -85,6 +86,7 @@ public class Layout {
                 getColor(), 
                 texture, 
                 isDisabled, 
+                isHidden,
                 getMouseEvents(), 
                 getChildren()
                 );
@@ -92,7 +94,11 @@ public class Layout {
 
         private com.bubble.std.Color getColor() {
             if(color == null) return null;
-            else return new com.bubble.std.Color(color.r, color.g, color.b, color.a);
+            else return new com.bubble.std.Color(color.r, color.g, color.b,  getAlpha());
+        }
+
+        private float getAlpha() {
+            return (!isHidden && color.a == 0.0f) ? 1.0f : color.a;
         }
 
         private Point getPosition() {

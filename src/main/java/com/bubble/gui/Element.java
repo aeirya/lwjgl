@@ -16,6 +16,7 @@ public class Element implements IElement {
     private Color color;
     private String texture;
     private boolean isDisabled;
+    private boolean isHidden;
     private MouseEvent events;
 
     private List<Element> children;
@@ -109,6 +110,7 @@ public class Element implements IElement {
     }
 
     public void paintComponent(IGuiRenderer r) {
+        if (isHidden) return;
         if (type != null) {
             switch(type) {
                 case BUTTON:
@@ -132,7 +134,7 @@ public class Element implements IElement {
     }
 
     public Element(String id, ElementType type, Point position, Dimension size, String text, String font, Color color,
-            String texture, boolean isDisabled, MouseEvent events, List<Element> children) {
+            String texture, boolean isDisabled, boolean isHidden, MouseEvent events, List<Element> children) {
         this.id = id;
         this.type = type;
         this.position = position;
@@ -142,6 +144,7 @@ public class Element implements IElement {
         this.color = color;
         this.texture = texture;
         this.isDisabled = isDisabled;
+        this.isHidden = isHidden;
         this.events = events;
         this.children = children;
     }
