@@ -1,0 +1,60 @@
+{
+    "elements": [
+        {
+            "type": "panel",
+            "size": {
+                "width": 1.0,
+                "height": 1.0
+            },
+            "position": {
+                "x": -0.5,
+                "y": 0.5
+            },
+            "text": "Hello",
+            "color": {
+                "r": 200,
+                "g": 100,
+                "b": 200
+            },
+            "isDisabled": false,
+            "children": [
+                {
+                    "type": "button",
+                    "size": {
+                        "width": 0.5,
+                        "height": 0.2
+                    },
+                    "position": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "text": "Start",
+                    "color": {
+                        "r": 250,
+                        "g": 150,
+                        "b": 250
+                    },
+                    "isDisabled": false
+                },
+                {
+                    "type": "button",
+                    "size": {
+                        "width": 0.5,
+                        "height": 0.2
+                    },
+                    "position": {
+                        "x": 0,
+                        "y": -0.3
+                    },
+                    "text": "Shop",
+                    "color": {
+                        "r": 250,
+                        "g": 150,
+                        "b": 250
+                    },
+                    "isDisabled": false
+                }
+            ]
+        }
+    ]
+}
