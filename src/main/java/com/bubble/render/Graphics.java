@@ -40,17 +40,17 @@ public class Graphics implements IRenderer, IAdvancedGraphics {
     public void drawElement(float x, float y, float w, float h, Texture texture) {
         memory.addElement(gbb.drawElementBuffer(x, y, w, h, color), texture);
     }
+
+    private void draw(List<IDrawable> drawables) {
+        drawables.forEach(IDrawable::draw);
+    }
     
-    public void draw() {
+    private void draw() {
         memory.fetch().forEach(
             (shader, items) -> {
             shader.bind();
             draw(items);
         });
-    }
-    
-    private void draw(List<IDrawable> drawables) {
-        drawables.forEach(IDrawable::draw);
     }
     
     public void render() {

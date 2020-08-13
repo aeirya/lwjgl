@@ -7,8 +7,8 @@ import com.bubble.opengl.Vertex;
 import com.bubble.opengl.VertexBuffer;
 import com.bubble.opengl.VertexBufferBuilder;
 import com.bubble.render.IRenderer;
-import com.bubble.util.TextureManager;
 import com.bubble.util.file.FileLoader;
+import com.bubble.util.resource.TextureManager;
 
 public class Renderer implements IRenderer {
     private final Texture texture;

@@ -1,4 +1,4 @@
-package com.bubble.util;
+package com.bubble.util.resource;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -7,12 +7,17 @@ import java.nio.ByteBuffer;
 
 import javax.imageio.ImageIO;
 
+import com.bubble.opengl.Texture;
 import com.bubble.opengl.Texture2D;
 
 import org.lwjgl.BufferUtils;
 
-public class ImageLoader {
+public class ImageLoader implements IResourceLoader<Texture> {
     private static final int BYTES_PER_PIXEL = 4;
+
+    public Texture loadFile(String path) {
+        return loadTexure2D(path);
+    }
 
     public Texture2D loadTexure2D(String path) {
         final BufferedImage image = loadImage(path);

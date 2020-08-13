@@ -140,12 +140,20 @@ public class Layout {
         private int r;
         private int g;
         private int b;
-        private int a;
+        private float a;
+
+        public Color(int r, int g, int b, float a) {
+            this.r = r;
+            this.g = g;
+            this.b = b;
+            this.a = a;
+        }
 
         public Color(int r, int g, int b) {
             this.r = r;
             this.g = g;
             this.b = b;
+            this.a = 1.0f;
         }
     }
 

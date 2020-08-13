@@ -31,9 +31,13 @@ public class GraphicsMemory {
     }
     
     public void add(VertexBuffer vb, Shader shader, Texture texture) {
-        texture.upload();
-        add(new TextureDrawable(vb, texture), shader);
-        vb.unbind();
+        if (texture != null) {
+            texture.upload();
+            add(new TextureDrawable(vb, texture), shader);
+            vb.unbind();
+        } else {
+            add(vb, shader);
+        }
     }
 
     public void addElement(VertexBuffer vb, Texture texture) {

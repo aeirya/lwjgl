@@ -6,7 +6,7 @@ import java.util.List;
 import com.bubble.opengl.Texture;
 import com.bubble.render.Graphics;
 import com.bubble.std.Color;
-import com.bubble.util.TextureManager;
+import com.bubble.util.resource.TextureManager;
 
 public class GuiRenderer implements IGuiRenderer {
     private final Graphics g;
