@@ -1,10 +1,7 @@
 package com.bubble.font;
 
-import com.ahraman.unbounded.client.renderer.shader.Shader;
-import com.ahraman.unbounded.client.renderer.vertex.VertexBuffer;
-import com.ahraman.unbounded.client.renderer.vertex.VertexBuilder;
-import com.ahraman.unbounded.client.renderer.vertex.VertexFormat;
-import com.ahraman.unbounded.client.renderer.vertex.VertexFormatElement;
+import com.bubble.opengl.VertexBuffer;
+import com.bubble.render.Shader;
 
 import org.lwjgl.opengl.GL13;
 
@@ -48,13 +45,12 @@ public class TextRenderer
 		VertexBuffer buffer = this.flush();
 
 		this.shader.bind();
-		this.shader.uniform("font", 0);
+		this.shader.setInt("font", 0);
 		GL13.glActiveTexture(GL13.GL_TEXTURE0);
 		this.font.getTexture().bind();
-		buffer.render();
+		buffer.draw();
 		this.font.getTexture().unbind();
-
-		buffer.release();
+		buffer.unbind();
 	}
 
 	public float calculateTextLength(String text, float scale)

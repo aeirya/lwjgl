@@ -7,7 +7,7 @@ import java.util.List;
 public class VertexBufferBuilder {
     private final List<IVertex> vertices;
     private final List<Integer> indices;
-    private final List<VertexAttribute> attributes;
+    protected final List<VertexAttribute> attributes;
     private int beginningIndex = 0;
     private int offset = 0;
 
@@ -24,6 +24,11 @@ public class VertexBufferBuilder {
     public void setAttribute(int location, int size, int stride) {
         attributes.add(new VertexAttribute(location, size, stride, offset));
         offset += size;
+    }
+
+    // do not call set attrib afterwards
+    public void setAttributes(List<VertexAttribute> attributes) {
+        this.attributes.addAll(attributes);
     }
 
     public void begin() {

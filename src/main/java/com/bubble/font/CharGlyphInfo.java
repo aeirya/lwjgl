@@ -1,11 +1,10 @@
 package com.bubble.font;
 
 import org.lwjgl.BufferUtils;
-import org.lwjgl.stb.STBTTAlignedQuad;
-import org.lwjgl.stb.STBTTBakedChar;
+import org.lwjgl.opengl.GL11;
 import org.lwjgl.stb.STBTruetype;
 
-import java.nio.FloatBuffer;
+import java.nio.ByteBuffer;
 
 public class CharGlyphInfo
 {
@@ -63,33 +62,10 @@ public class CharGlyphInfo
 	public float getMaxX() { return this.getMinX() + this.width; }
 	public float getMaxY() { return this.getMinY() + this.height; }
 
-	/*public float draw(VertexBuilder builder, float x, float y, float scale, Font font)
+	public void upload(int offsetX, int offsetY)
 	{
-		/*x += this.bearingX * scale;
-		y -= (this.bearingY - this.height) * scale;
-		builder.begin();
-		builder.vertex(x, y, 0.0F, this.textureStartU, this.textureEndU);
-		builder.vertex(x, y + this.height * scale, 0.0F, this.textureStartU, this.textureStartV);
-		builder.vertex(x + this.width * scale, y, 0.0F, this.textureEndU, this.textureEndV);
-		builder.vertex(x + this.width * scale, y + this.height * scale, 0.0F, this.textureEndU, this.textureStartU);
-		builder.triangle(1, 0, 2);
-		builder.triangle(1, 2, 3);
-		builder.end();         ***
-
-		FloatBuffer px = BufferUtils.createFloatBuffer(1).put(x).flip();
-		FloatBuffer py = BufferUtils.createFloatBuffer(1).put(y).flip();
-
-		STBTTAlignedQuad quad = STBTTAlignedQuad.create();
-		STBTruetype.stbtt_GetBakedQuad(font.getBakedChars(), font.getWidth(), font.getHeight(), (int)this.character, px, py, quad, 1);
-		builder.begin();
-		builder.vertex(quad.x0(), quad.y0(), 0.0F, this.textureStartU, this.textureEndU);
-		builder.vertex(quad.x0(), quad.y0() + (quad.y1() - quad.y0()) * scale, 0.0F, this.textureStartU, this.textureStartV);
-		builder.vertex(x + this.width * scale, y, 0.0F, this.textureEndU, this.textureEndV);
-		builder.vertex(quad.x0() + (quad.x1() - quad.x0()) * scale, quad.y0() + (quad.y1() - quad.y0()) * scale, 0.0F, this.textureEndU, this.textureStartU);
-		builder.triangle(1, 0, 2);
-		builder.triangle(1, 2, 3);
-		builder.end();
-
-		return (px.flip().get() - x) * scale;
-	}*/
+		ByteBuffer buffer = BufferUtils.createByteBuffer(this.width * this.height);
+		STBTruetype.stbtt_MakeGlyphBitmap(this.font.getFontInfo(), buffer, this.width, this.height, this.width, this.font.getScale(), this.font.getScale(), this.glyphIndex);
+		this.font.getTexture().uploadSub(buffer, 0, offsetX, offsetY, this.width, this.height, GL11.GL_FLOAT, GL11.GL_UNSIGNED_BYTE);
+	}
 }

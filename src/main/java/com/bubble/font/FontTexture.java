@@ -1,26 +1,43 @@
 package com.bubble.font;
 
-import com.ahraman.unbounded.client.renderer.texture.Texture2D;
-
-import org.lwjgl.opengl.GL11;
+import static org.lwjgl.opengl.GL11.*;
 
 import java.nio.ByteBuffer;
 
-public class FontTexture extends Texture2D
+import com.bubble.opengl.Texture;
+
+@SuppressWarnings("all")
+public class FontTexture extends Texture
 {
 	private Font font;
 	private Entry topEntry;
+	private final int width;
+	private final int height;
 
 	public FontTexture(Font font, int width, int height)
 	{
-		super(width, height);
+		this.width = width;
+		this.height = height;
 		this.font = font;
 		this.topEntry = new Entry(0, 0, width, height);
 	}
 
+
 	public void uploadSub(ByteBuffer data, int level, int offsetX, int offsetY, int width, int height, int format, int type)
 	{
-		GL11.glTexSubImage2D(GL11.GL_TEXTURE_2D, level, offsetX, offsetY, width, height, format, type, data);
+		glTexSubImage2D(GL_TEXTURE_2D, level, offsetX, offsetY, width, height, format, type, data);
+	}
+
+	public void upload() {
+		// not used this way
+	}
+	
+	public void bind() {
+        bind(GL_TEXTURE_2D);
+	}
+	
+	public void unbind() {
+		unbind(GL_TEXTURE_2D);
 	}
 
 	public CharGlyph createGlyph(CharGlyphInfo info)
@@ -29,6 +46,7 @@ public class FontTexture extends Texture2D
 		if (entry != null)
 		{
 			this.bind();
+			info.upload(entry.offsetX, entry.offsetY);
 			final float w = this.width;
 			final float h = this.height;
 			final float epsilon = 0.01F;

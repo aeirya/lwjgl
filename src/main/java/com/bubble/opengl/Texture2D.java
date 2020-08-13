@@ -7,8 +7,8 @@ import java.nio.ByteBuffer;
 
 public class Texture2D extends Texture {
 
-    private final int width;
-    private final int height;
+    protected final int width;
+    protected final int height;
     private final ByteBuffer data;  
 
     public Texture2D(int width, int height, ByteBuffer data) {
