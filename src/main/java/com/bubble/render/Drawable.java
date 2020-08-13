@@ -12,7 +12,7 @@ public class Drawable implements IDrawable {
     }
 
     public void draw() {
-        shader.bind();
+        // shader.bind(); binding it in the gui renderer
         vb.bind();
         vb.draw();
     }

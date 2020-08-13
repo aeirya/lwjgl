@@ -18,7 +18,7 @@ public class TextureDrawable implements IDrawable {
     @Override
     public void draw() {
         texture.bind();
-        shader.bind();
+        // shader.bind();  using maps in the gui renderer
         vb.bind();
         vb.draw();
         texture.unbind();

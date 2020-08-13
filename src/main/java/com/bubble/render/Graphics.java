@@ -66,7 +66,11 @@ public class Graphics implements IRenderer, IAdvancedGraphics {
     }
     
     public void draw() {
-        drawMap.forEach((k, v) -> draw(v));
+        drawMap.forEach(
+            (shader, items) -> {
+            shader.bind();
+            draw(items);
+        });
     }
     
     private void draw(List<IDrawable> drawables) {
