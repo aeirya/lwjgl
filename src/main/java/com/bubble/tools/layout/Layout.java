@@ -47,8 +47,8 @@ public class Layout {
     }
 
     class Dimension {
-        private int width;
-        private int height;
+        private float width;
+        private float height;
 
         public Dimension(int width, int height) {
             this.width = width;

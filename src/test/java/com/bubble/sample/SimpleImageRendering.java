@@ -24,8 +24,9 @@ public class SimpleImageRendering {
         // g.drawImage(-0.5f, -0.5f, 0.24f, 0.3f, cat);
         // g.drawImage(-1.0f, 1.0f, 1.0f, 1.0f,  cat);
         // g.drawElementImage(0.0f, 0.0f, 0.5f, 0.5f, cat);
-        g.drawElement(new Point(0, 0), new Dimension(1, 1), cat, new Color(100, 255, 100));
+        g.drawElement(new Point(0, 0), new Dimension(1, 1), cat, new Color(100, 255, 100).brighter());
         window.setRenderer(g);
         window.start();
     }
+
 }
