@@ -3,14 +3,15 @@ package com.bubble.gui;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.bubble.tools.layout.Layout;
 import com.bubble.util.file.FileLoader;
 import com.google.gson.GsonBuilder;
 
 public class MenuLayout {
     protected List<Element> elements;
 
-    MenuLayout() {
-        elements = new ArrayList<>();
+    MenuLayout(String path) {
+        elements = Layout.load(path);
     }
 
     public List<Element> getAllElements() {

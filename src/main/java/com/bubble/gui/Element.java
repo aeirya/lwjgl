@@ -127,4 +127,23 @@ public class Element implements IElement {
             children.forEach(c -> c.paintComponent(r));
         }
     }
+
+    public Element() {
+        //
+    }
+
+    public Element(String id, ElementType type, Point position, Dimension size, String text, String font, Color color,
+            String texture, boolean isDisabled, MouseEvent events, List<Element> children) {
+        this.id = id;
+        this.type = type;
+        this.position = position;
+        this.size = size;
+        this.text = text;
+        this.font = font;
+        this.color = color;
+        this.texture = texture;
+        this.isDisabled = isDisabled;
+        this.events = events;
+        this.children = children;
+    }
 }
