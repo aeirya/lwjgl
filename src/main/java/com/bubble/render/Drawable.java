@@ -15,7 +15,5 @@ public class Drawable implements IDrawable {
         shader.bind();
         vb.bind();
         vb.draw();
-        vb.unbind();
-        shader.unbind();
     }
 }

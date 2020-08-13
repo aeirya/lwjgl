@@ -51,4 +51,6 @@ public class Color {
             getRed() + "," + getGreen() + "," + getBlue() + "," + getAlpha()
             + ")";
     }
+
+    public static final Color GRAY = new Color(200, 200, 200);
 }

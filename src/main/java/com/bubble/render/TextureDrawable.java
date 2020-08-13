@@ -22,6 +22,5 @@ public class TextureDrawable implements IDrawable {
         vb.bind();
         vb.draw();
         texture.unbind();
-        shader.unbind();
     }
 }
