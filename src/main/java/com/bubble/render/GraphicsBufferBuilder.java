@@ -1,6 +1,7 @@
 package com.bubble.render;
 
 import com.bubble.opengl.Vec2D;
+import com.bubble.opengl.Vec4D;
 import com.bubble.opengl.Vertex;
 import com.bubble.opengl.VertexBuffer;
 import com.bubble.opengl.VertexBufferBuilder;
@@ -60,21 +61,26 @@ public class GraphicsBufferBuilder {
         return vbb.getVAO();
     }
     
-    public VertexBuffer drawElementBuffer(float x, float y, float w, float h) {
+    public VertexBuffer drawElementBuffer(float x, float y, float w, float h, Color color) {
         final VertexBufferBuilder vbb = new VertexBufferBuilder();
         vbb.begin();
-        vbb.addVertex(new Vec2D(x, y));
-        vbb.addVertex(new Vec2D(0.0f, 0.0f));
         vbb.addVertex(new Vec2D(x + w, y));
-        vbb.addVertex(new Vec2D(1.0f, 0.0f));
-        vbb.addVertex(new Vec2D(x, y + h));
-        vbb.addVertex(new Vec2D(0.0f,1.0f));
-        vbb.addVertex(new Vec2D(x + w, y + h));
+        vbb.addVertex(new Vec4D(color.r, color.g, color.b, color.a));
         vbb.addVertex(new Vec2D(1.0f,1.0f));
-        vbb.addTriangle(0, 1, 2);
-        vbb.addTriangle(2, 1, 3);
-        vbb.setAttribute(0, 2, 4);
-        vbb.setAttribute(3, 2, 4);
+        vbb.addVertex(new Vec2D(x + w, y - h));
+        vbb.addVertex(new Vec4D(color.r, color.g, color.b, color.a));
+        vbb.addVertex(new Vec2D(1.0f, 0.0f));
+        vbb.addVertex(new Vec2D(x, y - h));
+        vbb.addVertex(new Vec4D(color.r, color.g, color.b, color.a));
+        vbb.addVertex(new Vec2D(0.0f, 0.0f));
+        vbb.addVertex(new Vec2D(x, y));
+        vbb.addVertex(new Vec4D(color.r, color.g, color.b, color.a));
+        vbb.addVertex(new Vec2D(0.0f,1.0f));
+        vbb.addTriangle(0, 1, 3);
+        vbb.addTriangle(1, 2, 3);
+        vbb.setAttribute(0, 2, 8);
+        vbb.setAttribute(1, 4, 8);
+        vbb.setAttribute(2, 2, 8);
         vbb.end();
         return vbb.getVAO();
     }

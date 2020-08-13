@@ -8,9 +8,9 @@ public class Color {
 
     /** RGB values from 0 to 255 */
     public Color(int r, int g, int b, float a) {
-        this.r = (float)(r)/ 255;
-        this.g = (float)(g)/ 255;
-        this.b = (float)(b)/ 255;
+        this.r = (float) (r) / 255;
+        this.g = (float) (g) / 255;
+        this.b = (float) (b) / 255;
         this.a = a;
     }
     
@@ -31,15 +31,15 @@ public class Color {
     }
 
     public int getRed() {
-        return (int)(255 * r);
+        return (int) (255 * r);
     }
 
     public int getGreen() {
-        return (int)(255 * r);
+        return (int) (255 * r);
     }
     
     public int getBlue() {
-        return (int)(255 * b);
+        return (int) (255 * b);
     }
 
     public float getAlpha() {
@@ -52,5 +52,31 @@ public class Color {
             + ")";
     }
 
+    private float lower(float i) {
+        return (i >= 0.25f) ? (i - 0.25f) : i;
+    }
+
+    public Color darker() {
+        return new Color(lower(r), lower(g), lower(b));
+    }
+
+    private float higher(float i) {
+        return (i <= 0.75f) ? (i + 0.75f) : i;
+    }
+
+    public Color brighter() {
+        return new Color(higher(r), higher(g), higher(b));
+    }
+
+    public Color increaseAlpha() {
+        return new Color(r, g, b, higher(a));
+    }
+
+    public Color decreaseAlpha() {
+        return new Color(r, g, b, lower(a));
+    }
+
     public static final Color GRAY = new Color(200, 200, 200);
+    public static final Color WHITE = new Color(255, 255, 255);
+    public static final Color PITCH_BLACK = new Color(0, 0, 0);
 }

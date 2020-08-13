@@ -1,6 +1,7 @@
 package com.bubble.opengl;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class VertexBufferBuilder {
@@ -39,9 +40,13 @@ public class VertexBufferBuilder {
         indices.add(c + beginningIndex);
     }
 
+    private int getBiggestAttribSize() {
+        return attributes.stream().parallel().map(VertexAttribute::getSize).max(Comparator.naturalOrder()).orElse(0);
+    }
+
     public VertexBuffer getVAO() {
         final VertexBuffer vb = new VertexBuffer();
-        final float[] vert = new float[vertices.size() * vertices.get(0).getSize()];
+        final float[] vert = new float[vertices.size() * getBiggestAttribSize()];
         int i = 0;
         for (IVertex v : vertices) {
             v.append(vert, i);

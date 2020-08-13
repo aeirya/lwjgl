@@ -61,8 +61,8 @@ public class Graphics implements IRenderer, IAdvancedGraphics {
         add(vb, Shader.getElementShader(), texture);
     }
     
-    public void drawElementImage(float x, float y, float w, float h, Texture texture) {
-        addElement(gbb.drawElementBuffer(x, y, w, h), texture);
+    public void drawElement(float x, float y, float w, float h, Texture texture) {
+        addElement(gbb.drawElementBuffer(x, y, w, h, color), texture);
     }
     
     public void draw() {

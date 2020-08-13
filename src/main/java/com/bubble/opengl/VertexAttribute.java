@@ -26,4 +26,8 @@ public class VertexAttribute {
     public void disable() {
         glDisableVertexAttribArray(location);
     }
+
+    public int getSize() {
+        return size;
+    }
 }

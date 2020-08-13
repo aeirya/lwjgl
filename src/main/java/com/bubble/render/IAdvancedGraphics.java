@@ -14,8 +14,21 @@ public interface IAdvancedGraphics extends IGraphics {
         drawImage(pos.x, pos.y, size.width, size.height, texture);
     }
 
-    default void drawRect(Point pos, Dimension size, Color color) {
+    default void drawRect(Point position, Dimension size, Color color) {
         setColor(color);
-        drawRect(pos.x, pos.y, size.width, size.height);
+        drawRect(position, size);
+    }
+
+    default void drawRect(Point position, Dimension size) {
+        drawRect(position.x, position.y, size.width, size.height);
+    }
+
+    default void drawElement(Point position, Dimension size, Texture texture, Color color) {
+        setColor(color);
+        drawElement(position, size, texture);
+    }
+
+    default void drawElement(Point position, Dimension size, Texture texture) {
+        drawElement(position.x, position.y, size.width, size.height, texture);
     }
 }
