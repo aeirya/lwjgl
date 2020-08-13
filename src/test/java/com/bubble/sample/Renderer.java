@@ -12,13 +12,11 @@ import com.bubble.util.file.FileLoader;
 
 public class Renderer implements IRenderer {
     private final Texture texture;
-    private final TextureManager texManager;
     private final Program shader;
     private static final String SHADER_PATH = "./assets/shader/";
     private final VertexBuffer vb;
 
     public Renderer(TextureManager texManager) {
-        this.texManager = texManager;
         texture = texManager.getTexture("cat");
         shader = loadShader();
         vb = createVB();

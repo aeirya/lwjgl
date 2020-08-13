@@ -14,4 +14,4 @@ public class SimpleElementRendererT {
         window.setRenderer(g);
         window.start();
     }
-}
+} 

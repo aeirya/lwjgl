@@ -113,7 +113,6 @@ public class Element implements IElement {
             switch(type) {
                 case BUTTON:
                 r.drawButton(this);
-                // System.out.println("drawing button!");
                 break;
                 case PANEL:
                 r.drawPanel(this);

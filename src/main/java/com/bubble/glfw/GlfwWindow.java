@@ -14,6 +14,7 @@ public class GlfwWindow {
     private static final int WIDTH = 1000;
     private static final int HEIGHT = 800;
     private long window;
+    private int refreshWait = 20;
     private String title = "Window";
     private IRenderer renderer;
 
@@ -83,7 +84,7 @@ public class GlfwWindow {
 
     private void sleep() {
         try {
-            Thread.sleep(16);
+            Thread.sleep(refreshWait);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             e.printStackTrace();

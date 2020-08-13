@@ -22,6 +22,10 @@ public class GuiRenderer implements IGuiRenderer {
         elements.addAll(e);
     }
 
+    public void removeElement(IElement e) {
+        elements.remove(e);
+    }
+
     @Override
     public void drawElement(IElement element) {
         element.paintComponent(this);
@@ -44,7 +48,6 @@ public class GuiRenderer implements IGuiRenderer {
     }
 
     public void render() {
-        // g.clear();
         elements.forEach(this::render);
         g.render();
     }
