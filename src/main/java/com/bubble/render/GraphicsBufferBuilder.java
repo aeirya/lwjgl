@@ -27,17 +27,17 @@ public class GraphicsBufferBuilder {
         final VertexBufferBuilder vbb = new VertexBufferBuilder();
         vbb.begin();
         vbb.addVertex(new Vertex(x + w, y, 0.0f));
-        vbb.addVertex(new Vertex(color.r, color.g, color.b));
+        vbb.addVertex(new Vec4D(color.r, color.g, color.b, color.a));
         vbb.addVertex(new Vertex(x + w, y - h, 0.0f));
-        vbb.addVertex(new Vertex(color.r, color.g, color.b));
+        vbb.addVertex(new Vec4D(color.r, color.g, color.b, color.a));
         vbb.addVertex(new Vertex(x, y - h, 0.0f));
-        vbb.addVertex(new Vertex(color.r, color.g, color.b));
+        vbb.addVertex(new Vec4D(color.r, color.g, color.b, color.a));
         vbb.addVertex(new Vertex(x, y, 0.0f));
-        vbb.addVertex(new Vertex(color.r, color.g, color.b));
+        vbb.addVertex(new Vec4D(color.r, color.g, color.b, color.a));
         vbb.addTriangle(0, 1, 3);
         vbb.addTriangle(1, 2, 3);
-        vbb.setAttribute(0, 3, 6);
-        vbb.setAttribute(1, 3, 6);
+        vbb.setAttribute(0, 3, 7);
+        vbb.setAttribute(1, 4, 7);
         vbb.end();
         return vbb.getVAO();
     }
