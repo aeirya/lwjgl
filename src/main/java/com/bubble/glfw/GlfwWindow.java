@@ -69,7 +69,7 @@ public class GlfwWindow {
         GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
     }
 
-    private synchronized void render() {
+    private void render() {
         if (renderer != null)
             renderer.render();
     }

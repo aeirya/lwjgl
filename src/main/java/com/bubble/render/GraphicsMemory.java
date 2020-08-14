@@ -17,7 +17,12 @@ public class GraphicsMemory {
     }
 
     public void clear() {
-        drawMap.clear();
+        drawMap.values().parallelStream().forEach(
+            drawlist -> {
+                drawlist.forEach(IDrawable::destroy);
+                drawlist.clear();
+            }
+        );
     }
 
     private void add(IDrawable drawable, Shader shader) {
