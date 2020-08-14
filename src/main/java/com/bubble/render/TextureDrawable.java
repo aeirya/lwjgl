@@ -3,6 +3,7 @@ package com.bubble.render;
 import com.bubble.opengl.Texture;
 import com.bubble.opengl.VertexBuffer;
 
+// this could be extending drawable class
 public class TextureDrawable implements IDrawable {
 
     private final Texture texture;
@@ -20,5 +21,9 @@ public class TextureDrawable implements IDrawable {
         vb.bind();
         vb.draw();
         texture.unbind();
+    }
+
+    public void destroy() {
+        vb.destroy();
     }
 }

@@ -15,14 +15,49 @@
                 "r": 140,
                 "g": 200,
                 "b": 200,
-                "a" : 0.1
+                "a" : 0.0001
             },
             "isDisabled": false,
             "children": [
                 {
-<<<<<<< Updated upstream
-                    "type": "BUTTON",
-=======
+                    "type": "panel",
+                    "size": {
+                        "width": 2.0,
+                        "height": 0.1
+                    },
+                    "position": {
+                        "x": -1.0,
+                        "y": 1.0
+                    },
+                    "text": "console",
+                    "color": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255,
+                        "a": 1.0
+                    },
+                    "isDisabled": false
+                },
+                {
+                    "type": "panel",
+                    "size": {
+                        "width": 0.8,
+                        "height": 0.4
+                    },
+                    "position": {
+                        "x": -0.4,
+                        "y": 0.7
+                    },
+                    "text": "title",
+                    "color": {
+                        "r": 100,
+                        "g": 150,
+                        "b": 250,
+                        "a": 1.0
+                    },
+                    "isDisabled": false
+                },
+                {
                     "type": "panel",
                     "size": {
                         "width": 2.0,
@@ -62,14 +97,13 @@
                 },
                 {
                     "type": "button",
->>>>>>> Stashed changes
                     "size": {
-                        "width": 0.5,
-                        "height": 0.2
+                        "width": 0.48,
+                        "height": 0.28
                     },
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": -0.24,
+                        "y": 0.20
                     },
                     "text": "Start",
                     "color": {
@@ -81,22 +115,19 @@
                     "isDisabled": false
                 },
                 {
-                    "type": "button",
+                    "type": "BUTTON",
                     "size": {
-                        "width": 0.5,
-                        "height": 0.2
+                        "width": 0.48,
+                        "height": 0.14
                     },
                     "position": {
-                        "x": 0,
-                        "y": -0.3
+                        "x": -0.24,
+                        "y": -0.11
                     },
-                    "text": "Shop",
+                    "text": "See Decks",
                     "color": {
-                        "r": 250,
+                        "r": 100,
                         "g": 150,
-<<<<<<< Updated upstream
-                        "b": 250
-=======
                         "b": 250,
                         "a": 1.0
                     },
@@ -175,7 +206,6 @@
                         "g": 150,
                         "b": 250,
                         "a": 1.0
->>>>>>> Stashed changes
                     },
                     "isDisabled": false
                 }

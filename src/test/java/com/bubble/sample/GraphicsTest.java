@@ -13,10 +13,10 @@ public abstract class GraphicsTest {
         window = new GlfwWindow();
         Shader.initiateShaders();
         g = new GuiRenderer();
+        window.setRenderer(g);
     }
 
     void init() {
-        window.setRenderer(g);
         window.start();
     }
 }

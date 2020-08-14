@@ -13,4 +13,8 @@ public class Drawable implements IDrawable {
         vb.bind();
         vb.draw();
     }
+
+    public void destroy() {
+        vb.destroy();
+    }
 }

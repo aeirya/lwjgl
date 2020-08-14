@@ -7,9 +7,9 @@ import com.bubble.std.Color;
 
 public class Graphics implements IRenderer, IAdvancedGraphics {
     
+    private final GraphicsBufferBuilder gbb;
+    private final GraphicsMemory memory;
     private Color color;
-    private GraphicsBufferBuilder gbb;
-    private GraphicsMemory memory;
 
     public Graphics() {
         gbb = new GraphicsBufferBuilder();
@@ -38,7 +38,7 @@ public class Graphics implements IRenderer, IAdvancedGraphics {
     }
     
     public void drawElement(float x, float y, float w, float h, Texture texture) {
-        if (texture == null) drawSimpleRect(x, y, w, h);
+        // if (texture == null) drawSimpleRect(x, y, w, h);
         memory.add(gbb.drawElementBuffer(x, y, w, h, color), Shader.getElementShader(), texture);
     }
 

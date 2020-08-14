@@ -36,15 +36,15 @@ public class Program {
         glDeleteProgram(id);
     }
 
-    void setBool(String name, boolean value) {        
+    public void setBool(String name, boolean value) {        
         setInt(name, value ? 1 : 0);
     }
 
-    void setInt(String name, int value) { 
-        setFloat(name, value);
+    public void setInt(String name, int value) { 
+        glUniform1i(glGetUniformLocation(id, name), value);
     }
 
-    void setFloat(String name, float value) { 
+    public void setFloat(String name, float value) { 
         glUniform1f(glGetUniformLocation(id, name), value); 
     }
 }

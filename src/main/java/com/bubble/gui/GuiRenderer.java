@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.bubble.opengl.Texture;
 import com.bubble.render.Graphics;
-import com.bubble.std.Color;
 import com.bubble.util.resource.TextureManager;
 
 public class GuiRenderer implements IGuiRenderer {
@@ -39,11 +38,7 @@ public class GuiRenderer implements IGuiRenderer {
     }
 
     public void drawButton(IElement button) {
-<<<<<<< Updated upstream
-        final Texture tex = textures.getTexture("buutton");
-=======
         final Texture tex = ui.getButtonTexture(button.getSize());
->>>>>>> Stashed changes
         g.drawElement(button.getPosition(), button.getSize(), tex, button.getColor());
     }
 
@@ -59,13 +54,13 @@ public class GuiRenderer implements IGuiRenderer {
         return element; // i guess we don't need that :))
     }
 
-    private void clear() {
+    private void clearMemory() {
         g.clear();
     }
 
     public void render() {
-        clear();
         elements.forEach(this::render);
         g.render();
+        clearMemory();
     }
 }

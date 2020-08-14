@@ -1,7 +1,6 @@
 package com.bubble.font;
 
-import com.ahraman.unbounded.client.renderer.vertex.VertexBuilder;
-
+@SuppressWarnings("all")
 public class CharGlyph
 {
 	private Font font;
@@ -28,12 +27,24 @@ public class CharGlyph
 		float maxX = x + this.info.getMaxX() * scale;
 		float maxY = y + this.info.getMaxY() * scale;
 		builder.begin();
-		builder.vertex(minX, minY, 0.0F, this.textureStartU, this.textureEndU);
-		builder.vertex(minX, maxY, 0.0F, this.textureStartU, this.textureStartV);
-		builder.vertex(maxX, minY, 0.0F, this.textureEndU, this.textureEndV);
-		builder.vertex(maxX, maxY, 0.0F, this.textureEndU, this.textureStartU);
-		builder.triangle(1, 0, 2);
-		builder.triangle(1, 2, 3);
+		builder.vertex(minX, minY, this.textureStartU, this.textureEndU);
+		builder.vertex(minX, maxY, this.textureStartU, this.textureStartV);
+		builder.vertex(maxX, minY, this.textureEndU, this.textureEndV);
+		builder.vertex(maxX, maxY, this.textureEndU, this.textureStartU);
+		// builder.addVertex(new Vertex(minX, minY, 0.0f));
+		// builder.addVertex(new Vec2D(this.textureStartU, this.textureEndU));
+        // builder.addVertex(new Vertex(color.r, color.g, color.b));
+		// builder.addVertex(new Vertex(maxX, maxY, 0.0f));
+		// builder.addVertex(new Vec2D(this.textureStartU, this.textureStartV));
+        // builder.addVertex(new Vertex(color.r, color.g, color.b));
+		// builder.addVertex(new Vertex(minX, minY, 0.0f));
+		// builder.addVertex(new Vec2D(this.textureEndU, this.textureEndV));
+        // builder.addVertex(new Vertex(color.r, color.g, color.b));
+		// builder.addVertex(new Vertex(maxX, maxY, 0.0f));
+		// builder.addVertex(new Vec2D(this.textureEndU, this.textureStartU));
+        // builder.addVertex(new Vertex(color.r, color.g, color.b));
+		builder.addTriangle(1, 0, 2);
+		builder.addTriangle(1, 2, 3);
 		builder.end();
 	}
 

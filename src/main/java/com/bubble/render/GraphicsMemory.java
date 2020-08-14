@@ -17,7 +17,12 @@ public class GraphicsMemory {
     }
 
     public void clear() {
-        drawMap.clear();
+        drawMap.values().parallelStream().forEach(
+            drawlist -> {
+                drawlist.forEach(IDrawable::destroy);
+                drawlist.clear();
+            }
+        );
     }
 
     private void add(IDrawable drawable, Shader shader) {
@@ -31,20 +36,14 @@ public class GraphicsMemory {
     }
     
     public void add(VertexBuffer vb, Shader shader, Texture texture) {
-<<<<<<< Updated upstream
         if (texture != null) {
             texture.upload();
             add(new TextureDrawable(vb, texture), shader);
-            vb.unbind();
             texture.unbind();
+            vb.unbind();
         } else {
             add(vb, shader);
         }
-=======
-        texture.upload();
-        add(new TextureDrawable(vb, texture), shader);
-        texture.unbind();
->>>>>>> Stashed changes
     }
 
     public Map<Shader, List<IDrawable>> fetch() {

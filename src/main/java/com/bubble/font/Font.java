@@ -14,6 +14,7 @@ import java.nio.channels.ReadableByteChannel;
 import java.util.HashMap;
 import java.util.Map;
 
+@SuppressWarnings("all")
 public class Font
 {
 	//private final static CharGlyphInfo SPACE_GLYPH =
@@ -58,6 +59,10 @@ public class Font
 		{
 			e.printStackTrace();
 		}
+	}
+
+	float getScale() {
+		return scale;
 	}
 
 	public CharGlyph getCharGlyph(char c)
