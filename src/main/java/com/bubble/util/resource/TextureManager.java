@@ -17,6 +17,6 @@ public class TextureManager {
     }
 
     private Map<String, Texture> loadTextures(String path) {
-        return new ImageLoader().loadDir(path);
+        return new ImageLoader().loadDir(path, true);
     }
 }
