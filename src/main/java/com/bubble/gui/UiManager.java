@@ -13,8 +13,8 @@ public class UiManager {
     }
 
     public Texture getButtonTexture(Dimension size) {
-        if(size.height > size.width * 1.5f) return textures.getTexture(EnumTexture.BUTTON_SMALL);
-        else if(size.height * 3 <= size.width) return textures.getTexture(EnumTexture.BUTTON_BIG);
-        else return textures.getTexture(EnumTexture.BUTTON_MED);
+        if(size.height > size.width * 1.5f) return textures.getTexture(EnumTexture.BUTTON_XS);
+        else if(size.height * 3 <= size.width) return textures.getTexture(EnumTexture.BUTTON_LG);
+        else return textures.getTexture(EnumTexture.BUTTON_MD);
     }
 }
