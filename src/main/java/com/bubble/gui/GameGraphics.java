@@ -1,18 +1,21 @@
 package com.bubble.gui;
 
 import com.bubble.glfw.GlfwWindow;
+import com.bubble.input.MouseInput;
 import com.bubble.render.Shader;
 
 public class GameGraphics {
     private final IGuiRenderer gui;
     private final GlfwWindow window;
+    private final MouseInput mouse;
+
     private Menu currentMenu;
 
     public GameGraphics() {
         window = new GlfwWindow();
         gui = new GuiRenderer();
-        currentMenu = new Menu();
-        launch(currentMenu);
+        mouse = new MouseInput(window);
+        launch(new Menu());
         init();
     }
     
@@ -24,7 +27,7 @@ public class GameGraphics {
     
     public void launch(Menu menu) {
         this.currentMenu = menu;
-        menu.listen(window);
+        mouse.setMenu(menu);
         menu.addTo(gui);
     }
 }

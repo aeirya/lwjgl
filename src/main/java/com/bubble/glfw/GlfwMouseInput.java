@@ -56,7 +56,7 @@ public class GlfwMouseInput {
         }
     
         private void onMouseRelease(MouseState mouse) {
-            if(listener != null) return;
+            if(listener != null) listener.onMouseRelease(mouse);
         }
     };
 
