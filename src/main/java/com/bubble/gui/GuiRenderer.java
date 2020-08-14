@@ -36,7 +36,9 @@ public class GuiRenderer implements IGuiRenderer {
     }
 
     public void drawButton(IElement button) {
-        final Texture tex = textures.getTexture("button-lg");
+        final Texture tex = (button.getSize().height > button.getSize().width * 1.5f) ? 
+            textures.getTexture("button-xs") : (button.getSize().height * 3 <= button.getSize().width) ?
+            textures.getTexture("button-lg") : textures.getTexture("button-md");
         g.drawElement(button.getPosition(), button.getSize(), tex, button.getColor());
     }
 
