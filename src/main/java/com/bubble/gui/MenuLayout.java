@@ -3,6 +3,7 @@ package com.bubble.gui;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import com.bubble.tools.layout.Layout;
 
@@ -13,7 +14,7 @@ public class MenuLayout {
         elements = Layout.load(path);
     }
 
-    public List<Element> getAllElements() {
+    public List<Element> getElements() {
         return elements;
     }
 
@@ -41,5 +42,25 @@ public class MenuLayout {
 
     public List<Element> getElementsOfType(ElementType type) {
         return elements.stream().filter(e -> e.getType().equals(type)).collect(Collectors.toList());
+    }
+
+    public List<Element> findAllElements() {
+        return flattened().collect(Collectors.toList());
+    }
+
+    public Stream<Element> flattened() {
+        return flattened(elements.get(0), elements.get(0).getChildren());
+    }
+
+    private Stream<Element> flattened(Element current, List<Element> children) {
+        return Stream.concat(
+            Stream.of(current), 
+            children.stream().flatMap(e -> flattened(e, e.getChildren())));
+    }
+
+    public static void main(String[] args) {
+        MenuLayout layout = new MenuLayout("./assets/layout/main.json");
+        System.out.println(layout.flattened().map(e -> e.getType()).collect(Collectors.toList()));
+        System.out.println(layout.flattened().map(e -> e.getText()).collect(Collectors.toList()));
     }
 }

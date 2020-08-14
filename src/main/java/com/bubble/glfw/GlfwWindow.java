@@ -98,9 +98,19 @@ public class GlfwWindow implements IWindowInput {
         }
     }
 
+    //interaction with input
     public void bind(GlfwMouseInput input) {
         input.bind(window);
     }
+
+    public int getWidth() {
+        return WIDTH;
+    }
+
+    public int getHeight() {
+        return HEIGHT;
+    }
+
 
     public void setListener(IMouseListener listener) {
         input.setListener(listener);

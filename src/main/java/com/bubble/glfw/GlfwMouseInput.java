@@ -2,6 +2,7 @@ package com.bubble.glfw;
 
 import com.bubble.input.IMouseListener;
 import com.bubble.input.MouseState;
+import com.bubble.std.Math;
 import com.bubble.std.Point;
 
 import org.lwjgl.glfw.GLFWCursorPosCallback;
@@ -13,6 +14,7 @@ public class GlfwMouseInput {
 
     private IMouseListener listener;
     private GlfwMouseState state;
+    private GlfwWindow window;
 
     public GlfwMouseInput(GlfwWindow window) {
         state = new GlfwMouseState();
@@ -21,12 +23,12 @@ public class GlfwMouseInput {
 
     private final GLFWCursorPosCallback cursorPosCallback = new GLFWCursorPosCallback() {
         @Override
-        public void invoke(long window, double x, double y) {
-            invoke((float) x, (float) y);
+        public void invoke(long w, double x, double y) {
+            invoke(Math.glfwCoordToOpenGl(x, y, window.getWidth(), window.getHeight()));
         }
 
-        private void invoke(float x, float y) {
-            state.setPosition(new Point(x, y));
+        private void invoke(Point mousePos) {
+            state.setPosition(mousePos);
             state.setMoved(true);
             onMouseMove(getState());
         }
@@ -39,7 +41,7 @@ public class GlfwMouseInput {
 
     private final GLFWMouseButtonCallback mouseButtonCallback = new GLFWMouseButtonCallback(){
         @Override
-        public void invoke(long window, int button, int action, int mods) {
+        public void invoke(long w, int button, int action, int mods) {
             if (button == GLFW_MOUSE_BUTTON_LEFT) {
                 state.setClicked(action == GLFW_PRESS);
             } else if (button == GLFW_MOUSE_BUTTON_RIGHT) {
@@ -60,6 +62,7 @@ public class GlfwMouseInput {
 
     public void bind(GlfwWindow window) {
         window.bind(this);
+        this.window = window;
     }
 
     public void bind(long window) {

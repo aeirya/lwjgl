@@ -3,10 +3,10 @@ package com.bubble.input;
 import com.bubble.std.Point;
 
 public class MouseState {
-    private final Point location;
-    private final boolean isMoved;
-    private final boolean isClicked;
-    private final boolean isRightClicked;
+    public final Point location;
+    public final boolean isMoved;
+    public final boolean isClicked;
+    public final boolean isRightClicked;
 
     public MouseState(Point location, boolean isMoved, boolean isClicked, boolean isRightClicked) {
         this.location = location;
@@ -15,7 +15,7 @@ public class MouseState {
         this.isRightClicked = isRightClicked;
     }
 
-    public Point getLocation() {
+    public Point getPosition() {
         return location;
     }
 

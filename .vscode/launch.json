@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - MenuLayout",
+            "request": "launch",
+            "mainClass": "com.bubble.gui.MenuLayout",
+            "projectName": "lwjgl"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Graphics",
             "request": "launch",
             "mainClass": "com.bubble.sample.Graphics",

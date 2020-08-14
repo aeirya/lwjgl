@@ -10,6 +10,14 @@ public class Point {
         this.y = y;
     }
 
+    public float getX() {
+        return x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
     public Point sum(Point other) {
         return new Point(
             this.x + other.x, this.y + other.y

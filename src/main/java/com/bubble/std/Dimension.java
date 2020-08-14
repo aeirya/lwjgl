@@ -14,4 +14,9 @@ public class Dimension {
         return new Dimension(
             (float) (ratio * width), (float) (ratio * height));
     }
+
+    @Override
+    public String toString() {
+        return "(" + width + "," + height + ")";
+    }
 }
