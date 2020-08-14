@@ -17,7 +17,7 @@ public class GraphicsMemory {
     }
 
     public void clear() {
-        drawMap.values().parallelStream().forEach(
+        drawMap.values().stream().forEach(
             drawlist -> {
                 drawlist.forEach(IDrawable::destroy);
                 drawlist.clear();
@@ -32,7 +32,6 @@ public class GraphicsMemory {
     
     public void add(VertexBuffer vb, Shader shader) {
         add(new Drawable(vb), shader);
-        vb.unbind();
     }
     
     public void add(VertexBuffer vb, Shader shader, Texture texture) {
@@ -40,7 +39,6 @@ public class GraphicsMemory {
             texture.upload();
             add(new TextureDrawable(vb, texture), shader);
             texture.unbind();
-            vb.unbind();
         } else {
             add(vb, shader);
         }
