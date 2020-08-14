@@ -1,0 +1,158 @@
+{
+    "elements": [
+        {
+            "type": "panel",
+            "size": {
+                "width": 1.6,
+                "height": 1.6
+            },
+            "position": {
+                "x": -0.80,
+                "y": 0.80
+            },
+            "text": "Profile",
+            "color": {
+                "r": 140,
+                "g": 200,
+                "b": 200,
+                "a" : 0.05
+            },
+            "isDisabled": false,
+            "children": [
+                {
+                    "type": "panel",
+                    "size": {
+                        "width": 0.42,
+                        "height": 0.42
+                    },
+                    "position": {
+                        "x": -0.68,
+                        "y": 0.68
+                    },
+                    "text": "avatar",
+                    "color": {
+                        "r": 200,
+                        "g": 150,
+                        "b": 250,
+                        "a": 1.0
+                    },
+                    "isDisabled": false
+                },
+                {
+                    "type": "panel",
+                    "size": {
+                        "width": 0.34,
+                        "height": 0.14
+                    },
+                    "position": {
+                        "x": -0.18,
+                        "y": 0.67
+                    },
+                    "text": "name",
+                    "color": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255,
+                        "a": 1.0
+                    },
+                    "isDisabled": false
+                },
+                {
+                    "type": "panel",
+                    "size": {
+                        "width": 0.86,
+                        "height": 0.21
+                    },
+                    "position": {
+                        "x": -0.18,
+                        "y": 0.48
+                    },
+                    "text": "detail",
+                    "color": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255,
+                        "a": 1.0
+                    },
+                    "isDisabled": false
+                },
+                {
+                    "type": "panel",
+                    "size": {
+                        "width": 1.36,
+                        "height": 0.62
+                    },
+                    "position": {
+                        "x": -0.68,
+                        "y": 0.18
+                    },
+                    "text": "score",
+                    "color": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255,
+                        "a": 1.0
+                    },
+                    "isDisabled": false
+                },
+                {
+                    "type": "button",
+                    "size": {
+                        "width": 0.7,
+                        "height": 0.14
+                    },
+                    "position": {
+                        "x": -0.35,
+                        "y": -0.54
+                    },
+                    "text": "Share",
+                    "color": {
+                        "r": 100,
+                        "g": 150,
+                        "b": 250,
+                        "a": 1.0
+                    },
+                    "isDisabled": false
+                },
+                {
+                    "type": "button",
+                    "size": {
+                        "width": 0.14,
+                        "height": 0.14
+                    },
+                    "position": {
+                        "x": -0.96,
+                        "y": -0.80
+                    },
+                    "text": "Back",
+                    "color": {
+                        "r": 100,
+                        "g": 150,
+                        "b": 250,
+                        "a": 1.0
+                    },
+                    "isDisabled": false
+                },
+                {
+                    "type": "button",
+                    "size": {
+                        "width": 0.14,
+                        "height": 0.14
+                    },
+                    "position": {
+                        "x": 0.82,
+                        "y": -0.80
+                    },
+                    "text": "Exit",
+                    "color": {
+                        "r": 100,
+                        "g": 150,
+                        "b": 250,
+                        "a": 1.0
+                    },
+                    "isDisabled": false
+                }
+            ]
+        }
+    ]
+}

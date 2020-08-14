@@ -1,7 +1,7 @@
 package com.bubble.util.resource;
 
 public enum EnumTexture {
-    BUTTON_BIG, BUTTON_MED, BUTTON_SMALL;
+    BUTTON_LG, BUTTON_MD, BUTTON_XS;
 
     public String get() {
         return get(this);
@@ -9,11 +9,11 @@ public enum EnumTexture {
 
     private String get(EnumTexture texture) {
         switch(texture) {
-            case BUTTON_BIG:
+            case BUTTON_LG:
             return "button-lg";
-            case BUTTON_SMALL:
+            case BUTTON_XS:
             return "button-xs";
-            case BUTTON_MED:
+            case BUTTON_MD:
             return "button-md";
             default:
             return null;
