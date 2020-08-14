@@ -10,7 +10,7 @@ import com.bubble.tools.layout.Layout;
 public class MenuLayout {
     protected List<Element> elements;
 
-    MenuLayout(String path) {
+    public MenuLayout(String path) {
         elements = Layout.load(path);
     }
 
@@ -56,11 +56,5 @@ public class MenuLayout {
         return Stream.concat(
             Stream.of(current), 
             children.stream().flatMap(e -> flattened(e, e.getChildren())));
-    }
-
-    public static void main(String[] args) {
-        MenuLayout layout = new MenuLayout("./assets/layout/main.json");
-        System.out.println(layout.flattened().map(e -> e.getType()).collect(Collectors.toList()));
-        System.out.println(layout.flattened().map(e -> e.getText()).collect(Collectors.toList()));
     }
 }

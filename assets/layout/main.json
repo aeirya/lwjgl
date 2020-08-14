@@ -120,6 +120,7 @@
                         "width": 0.8,
                         "height": 0.4
                     },
+                    "texture": "container",
                     "position": {
                         "x": -0.4,
                         "y": 0.7
@@ -154,6 +155,7 @@
                     "isDisabled": false
                 },
                 {
+                    "id": "decks",
                     "type": "button",
                     "size": {
                         "width": 0.48,

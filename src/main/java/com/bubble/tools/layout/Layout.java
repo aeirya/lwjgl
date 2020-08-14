@@ -80,7 +80,6 @@ public class Layout {
                 texture, 
                 isDisabled, 
                 isHidden,
-                getMouseEvents(), 
                 getChildren()
                 );
         }
@@ -107,11 +106,6 @@ public class Layout {
         private List<Element> getChildren() {
             if (children == null) return new ArrayList<>();
             else return children.stream().map(LayoutElement::toElement).collect(Collectors.toList());
-        }
-
-        // TODO: change this
-        private com.bubble.gui.MouseEvent getMouseEvents() {
-            return null;
         }
     }
 

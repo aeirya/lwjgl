@@ -1,6 +1,6 @@
 package com.bubble.glfw;
 
-import com.bubble.input.IMouseListener;
+import com.bubble.input.IMouseInputListener;
 import com.bubble.input.MouseState;
 import com.bubble.std.Math;
 import com.bubble.std.Point;
@@ -12,7 +12,7 @@ import static org.lwjgl.glfw.GLFW.*;
 
 public class GlfwMouseInput {
 
-    private IMouseListener listener;
+    private IMouseInputListener listener;
     private GlfwMouseState state;
     private GlfwWindow window;
 
@@ -79,7 +79,7 @@ public class GlfwMouseInput {
         return new MouseState(state.getPosition(), state.isMoved(), state.isClicked(), state.isRightClicked());
     }
 
-    public void setListener(IMouseListener listener) {
+    public void setListener(IMouseInputListener listener) {
         this.listener = listener;
     }
 }

@@ -1,5 +1,6 @@
 package com.bubble.glfw;
 
+import com.bubble.input.MouseState;
 import com.bubble.std.Point;
 
 public class GlfwMouseState {
@@ -45,5 +46,9 @@ public class GlfwMouseState {
 
     public void setRightClicked(boolean isRightClicked) {
         this.isRightClicked = isRightClicked;
+    }
+
+    public MouseState getState() {
+        return new MouseState(position, isMoved, isClicked, isRightClicked);
     }
 }

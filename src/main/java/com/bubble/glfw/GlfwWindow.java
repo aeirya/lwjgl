@@ -4,7 +4,7 @@ import static org.lwjgl.glfw.GLFW.*;
 
 import java.util.logging.Logger;
 
-import com.bubble.input.IMouseListener;
+import com.bubble.input.IMouseInputListener;
 import com.bubble.input.IWindowInput;
 import com.bubble.render.IRenderer;
 
@@ -14,7 +14,7 @@ import org.lwjgl.system.MemoryUtil;
 
 public class GlfwWindow implements IWindowInput {
     private static final int WIDTH = 1000;
-    private static final int HEIGHT = 800;
+    private static final int HEIGHT = 720;
     private long window;
     private int refreshWait = 20;
     private String title = "Window";
@@ -24,6 +24,7 @@ public class GlfwWindow implements IWindowInput {
 
     public GlfwWindow() {
         init();
+        setAspectRatio(3,2);
         input = new GlfwMouseInput(this);
     }
 
@@ -98,6 +99,12 @@ public class GlfwWindow implements IWindowInput {
         }
     }
 
+    private void setAspectRatio(int n, int d) {
+        if (n == 0) n = -1;
+        if (d == 0) d = -1;
+        glfwSetWindowAspectRatio(window, n, d);
+    }
+
     //interaction with input
     public void bind(GlfwMouseInput input) {
         input.bind(window);
@@ -112,7 +119,7 @@ public class GlfwWindow implements IWindowInput {
     }
 
 
-    public void setListener(IMouseListener listener) {
+    public void setListener(IMouseInputListener listener) {
         input.setListener(listener);
     }
 }

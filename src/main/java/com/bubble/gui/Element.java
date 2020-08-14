@@ -25,7 +25,7 @@ public class Element implements IElement {
     public Element() { }
 
     public Element(String id, ElementType type, Point position, Dimension size, String text, String font, Color color,
-            String texture, boolean isDisabled, boolean isHidden, MouseEvent events, List<Element> children) {
+            String texture, boolean isDisabled, boolean isHidden, List<Element> children) {
         this.id = id;
         this.type = type;
         this.position = position;
