@@ -12,11 +12,13 @@ public class GuiRenderer implements IGuiRenderer {
     private final Graphics g;
     private List<IElement> elements;
     private final TextureManager textures;
+    private final UiManager ui;
 
     public GuiRenderer() {
         g = new Graphics();
         elements = new ArrayList<>();
         textures = new TextureManager();
+        ui = new UiManager(textures);
     }
 
     public void addElement(IElement e) {
@@ -37,7 +39,11 @@ public class GuiRenderer implements IGuiRenderer {
     }
 
     public void drawButton(IElement button) {
+<<<<<<< Updated upstream
         final Texture tex = textures.getTexture("buutton");
+=======
+        final Texture tex = ui.getButtonTexture(button.getSize());
+>>>>>>> Stashed changes
         g.drawElement(button.getPosition(), button.getSize(), tex, button.getColor());
     }
 

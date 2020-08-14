@@ -16,6 +16,10 @@ public class TextureManager {
         return textures.getOrDefault(name, null);
     }
 
+    public Texture getTexture(EnumTexture texture) {
+        return getTexture(texture.get());
+    }
+
     private Map<String, Texture> loadTextures(String path) {
         return new ImageLoader().loadDir(path);
     }

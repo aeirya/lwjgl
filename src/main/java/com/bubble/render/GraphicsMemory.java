@@ -31,6 +31,7 @@ public class GraphicsMemory {
     }
     
     public void add(VertexBuffer vb, Shader shader, Texture texture) {
+<<<<<<< Updated upstream
         if (texture != null) {
             texture.upload();
             add(new TextureDrawable(vb, texture), shader);
@@ -39,6 +40,11 @@ public class GraphicsMemory {
         } else {
             add(vb, shader);
         }
+=======
+        texture.upload();
+        add(new TextureDrawable(vb, texture), shader);
+        texture.unbind();
+>>>>>>> Stashed changes
     }
 
     public Map<Shader, List<IDrawable>> fetch() {
