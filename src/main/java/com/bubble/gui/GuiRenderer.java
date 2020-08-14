@@ -44,6 +44,7 @@ public class GuiRenderer implements IGuiRenderer {
 
     public void drawPanel(IElement e) {
         g.drawElement(e.getPosition(), e.getSize(), null, e.getColor());
+        // g.drawRect(e.getPosition(), e.getSize(), e.getColor());
     }
 
     public void render(IElement element) {
