@@ -7,9 +7,9 @@ import com.bubble.std.Color;
 
 public class Graphics implements IRenderer, IAdvancedGraphics {
     
+    private final GraphicsBufferBuilder gbb;
+    private final GraphicsMemory memory;
     private Color color;
-    private GraphicsBufferBuilder gbb;
-    private GraphicsMemory memory;
 
     public Graphics() {
         gbb = new GraphicsBufferBuilder();

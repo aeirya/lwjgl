@@ -34,8 +34,8 @@ public class GraphicsMemory {
         if (texture != null) {
             texture.upload();
             add(new TextureDrawable(vb, texture), shader);
-            vb.unbind();
             texture.unbind();
+            vb.unbind();
         } else {
             add(vb, shader);
         }

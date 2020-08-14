@@ -52,13 +52,13 @@ public class GuiRenderer implements IGuiRenderer {
         return element; // i guess we don't need that :))
     }
 
-    private void clear() {
+    private void clearMemory() {
         g.clear();
     }
 
     public void render() {
-        clear();
         elements.forEach(this::render);
         g.render();
+        clearMemory();
     }
 }
