@@ -2,6 +2,7 @@ package com.bubble.gui;
 
 import java.util.List;
 
+import com.bubble.input.IMouseListener;
 import com.bubble.std.Color;
 import com.bubble.std.Dimension;
 import com.bubble.std.Point;
@@ -17,9 +18,26 @@ public class Element implements IElement {
     private String texture;
     private boolean isDisabled;
     private boolean isHidden;
-    private MouseEvent events;
+    private IMouseListener listener;
 
     private List<Element> children;
+
+    public Element() { }
+
+    public Element(String id, ElementType type, Point position, Dimension size, String text, String font, Color color,
+            String texture, boolean isDisabled, boolean isHidden, MouseEvent events, List<Element> children) {
+        this.id = id;
+        this.type = type;
+        this.position = position;
+        this.size = size;
+        this.text = text;
+        this.font = font;
+        this.color = color;
+        this.texture = texture;
+        this.isDisabled = isDisabled;
+        this.isHidden = isHidden;
+        this.children = children;
+    }
 
     public String getId() {
         return id;
@@ -93,20 +111,20 @@ public class Element implements IElement {
         this.isDisabled = isDisabled;
     }
 
-    public MouseEvent getEvents() {
-        return events;
-    }
-
-    public void setEvents(MouseEvent events) {
-        this.events = events;
-    }
-
     public List<Element> getChildren() {
         return children;
     }
 
     public void setChildren(List<Element> children) {
         this.children = children;
+    }
+
+    public IMouseListener getMouseListener() {
+        return listener;
+    }
+
+    public void setMouseListener(IMouseListener listener) {
+        this.listener = listener;
     }
 
     public void paintComponent(IGuiRenderer r) {
@@ -127,25 +145,5 @@ public class Element implements IElement {
         if (children != null) {
             children.forEach(c -> c.paintComponent(r));
         }
-    }
-
-    public Element() {
-        //
-    }
-
-    public Element(String id, ElementType type, Point position, Dimension size, String text, String font, Color color,
-            String texture, boolean isDisabled, boolean isHidden, MouseEvent events, List<Element> children) {
-        this.id = id;
-        this.type = type;
-        this.position = position;
-        this.size = size;
-        this.text = text;
-        this.font = font;
-        this.color = color;
-        this.texture = texture;
-        this.isDisabled = isDisabled;
-        this.isHidden = isHidden;
-        this.events = events;
-        this.children = children;
     }
 }

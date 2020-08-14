@@ -19,14 +19,6 @@ public class Layout {
         elements = new ArrayList<>();
     }
 
-    public List<LayoutElement> getElementsByType(String type) {
-        return elements.stream().filter(e -> e.type.equals(type)).collect(Collectors.toList());
-    }
-
-    public LayoutElement getElementById(String id) {
-        return elements.stream().filter(e -> e.id.equals(id)).findFirst().orElse(null);
-    }
-
     private List<LayoutElement> getElements() {
         return elements;
     }
@@ -76,8 +68,9 @@ public class Layout {
         }
 
         public Element toElement() {
+            final Element element = new Element();
             return new Element(
-                id, 
+                id,
                 ElementType.valueOf(type), 
                 getPosition(), 
                 getDimension(), 

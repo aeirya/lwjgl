@@ -96,6 +96,7 @@
                     "isDisabled": false
                 },
                 {
+                    "id": "start_button",
                     "type": "button",
                     "size": {
                         "width": 0.48,
@@ -115,7 +116,7 @@
                     "isDisabled": false
                 },
                 {
-                    "type": "BUTTON",
+                    "type": "button",
                     "size": {
                         "width": 0.48,
                         "height": 0.14

@@ -15,15 +15,16 @@ public class GameGraphics {
         launch(currentMenu);
         init();
     }
-
+    
     private void init() {
         Shader.initiateShaders();
         window.setRenderer(gui);
         window.start();
     }
-
+    
     public void launch(Menu menu) {
         this.currentMenu = menu;
+        menu.listen(window);
         menu.addTo(gui);
     }
 }

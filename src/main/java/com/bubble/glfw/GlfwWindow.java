@@ -4,22 +4,27 @@ import static org.lwjgl.glfw.GLFW.*;
 
 import java.util.logging.Logger;
 
+import com.bubble.input.IMouseListener;
+import com.bubble.input.IWindowInput;
 import com.bubble.render.IRenderer;
 
 import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.system.MemoryUtil;
 
-public class GlfwWindow {
+public class GlfwWindow implements IWindowInput {
     private static final int WIDTH = 1000;
     private static final int HEIGHT = 800;
     private long window;
     private int refreshWait = 20;
     private String title = "Window";
+
+    private GlfwMouseInput input;
     private IRenderer renderer;
 
     public GlfwWindow() {
         init();
+        input = new GlfwMouseInput(this);
     }
 
     public void init() {
@@ -93,7 +98,11 @@ public class GlfwWindow {
         }
     }
 
-    public static void main(String[] args) {
-        new GlfwWindow();
+    public void bind(GlfwMouseInput input) {
+        input.bind(window);
+    }
+
+    public void setListener(IMouseListener listener) {
+        input.setListener(listener);
     }
 }
