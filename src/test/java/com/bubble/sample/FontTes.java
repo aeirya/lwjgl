@@ -24,14 +24,14 @@ public class FontTes extends GraphicsTest {
 
     void setFont() {
         final String path = "/Users/madscientist/Desktop/bitter-ht-regular-italic-bold-bold-italic/Bitter-Regular.otf";
-        t.setFont(new Font(path, 2, 2, 0.4f));
+        t.setFont(new Font(path, 1000, 1000, 40f));
     }
 
     class R implements IRenderer {
 
         public void render() {
             System.out.println("drawing text");
-            t.drawText("t", 0, 0, 1.0f,0.0f,0.0f,0.0f,1.0f, true);
+            t.drawText("t", 0, 0, 0.01f,0.0f,0.0f,0.0f,1.0f, true);
         }
     }
 }

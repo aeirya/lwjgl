@@ -24,8 +24,6 @@ public class VertexBuilder {
 
     public void end() {
         vbb.end();
-        hasColor = false;
-        a = 1.0f;
     }
 
     public void color(float r, float g, float b, float a) {
@@ -37,6 +35,7 @@ public class VertexBuilder {
     }
 
     public void vertex(float x, float y, float u, float v) {
+        //do:  check for format
         vbb.addVertex(new Vec2D(x, y));
         if (hasColor) {
             vbb.addVertex(new Vec4D(r, g, b, a));
