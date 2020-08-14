@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 
 import com.bubble.gui.Element;
 import com.bubble.gui.ElementType;
+import com.bubble.std.Color;
+import com.bubble.std.Dimension;
 import com.bubble.std.Point;
 import com.bubble.util.file.FileLoader;
 import com.google.gson.Gson;
@@ -25,68 +27,50 @@ public class Layout {
 
     public static List<Element> load(String path) {
         return new Gson()
-        .fromJson(new Parser().parse(new FileLoader(path).load()), Layout.class)
+        .fromJson(new FileLoader(path).load(), Layout.class)
         .getElements()
         .stream()
         .map(LayoutElement::toElement)
         .collect(Collectors.toList());
     }
 
-    static class Parser {
-        String parse(String json) {
-            for (ElementType type : ElementType.values()) {
-                final String q = "\"";
-                final String swappable = q + type.toString() + q;
-                json = json.replace(swappable, swappable.toUpperCase());
-            }
-            return json;
-        }
-    }
-
     class LayoutElement {
         private String id;
         private String type;
-        private Position position;
-        private Dimension size;
+        private ElementPosition position;
+        private ElementDimension size;
         private String text;
         private String font;
-        private Color color;
+        private ElementColor color;
         private String texture;
         private boolean isHidden;
         private boolean isDisabled;
-        private MouseEvent events;
 
         private List<LayoutElement> children;
 
-        public LayoutElement(String id, String type, Dimension size, Position position, List<LayoutElement> children, String text) {
-            this.id = id;
-            this.type = type;
-            this.size = size;
-            this.position = position;
-            this.children = children;
-            this.text = text;
-        }
-
         public Element toElement() {
-            final Element element = new Element();
-            return new Element(
-                id,
-                ElementType.valueOf(type), 
-                getPosition(), 
-                getDimension(), 
-                text, 
-                font, 
-                getColor(), 
-                texture, 
-                isDisabled, 
-                isHidden,
-                getChildren()
-                );
+            return new ElementBuilder()
+                .setId(id)
+                .setType(getType())
+                .setPosition(getPosition())
+                .setSize(getDimension())
+                .setColor(getColor())
+                .setText(text)
+                .setFont(font)
+                .setTexture(texture)
+                .setDisabled(isDisabled)
+                .setHidden(isHidden)
+                .setChildren(getChildren())
+                .toElement();
         }
 
-        private com.bubble.std.Color getColor() {
+        private ElementType getType() {
+            return ElementType.valueOf(type.toUpperCase());
+        }
+
+        private Color getColor() {
             if(color == null) return null;
-            else return new com.bubble.std.Color(color.r, color.g, color.b,  getAlpha());
+            else return new Color(color.r, color.g, color.b,  getAlpha());
         }
 
         private float getAlpha() {
@@ -98,9 +82,9 @@ public class Layout {
             else return new Point(position.x, position.y);
         }
 
-        private com.bubble.std.Dimension getDimension() {
+        private Dimension getDimension() {
             if (size == null) return null;
-            else return new com.bubble.std.Dimension(size.width, size.height);
+            else return new Dimension(size.width, size.height);
         }
         
         private List<Element> getChildren() {
@@ -109,47 +93,40 @@ public class Layout {
         }
     }
 
-    class Dimension {
+    protected class ElementDimension {
         private float width;
         private float height;
-
-        public Dimension(float width, float height) {
-            this.width = width;
-            this.height = height;
-        }
     }
 
-    class Position {
+    protected class ElementPosition {
         private float x;
         private float y;
 
-        public Position(float x, float y) {
+        public ElementPosition(float x, float y) {
             this.x = x;
             this.y = y;
         }
     }
 
-    class Color {
+    protected class ElementColor {
         private int r;
         private int g;
         private int b;
-        private float a = 1.0f;
-
-        public Color(int r, int g, int b, float a) {
-            this.r = r;
-            this.g = g;
-            this.b = b;
-            this.a = a;
-        }
-
-        public Color(int r, int g, int b) {
-            this.r = r;
-            this.g = g;
-            this.b = b;
-            this.a = 1.0f;
-        }
+        private float a;
     }
 
+    @Override
+    public String toString() {
+        return new GsonBuilder().setPrettyPrinting().create().toJson(this);
+    }
+
+
+    /**
+     * I have this idea where i can keep runnables of game api in a map, and 
+     * even load events from there!
+     * tho lots of performance will be lost
+     */
+    /**
     class MouseEvent {
         private String onMouseEnter;
         private String onMouseExit;
@@ -157,9 +134,5 @@ public class Layout {
         private String onMouseUnclick;
         private String onMouseDrag;
     }
-
-    @Override
-    public String toString() {
-        return new GsonBuilder().setPrettyPrinting().create().toJson(this);
-    }
+    */
 }
