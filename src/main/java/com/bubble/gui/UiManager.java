@@ -2,6 +2,7 @@ package com.bubble.gui;
 
 import com.bubble.opengl.Texture;
 import com.bubble.std.Dimension;
+import com.bubble.util.resource.EnumTexture;
 import com.bubble.util.resource.TextureManager;
 
 public class UiManager {
@@ -12,9 +13,8 @@ public class UiManager {
     }
 
     public Texture getButtonTexture(Dimension size) {
-        return
-        (size.height > size.width * 1.5f) ? 
-            textures.getTexture("button-xs") : (size.height * 3 <= size.width) ?
-            textures.getTexture("button-lg") : textures.getTexture("button-md");
+        if(size.height > size.width * 1.5f) return textures.getTexture(EnumTexture.BUTTON_SMALL);
+        else if(size.height * 3 <= size.width) return textures.getTexture(EnumTexture.BUTTON_BIG);
+        else return textures.getTexture(EnumTexture.BUTTON_MED);
     }
 }
