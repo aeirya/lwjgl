@@ -2,6 +2,7 @@ package com.bubble.gui;
 
 import com.bubble.glfw.GlfwWindow;
 import com.bubble.input.MouseInput;
+import com.bubble.input.keyboard.KeyListener;
 import com.bubble.render.Shader;
 import com.bubble.util.config.Config;
 
@@ -9,6 +10,7 @@ public class GameGraphics {
     private final IGuiRenderer gui;
     private final GlfwWindow window;
     private final MouseInput mouse;
+    private final KeyListener keys;
 
     private Menu currentMenu;
 
@@ -17,6 +19,8 @@ public class GameGraphics {
         window = new GlfwWindow();
         gui = new GuiRenderer();
         mouse = new MouseInput(window);
+        keys = new KeyListener();
+        window.setListener(keys);
         launch(new Menu());
         init();
     }

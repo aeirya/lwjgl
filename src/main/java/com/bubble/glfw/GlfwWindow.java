@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 
 import com.bubble.input.IMouseInputListener;
 import com.bubble.input.IWindowInput;
+import com.bubble.input.keyboard.IKeyListener;
 import com.bubble.render.IRenderer;
 
 import org.lwjgl.opengl.GL;
@@ -20,12 +21,14 @@ public class GlfwWindow implements IWindowInput {
     private String title = "Window";
 
     private GlfwMouseInput input;
+    private GlfwKeyboardInput keyboard;
     private IRenderer renderer;
 
     public GlfwWindow() {
         init();
         setAspectRatio(3,2);
         input = new GlfwMouseInput(this);
+        keyboard = new GlfwKeyboardInput(this);
     }
 
     public void init() {
@@ -110,6 +113,10 @@ public class GlfwWindow implements IWindowInput {
         input.bind(window);
     }
 
+    public void bind(GlfwKeyboardInput input) {
+        input.bind(window);
+    }
+
     public int getWidth() {
         return WIDTH;
     }
@@ -117,8 +124,12 @@ public class GlfwWindow implements IWindowInput {
     public int getHeight() {
         return HEIGHT;
     }
+
     public void setListener(IMouseInputListener listener) {
         input.setListener(listener);
     }
 
+    public void setListener(IKeyListener listener) {
+        keyboard.setListener(listener);
+    }
 }
