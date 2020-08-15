@@ -3,7 +3,6 @@ package com.bubble.input;
 import com.bubble.gui.IMenu;
 import com.bubble.input.keyboard.IKeyListener;
 import com.bubble.input.keyboard.KeyboardInput;
-import com.bubble.input.mouse.IMouseInputListener;
 import com.bubble.input.mouse.IWindowInput;
 import com.bubble.input.mouse.MouseInput;
 

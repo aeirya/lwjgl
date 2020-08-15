@@ -3,7 +3,9 @@ package com.bubble.gui;
 import java.util.List;
 import java.util.logging.Logger;
 
+import com.bubble.input.mouse.IMouseAdapter;
 import com.bubble.input.mouse.IMouseListener;
+import com.bubble.input.mouse.MouseState;
 import com.bubble.std.Color;
 import com.bubble.std.Dimension;
 import com.bubble.std.Point;
@@ -170,4 +172,46 @@ public class Element implements IElement {
             children.forEach(c -> c.paintComponent(r));
         }
     }
+
+    private static Element genNullElem() {
+        final Element element = new Element();
+        element.setMouseListener(new IMouseAdapter(){
+            @Override
+            public void onMouseClick(MouseState mouse) {
+                error();
+            }
+
+            @Override
+            public void onMouseEnter(MouseState mouse) {
+                error();
+            }
+
+            @Override
+            public void onMouseExit(MouseState mouse) {
+                error();
+            }
+
+            @Override
+            public void onMouseMove(MouseState mouse) {
+                error();
+            }
+
+            @Override
+            public void onMouseRelease(MouseState state) {
+                error();
+            }
+
+            @Override
+            public void onMouseRightClick(MouseState state) {
+                error();
+            }
+
+            private void error() {
+                Logger.getGlobal().warning("didn't find element with this id");
+            }
+        });
+        return element;
+    }
+
+    public static final Element NULL = genNullElem();
 }
