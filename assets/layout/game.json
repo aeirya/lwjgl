@@ -1,0 +1,206 @@
+{
+    "elements": [
+        {
+            "type": "panel",
+            "size": {
+                "width": 1.4,
+                "height": 1.4
+            },
+            "position": {
+                "x": -0.70,
+                "y": 0.70
+            },
+            "text": "Profile",
+            "color": {
+                "r": 140,
+                "g": 200,
+                "b": 200,
+                "a" : 0.1
+            },
+            "isDisabled": false,
+            "children": [
+                {
+                    "type": "panel",
+                    "size": {
+                        "width": 0.2,
+                        "height": 0.3
+                    },
+                    "position": {
+                        "x": -0.1,
+                        "y": 0.75
+                    },
+                    "text": "Enemy Hero",
+                    "color": {
+                        "r": 250,
+                        "g": 250,
+                        "b": 250,
+                        "a" : 0.1
+                    }
+                },
+                {
+                    "type": "panel",
+                    "size": {
+                        "width": 0.15,
+                        "height": 0.25
+                    },
+                    "position": {
+                        "x": 0.12,
+                        "y": 0.73
+                    },
+                    "text": "Enemy Power",
+                    "color": {
+                        "r": 250,
+                        "g": 250,
+                        "b": 250,
+                        "a" : 0.1
+                    }
+                },
+                {
+                    "type": "panel",
+                    "size": {
+                        "width": 0.2,
+                        "height": 0.3
+                    },
+                    "position": {
+                        "x": -0.1,
+                        "y": -0.5
+                    },
+                    "text": "Your Hero",
+                    "color": {
+                        "r": 250,
+                        "g": 250,
+                        "b": 250,
+                        "a" : 0.1
+                    }
+                },
+                {
+                    "type": "panel",
+                    "size": {
+                        "width": 0.15,
+                        "height": 0.25
+                    },
+                    "position": {
+                        "x": 0.12,
+                        "y": -0.52
+                    },
+                    "text": "Your Power",
+                    "color": {
+                        "r": 250,
+                        "g": 250,
+                        "b": 250,
+                        "a" : 0.1
+                    }
+                },
+                {
+                    "type": "panel",
+                    "size": {
+                        "width": 0.08,
+                        "height": 1.1
+                    },
+                    "position": {
+                        "x": -0.66,
+                        "y": 0.56
+                    },
+                    "text": "Events",
+                    "color": {
+                        "r": 140,
+                        "g": 200,
+                        "b": 200,
+                        "a" : 0.1
+                    }
+                },
+                {
+                    "type": "panel",
+                    "size": {
+                        "width": 1.1,
+                        "height": 0.9
+                    },
+                    "position": {
+                        "x": -0.50,
+                        "y": 0.43
+                    },
+                    "text": "Battle Field :D",
+                    "color": {
+                        "r": 140,
+                        "g": 200,
+                        "b": 200,
+                        "a" : 0.1
+                    }
+                },
+                {
+                    "type": "button",
+                    "size": {
+                        "width": 0.2,
+                        "height": 0.1
+                    },
+                    "position": {
+                        "x": 0.74,
+                        "y": 0.05
+                    },
+                    "text": "End Turn",
+                    "color": {
+                        "r": 250,
+                        "g": 250,
+                        "b": 250,
+                        "a" : 1.0
+                    }
+                },
+                {
+                    "type": "panel",
+                    "size": {
+                        "width": 0.2,
+                        "height": 0.4
+                    },
+                    "position": {
+                        "x": 0.74,
+                        "y": 0.6
+                    },
+                    "text": "Enemy Cards",
+                    "color": {
+                        "r": 250,
+                        "g": 250,
+                        "b": 250,
+                        "a" : 0.1
+                    }
+                },
+                {
+                    "type": "panel",
+                    "size": {
+                        "width": 0.2,
+                        "height": 0.4
+                    },
+                    "position": {
+                        "x": 0.74,
+                        "y": -0.2
+                    },
+                    "text": "Your Cards",
+                    "color": {
+                        "r": 250,
+                        "g": 250,
+                        "b": 250,
+                        "a" : 0.1
+                    }
+                },
+                {
+                    "type": "button",
+                    "size": {
+                        "width": 0.14,
+                        "height": 0.14
+                    },
+                    "position": {
+                        "x": -0.96,
+                        "y": -0.80
+                    },
+                    "text": "Friends",
+                    "color": {
+                        "r": 100,
+                        "g": 150,
+                        "b": 250,
+                        "a": 1.0
+                    },
+                    "isDisabled": false
+                }
+            ]
+        }
+    ]
+}
