@@ -2,8 +2,6 @@ package com.bubble.gui;
 
 import com.bubble.glfw.GlfwWindow;
 import com.bubble.input.GameInput;
-import com.bubble.input.keyboard.KeyListener;
-import com.bubble.input.mouse.MouseInput;
 import com.bubble.render.Shader;
 import com.bubble.util.config.Config;
 

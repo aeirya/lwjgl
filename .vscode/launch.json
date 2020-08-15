@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - GameConfig",
+            "request": "launch",
+            "mainClass": "com.bubble.util.config.GameConfig",
+            "projectName": "lwjgl"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - GlfwWindow",
             "request": "launch",
             "mainClass": "com.bubble.glfw.GlfwWindow",

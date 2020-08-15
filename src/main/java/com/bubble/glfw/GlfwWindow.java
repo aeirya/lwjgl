@@ -8,25 +8,33 @@ import com.bubble.input.mouse.IMouseInputListener;
 import com.bubble.input.mouse.IWindowInput;
 import com.bubble.input.keyboard.IKeyListener;
 import com.bubble.render.IRenderer;
+import com.bubble.util.config.Constants;
+import com.bubble.util.config.GameConfig;
+import com.bubble.util.config.GameConfig.Screen;
 
 import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.system.MemoryUtil;
 
 public class GlfwWindow implements IWindowInput {
-    private static final int WIDTH = 1000;
-    private static final int HEIGHT = 720;
+    private final Screen screen;
+    private final int width;
+    private final int height;
     private long window;
-    private int refreshWait = 20;
-    private String title = "Window";
+    private int refreshWait;
+    private String title = Constants.SCREEN_TITLE;
 
     private GlfwMouseInput input;
     private GlfwKeyboardInput keyboard;
     private IRenderer renderer;
 
     public GlfwWindow() {
+        screen = GameConfig.getScreen();
+        width = screen.getSize().getWidth();
+        height = screen.getSize().getHeight();
+        refreshWait = screen.getRefreshWait();
         init();
-        setAspectRatio(3,2);
+        setAspectRatio(screen.getRatio().W, screen.getRatio().H);
         input = new GlfwMouseInput(this);
         keyboard = new GlfwKeyboardInput(this);
     }
@@ -34,7 +42,7 @@ public class GlfwWindow implements IWindowInput {
     public void init() {
         glfwInit();
         macOsSupportTweak();
-        window = glfwCreateWindow(WIDTH, HEIGHT, title, MemoryUtil.NULL, MemoryUtil.NULL);
+        window = glfwCreateWindow(width, height, title, MemoryUtil.NULL, MemoryUtil.NULL);
         glfwMakeContextCurrent(window);
         glfwSetFramebufferSizeCallback(window, this::framebufferSizeCallback);
         GL.createCapabilities();
@@ -118,11 +126,11 @@ public class GlfwWindow implements IWindowInput {
     }
 
     public int getWidth() {
-        return WIDTH;
+        return width;
     }
 
     public int getHeight() {
-        return HEIGHT;
+        return height;
     }
 
     public void setListener(IMouseInputListener listener) {

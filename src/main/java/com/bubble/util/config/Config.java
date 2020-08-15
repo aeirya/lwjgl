@@ -26,7 +26,7 @@ public class Config {
     }
 
     private enum AssetType {
-        SHADER, LAYOUT, TEXTURE;
+        SHADER, LAYOUT, TEXTURE, CONFIG;
 
         @Override
         public String toString() {
@@ -44,5 +44,9 @@ public class Config {
 
     public static String getTexturePath() {
         return instance.assets.get(AssetType.TEXTURE);
+    }
+
+    public static String getConfigPath() {
+        return instance.assets.get(AssetType.CONFIG);
     }
 }
