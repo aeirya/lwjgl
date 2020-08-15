@@ -10,7 +10,7 @@ import org.lwjgl.glfw.GLFWMouseButtonCallback;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-public class GlfwMouseInput {
+class GlfwMouseInput {
 
     private IMouseInputListener listener;
     private GlfwMouseState state;

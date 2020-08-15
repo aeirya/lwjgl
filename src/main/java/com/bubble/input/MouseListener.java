@@ -61,17 +61,16 @@ public class MouseListener implements IMouseListener, IMouseEventDispatcher {
 
     @Override
     public void onMouseRelease(MouseState state) {
-        //
-
+        listeners.forEach(listener -> listener.onMouseRelease(state));
     }
 
     @Override
     public void onMouseDrag(MouseState state) {
-        //
+        listeners.forEach(listener -> listener.onMouseDrag(state));
     }
 
     @Override
     public void onMouseRightClick(MouseState state) {
-        //
+        listeners.forEach(listener -> listener.onMouseRightClick(state));
     }
 }

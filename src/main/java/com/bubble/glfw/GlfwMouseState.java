@@ -9,7 +9,7 @@ public class GlfwMouseState {
     private boolean isClicked;
     private boolean isRightClicked;
 
-    public GlfwMouseState() {
+    GlfwMouseState() {
         position = new Point(-10, -10);
         isMoved = false;
         isClicked = false;

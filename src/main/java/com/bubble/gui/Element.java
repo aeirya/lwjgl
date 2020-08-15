@@ -1,6 +1,7 @@
 package com.bubble.gui;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import com.bubble.input.IMouseListener;
 import com.bubble.std.Color;
@@ -37,6 +38,21 @@ public class Element implements IElement {
         this.isDisabled = isDisabled;
         this.isHidden = isHidden;
         this.children = children;
+    }
+
+    public Element(IElement e) {
+        this.id = e.getId();
+        this.type = e.getType();
+        this.position = e.getPosition();
+        size = e.getSize();
+        text = e.getText();
+        font = e.getFont();
+        color = e.getColor();
+        texture = e.getText();
+        isDisabled = e.isDisabled();
+        isHidden = e.isHidden();
+        children = e.getChildren();
+        listener = e.getMouseListener();
     }
 
     public String getId() {
@@ -111,6 +127,14 @@ public class Element implements IElement {
         this.isDisabled = isDisabled;
     }
 
+    public boolean isHidden() {
+        return isHidden;
+    }
+
+    public void setHidden(boolean isHidden) {
+        this.isHidden = isHidden;
+    }
+
     public List<Element> getChildren() {
         return children;
     }
@@ -138,7 +162,7 @@ public class Element implements IElement {
                 r.drawPanel(this);
                 break;
                 default:
-                System.out.println("not rendering");
+                Logger.getGlobal().warning("not rendering");
                 break;
             }
         }
