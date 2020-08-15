@@ -74,22 +74,22 @@ class GlfwKeyboardInput {
     }
 
     public void onKeyPress(IKeyEvent event) {
-        listener.onKeyPress(event);
+        if (listener != null) listener.onKeyPress(event);
     }
 
     public void onKeyRelease(IKeyEvent event) {
-        listener.onKeyRelease(event);
+        if (listener != null) listener.onKeyRelease(event);
     }
 
     public void onKeyHold(IKeyEvent event) {
-        listener.onKeyHold(event);
+        if (listener != null) listener.onKeyHold(event);
     }
 
     public void onChar(int codepoint) {
-        listener.onCharCallback(codepoint);
+        if (listener != null) listener.onCharCallback(codepoint);
     }
 
     public void setListener(IKeyListener listener) {
-        this.listener = listener;
+        if (listener != null) this.listener = listener;
     }
 }
