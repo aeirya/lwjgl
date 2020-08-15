@@ -3,7 +3,7 @@ package com.bubble.gui;
 import java.util.List;
 import java.util.logging.Logger;
 
-import com.bubble.input.IMouseListener;
+import com.bubble.input.mouse.IMouseListener;
 import com.bubble.std.Color;
 import com.bubble.std.Dimension;
 import com.bubble.std.Point;

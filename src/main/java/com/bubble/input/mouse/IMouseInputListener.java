@@ -1,4 +1,4 @@
-package com.bubble.input;
+package com.bubble.input.mouse;
 
 public interface IMouseInputListener {
     void onMouseMove(MouseState mouse);

@@ -1,4 +1,4 @@
-package com.bubble.input;
+package com.bubble.input.mouse;
 
 @FunctionalInterface
 public interface IMouseClickListener extends IMouseAdapter {

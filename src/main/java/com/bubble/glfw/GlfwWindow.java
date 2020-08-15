@@ -4,8 +4,8 @@ import static org.lwjgl.glfw.GLFW.*;
 
 import java.util.logging.Logger;
 
-import com.bubble.input.IMouseInputListener;
-import com.bubble.input.IWindowInput;
+import com.bubble.input.mouse.IMouseInputListener;
+import com.bubble.input.mouse.IWindowInput;
 import com.bubble.input.keyboard.IKeyListener;
 import com.bubble.render.IRenderer;
 

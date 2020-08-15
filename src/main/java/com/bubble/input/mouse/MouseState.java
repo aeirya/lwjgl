@@ -1,4 +1,4 @@
-package com.bubble.input;
+package com.bubble.input.mouse;
 
 import com.bubble.std.Point;
 

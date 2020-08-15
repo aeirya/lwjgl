@@ -1,4 +1,4 @@
-package com.bubble.input;
+package com.bubble.input.mouse;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,8 +7,10 @@ import com.bubble.gui.MenuLayout;
 
 public class MenuListenerMap {
     private final Map<String, IMouseListener> listenerMap;
+    private final MenuLayout layout;
 
-    public MenuListenerMap() {
+    public MenuListenerMap(MenuLayout layout) {
+        this.layout = layout;
         listenerMap = new HashMap<>();
         listenerMap.put(
             "start_button", 
@@ -23,12 +25,19 @@ public class MenuListenerMap {
                 .setOnClick(a -> System.out.println("decksss"))
                 .setOnMouseEnter(a -> System.out.println("hi"))
                 .setOnMouseExit(a -> System.out.println("bye")));
-                
+        listenerMap.put(
+            "console",
+            new MouseListener().setOnClick(a -> activeConsole())
+            );                
     }
 
-    public void apply(MenuLayout layout) {
+    public void apply() {
         listenerMap.forEach((id, listener) -> {
             layout.findInChildren(id).setMouseListener(listener);
         });
+    }
+
+    private void activeConsole() {
+        System.out.println("console!");
     }
 }

@@ -1,6 +1,6 @@
 package com.bubble.glfw;
 
-import com.bubble.input.MouseState;
+import com.bubble.input.mouse.MouseState;
 import com.bubble.std.Point;
 
 public class GlfwMouseState {

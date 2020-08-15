@@ -1,16 +1,16 @@
 package com.bubble.gui;
 
 import com.bubble.glfw.GlfwWindow;
-import com.bubble.input.MouseInput;
+import com.bubble.input.GameInput;
 import com.bubble.input.keyboard.KeyListener;
+import com.bubble.input.mouse.MouseInput;
 import com.bubble.render.Shader;
 import com.bubble.util.config.Config;
 
 public class GameGraphics {
     private final IGuiRenderer gui;
     private final GlfwWindow window;
-    private final MouseInput mouse;
-    private final KeyListener keys;
+    private final GameInput input;
 
     private Menu currentMenu;
 
@@ -18,9 +18,7 @@ public class GameGraphics {
         Config.load("assets");
         window = new GlfwWindow();
         gui = new GuiRenderer();
-        mouse = new MouseInput(window);
-        keys = new KeyListener();
-        window.setListener(keys);
+        input = new GameInput(window);
         launch(new Menu());
         init();
     }
@@ -33,7 +31,7 @@ public class GameGraphics {
     
     public void launch(Menu menu) {
         this.currentMenu = menu;
-        mouse.setMenu(menu);
+        input.setMenu(menu);
         menu.addTo(gui);
     }
 }

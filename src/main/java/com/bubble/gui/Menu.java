@@ -1,6 +1,6 @@
 package com.bubble.gui;
 
-import com.bubble.input.MenuListenerMap;
+import com.bubble.input.mouse.MenuListenerMap;
 import com.bubble.util.config.Config;
 
 public class Menu implements IMenu {
@@ -9,7 +9,7 @@ public class Menu implements IMenu {
 
     public Menu() {
         layout = new MenuLayout(Config.getLayoutPath() + "main.json");
-        new MenuListenerMap().apply(layout);
+        new MenuListenerMap(layout).apply();
     }
 
     public void addTo(IGuiRenderer gui) {

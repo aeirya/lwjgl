@@ -1,7 +1,7 @@
 package com.bubble.glfw;
 
-import com.bubble.input.IMouseInputListener;
-import com.bubble.input.MouseState;
+import com.bubble.input.mouse.IMouseInputListener;
+import com.bubble.input.mouse.MouseState;
 import com.bubble.std.Math;
 import com.bubble.std.Point;
 

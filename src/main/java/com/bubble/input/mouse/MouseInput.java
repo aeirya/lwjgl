@@ -1,4 +1,4 @@
-package com.bubble.input;
+package com.bubble.input.mouse;
 
 import com.bubble.gui.Element;
 import com.bubble.gui.IMenu;
