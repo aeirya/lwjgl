@@ -1,6 +1,7 @@
 package com.bubble.render;
 
 import com.bubble.opengl.Program;
+import com.bubble.util.config.Config;
 import com.bubble.util.file.FileLoader;
 
 public class Shader extends Program {
@@ -9,8 +10,6 @@ public class Shader extends Program {
     private static Shader elementShader;
     private static Shader shapeShader;
     private static Shader fontShader;
-
-    private static final String SHADER_PATH = "./assets/shader/";
 
     private Shader(String vertSource, String fragSource) { 
         super(vertSource, fragSource);
@@ -29,7 +28,7 @@ public class Shader extends Program {
     }
 
     private static String read(String name) {
-        return new FileLoader(SHADER_PATH + name).load();
+        return new FileLoader(Config.getShaderPath() + name).load();
     }
 
     public static Shader getTextureShader() {

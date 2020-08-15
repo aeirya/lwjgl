@@ -117,9 +117,8 @@ public class GlfwWindow implements IWindowInput {
     public int getHeight() {
         return HEIGHT;
     }
-
-
     public void setListener(IMouseInputListener listener) {
         input.setListener(listener);
     }
+
 }

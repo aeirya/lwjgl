@@ -3,6 +3,7 @@ package com.bubble.gui;
 import com.bubble.glfw.GlfwWindow;
 import com.bubble.input.MouseInput;
 import com.bubble.render.Shader;
+import com.bubble.util.config.Config;
 
 public class GameGraphics {
     private final IGuiRenderer gui;
@@ -12,6 +13,7 @@ public class GameGraphics {
     private Menu currentMenu;
 
     public GameGraphics() {
+        Config.load("assets");
         window = new GlfwWindow();
         gui = new GuiRenderer();
         mouse = new MouseInput(window);

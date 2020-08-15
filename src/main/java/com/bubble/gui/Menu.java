@@ -1,14 +1,14 @@
 package com.bubble.gui;
 
 import com.bubble.input.MenuListenerMap;
+import com.bubble.util.config.Config;
 
 public class Menu implements IMenu {
 
-    private static final String LAYOUT_PATH = "./assets/layout/main.json";
     private final MenuLayout layout;
 
     public Menu() {
-        layout = new MenuLayout(LAYOUT_PATH);
+        layout = new MenuLayout(Config.getLayoutPath() + "main.json");
         new MenuListenerMap().apply(layout);
     }
 
