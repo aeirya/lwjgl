@@ -34,8 +34,9 @@
                         "r": 250,
                         "g": 250,
                         "b": 250,
-                        "a" : 0.1
-                    }
+                        "a" : 1
+                    },
+                    "texture": "hero_slot"
                 },
                 {
                     "type": "panel",
@@ -70,8 +71,9 @@
                         "r": 250,
                         "g": 250,
                         "b": 250,
-                        "a" : 0.1
-                    }
+                        "a" : 1
+                    },
+                    "texture": "hero_slot"
                 },
                 {
                     "type": "panel",
@@ -199,6 +201,98 @@
                         "a": 1.0
                     },
                     "isDisabled": false
+                },
+                {
+                    "type": "panel",
+                    "size": {
+                        "width": 0.2875,
+                        "height": 0.4
+                    },
+                    "position": {
+                        "x": -0.5,
+                        "y": 0.5
+                    },
+                    "texture": "minion",
+                    "color": {
+                        "r": 256,
+                        "g": 256,
+                        "b": 256,
+                        "a": 1
+                    }
+                }
+            ]
+        },
+        {
+            "id": "hand_panel",
+            "type": "panel",
+            "size": {
+                "width": 1,
+                "height": 0.25
+            },
+            "position": {
+                "x": -0.5,
+                "y": -0.80
+            },
+            "color": {
+                "r": 50,
+                "g": 50,
+                "b": 50,
+                "a": 1
+            },
+            "children": [
+                {
+                    "type": "panel",
+                    "size": {
+                        "width": 0.33,
+                        "height": 0.5
+                    },
+                    "position": {
+                        "x": -0.5,
+                        "y": -0.5
+                    },
+                    "texture": "card",
+                    "color": {
+                        "r": 256,
+                        "g": 256,
+                        "b": 256,
+                        "a": 1
+                    }
+                },
+                {
+                    "type": "panel",
+                    "size": {
+                        "width": 0.5,
+                        "height": 0.69
+                    },
+                    "position": {
+                        "x": -0.25,
+                        "y": -0.3
+                    },
+                    "texture": "card",
+                    "color": {
+                        "r": 256,
+                        "g": 256,
+                        "b": 256,
+                        "a": 1
+                    }
+                },
+                {
+                    "type": "panel",
+                    "size": {
+                        "width": 0.7,
+                        "height": 0.97
+                    },
+                    "position": {
+                        "x": 0.10,
+                        "y": -0.02
+                    },
+                    "texture": "card",
+                    "color": {
+                        "r": 256,
+                        "g": 256,
+                        "b": 256,
+                        "a": 1
+                    }
                 }
             ]
         }

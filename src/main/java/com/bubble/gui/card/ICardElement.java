@@ -15,8 +15,6 @@ public interface ICardElement {
     Color getColor();
     String getFont();
     String getTexture();
-    boolean isDisabled();
-    boolean isHidden();
     IMouseListener getMouseListener();
 
     void setText(String text);

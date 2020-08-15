@@ -7,8 +7,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 
-import com.google.common.io.Files;
-
 public class FileLoader implements IFileReader<String> {
 
     private Reader reader;

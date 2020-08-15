@@ -1,8 +1,6 @@
 package com.bubble.input.mouse;
 
 import com.bubble.gui.IGuiManager;
-import com.bubble.gui.IMenu;
-import com.bubble.gui.element.Element;
 import com.bubble.gui.element.IElement;
 import com.bubble.std.Dimension;
 import com.bubble.std.Math;

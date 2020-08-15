@@ -19,14 +19,12 @@ public class CardElement implements ICardElement{
     private Color color;
     private String font;
     private String texture;
-    private boolean isDisabled;
-    private boolean isHidden;
     private IMouseListener listener;
     
     public CardElement() {}
 
     public CardElement(String id, CardType type, Point position, Dimension size, String text, String font, Color color,
-    String texture, boolean isDisabled, boolean isHidden) {
+    String texture) {
         this.id = id;
         this.type = type;
         this.position = position;
@@ -35,8 +33,6 @@ public class CardElement implements ICardElement{
         this.color = color;
         this.font = font;
         this.texture = texture;
-        this.isDisabled = isDisabled;
-        this.isHidden = isHidden;
     }
 
     public CardElement(ICardElement ce) {
@@ -48,8 +44,6 @@ public class CardElement implements ICardElement{
         this.color = ce.getColor();
         this.font = ce.getFont();
         this.texture = ce.getTexture();
-        this.isDisabled = ce.isDisabled();
-        this.isHidden = ce.isHidden();
     }
 
     public String getId() {
@@ -116,22 +110,6 @@ public class CardElement implements ICardElement{
         this.texture = texture;
     }
 
-    public boolean isDisabled() {
-        return isDisabled;
-    }
-
-    public void setDisabled(boolean isDisabled) {
-        this.isDisabled = isDisabled;
-    }
-
-    public boolean isHidden() {
-        return isHidden;
-    }
-
-    public void setHidden(boolean isHidden) {
-        this.isHidden = isHidden;
-    }
-
     public IMouseListener getMouseListener() {
         return listener;
     }
@@ -141,9 +119,9 @@ public class CardElement implements ICardElement{
     }
 
     public void paintComponent(IGuiRenderer r) {
-        if (isHidden) return;
         if (type != null) {
-            switch(type) {  // TODO: Set types.
+            // TODO: Set types.
+            switch(type) {  
                 case MINION:
                 break;
                 case WEAPON:
