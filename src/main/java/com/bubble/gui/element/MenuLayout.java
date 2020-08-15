@@ -1,4 +1,4 @@
-package com.bubble.gui;
+package com.bubble.gui.element;
 
 import java.util.List;
 import java.util.Objects;

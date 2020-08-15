@@ -2,6 +2,7 @@ package com.bubble.gui;
 
 import java.util.List;
 
+import com.bubble.gui.element.IElement;
 import com.bubble.input.GameInput;
 
 public interface IGuiManager {

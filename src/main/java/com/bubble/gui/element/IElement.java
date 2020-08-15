@@ -1,7 +1,8 @@
-package com.bubble.gui;
+package com.bubble.gui.element;
 
 import java.util.List;
 
+import com.bubble.gui.IGuiRenderer;
 import com.bubble.input.mouse.IMouseListener;
 import com.bubble.std.Color;
 import com.bubble.std.Dimension;
@@ -23,8 +24,7 @@ public interface IElement {
     
     void setText(String text);
     void setChildren(List<IElement> children);
-    void addText(String text);
-    
+
     void setMouseListener(IMouseListener listener);
     void paintComponent(IGuiRenderer r);
 }

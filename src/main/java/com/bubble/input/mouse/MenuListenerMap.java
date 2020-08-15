@@ -3,7 +3,7 @@ package com.bubble.input.mouse;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.bubble.gui.MenuLayout;
+import com.bubble.gui.element.MenuLayout;
 
 public class MenuListenerMap {
     private final Map<String, IMouseListener> listenerMap;

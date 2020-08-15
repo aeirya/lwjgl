@@ -1,6 +1,6 @@
 package com.bubble.sample;
 
-import com.bubble.gui.GameGraphics;
+import com.bubble.graphics.GameGraphics;
 
 public class Graphics extends GameGraphics {
     Graphics() {

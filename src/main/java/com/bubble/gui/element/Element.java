@@ -1,8 +1,9 @@
-package com.bubble.gui;
+package com.bubble.gui.element;
 
 import java.util.List;
 import java.util.logging.Logger;
 
+import com.bubble.gui.IGuiRenderer;
 import com.bubble.input.mouse.IMouseAdapter;
 import com.bubble.input.mouse.IMouseListener;
 import com.bubble.input.mouse.MouseState;
@@ -95,10 +96,6 @@ public class Element implements IElement {
 
     public void setText(String text) {
         this.text = text;
-    }
-
-    public void addText(String text) {
-        this.text += text;
     }
 
     public String getFont() {

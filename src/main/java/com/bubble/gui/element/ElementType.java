@@ -1,4 +1,4 @@
-package com.bubble.gui;
+package com.bubble.gui.element;
 
 public enum ElementType {
     BUTTON, PANEL, LABEL, COLLIDER, TEXTBOX, IMAGE;

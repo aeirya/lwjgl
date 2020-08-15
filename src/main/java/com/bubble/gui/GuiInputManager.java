@@ -2,52 +2,21 @@ package com.bubble.gui;
 
 import java.util.List;
 
+import com.bubble.gui.element.IElement;
 import com.bubble.input.GameInput;
-import com.bubble.input.keyboard.IKeyAdapter;
-import com.bubble.input.keyboard.IKeyCharTypeListener;
-import com.bubble.input.keyboard.IKeyEvent;
-import com.bubble.input.keyboard.IKeyListener;
-
-import org.lwjgl.glfw.GLFW;
 
 public class GuiInputManager implements IGuiManager {
     
-    private final IKeyListener keyListener;
+    private final KeyInputRegisterer keyRegisterer;
     private IMenu currentMenu;
     private IElement active;
 
     public GuiInputManager() {
-        keyListener = new IKeyAdapter(){
-            @Override
-            public void onCharCallback(int codePoint) {
-                System.out.println(codePoint);
-                final String typed = Character.toString(codePoint);
-                System.out.println("typing: " + typed);
-                if(active != null) {
-                    if (active.getType().equals(ElementType.TEXTBOX)) {
-                        active.addText(typed);
-                        System.out.println("the textbox says: " + active.getText());   
-                    }
-                }
-            }
-            @Override
-            public void onKeyPress(IKeyEvent event) {
-                if (event.getKey() == GLFW.GLFW_KEY_BACKSPACE) {
-                    System.out.println("back space!");
-                    if (active != null) {
-                        if (active.getType().equals(ElementType.TEXTBOX)) {
-                            // new Textbox(active).backspace();
-                            ((Textbox) active).backspace();
-                            System.out.println("textbox text: " + active.getText());
-                        }
-                    }
-                }
-            }
-        };
+        keyRegisterer = new KeyInputRegisterer(this);
     }
 
     public void bind(GameInput input) {
-        input.bindListener(keyListener);
+        input.bindListener(keyRegisterer);
         input.bindGuiManager(this);
     }
 

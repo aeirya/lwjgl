@@ -1,9 +1,7 @@
-package com.bubble.gui;
+package com.bubble.util.resource;
 
 import com.bubble.opengl.Texture;
 import com.bubble.std.Dimension;
-import com.bubble.util.resource.EnumTexture;
-import com.bubble.util.resource.TextureManager;
 
 public class UiManager {
     private final TextureManager textures;

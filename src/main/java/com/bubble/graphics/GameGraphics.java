@@ -1,6 +1,11 @@
-package com.bubble.gui;
+package com.bubble.graphics;
 
 import com.bubble.glfw.GlfwWindow;
+import com.bubble.gui.GuiInputManager;
+import com.bubble.gui.GuiRenderer;
+import com.bubble.gui.IGuiManager;
+import com.bubble.gui.IGuiRenderer;
+import com.bubble.gui.Menu;
 import com.bubble.input.GameInput;
 import com.bubble.render.Shader;
 import com.bubble.util.config.Config;

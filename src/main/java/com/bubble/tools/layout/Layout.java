@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.bubble.gui.Element;
-import com.bubble.gui.ElementConverer;
-import com.bubble.gui.ElementType;
-import com.bubble.gui.IElement;
+import com.bubble.gui.element.Element;
+import com.bubble.gui.element.ElementConverer;
+import com.bubble.gui.element.ElementType;
+import com.bubble.gui.element.IElement;
 import com.bubble.std.Color;
 import com.bubble.std.Dimension;
 import com.bubble.std.Point;

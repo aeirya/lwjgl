@@ -1,4 +1,6 @@
-package com.bubble.gui;
+package com.bubble.gui.element;
+
+import com.bubble.gui.IGuiRenderer;
 
 public interface IButton extends IElement {
 

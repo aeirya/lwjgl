@@ -1,4 +1,4 @@
-package com.bubble.gui;
+package com.bubble.gui.element;
 
 import com.bubble.std.Color;
 import com.bubble.std.Dimension;

@@ -1,5 +1,6 @@
 package com.bubble.gui;
 
+import com.bubble.gui.element.MenuLayout;
 import com.bubble.input.mouse.MenuListenerMap;
 import com.bubble.util.config.Config;
 

@@ -3,9 +3,11 @@ package com.bubble.gui;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.bubble.gui.element.IElement;
 import com.bubble.opengl.Texture;
 import com.bubble.render.Graphics;
 import com.bubble.util.resource.TextureManager;
+import com.bubble.util.resource.UiManager;
 
 public class GuiRenderer implements IGuiRenderer {
     private final Graphics g;

@@ -2,6 +2,7 @@ package com.bubble.gui;
 
 import java.util.List;
 
+import com.bubble.gui.element.IElement;
 import com.bubble.render.IRenderer;
 
 public interface IGuiRenderer extends IRenderer {

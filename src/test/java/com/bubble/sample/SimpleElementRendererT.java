@@ -1,8 +1,8 @@
 package com.bubble.sample;
 
 import com.bubble.glfw.GlfwWindow;
-import com.bubble.gui.Button;
 import com.bubble.gui.GuiRenderer;
+import com.bubble.gui.element.Button;
 import com.bubble.render.Shader;
 
 public class SimpleElementRendererT {

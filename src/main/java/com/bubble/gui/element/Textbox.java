@@ -1,17 +1,20 @@
-package com.bubble.gui;
+package com.bubble.gui.element;
 
-
-public class Textbox extends Element {
+public class Textbox extends Element implements ITextbox {
     public Textbox(IElement element) {
         super(element);
     }
 
-    public void addText(String text) {
+    public void write(String text) {
         setText(getText() + text);
     }
 
-    public void backspace() {
+    public void delete() {
         setText(removeLastCharacter(getText()));
+    }
+    
+    public void clear() {
+        setText("");
     }
 
     private static String removeLastCharacter(String str) {
