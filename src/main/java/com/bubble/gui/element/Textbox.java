@@ -1,5 +1,7 @@
 package com.bubble.gui.element;
 
+import com.bubble.gui.IGuiRenderer;
+
 public class Textbox extends Element implements ITextbox {
     public Textbox(IElement element) {
         super(element);
@@ -20,5 +22,11 @@ public class Textbox extends Element implements ITextbox {
     private static String removeLastCharacter(String str) {
         if (str.length() == 0) return "";
         else return str.substring(0, str.length() - 1);
+    }
+
+    @Override
+    public void paintComponent(IGuiRenderer r) {
+        super.paintComponent(r);
+        r.drawText(this.getText(), this.getPosition(), this.getFont());
     }
 }
