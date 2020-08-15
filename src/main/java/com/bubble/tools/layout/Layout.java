@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.bubble.gui.Element;
+import com.bubble.gui.ElementConverer;
 import com.bubble.gui.ElementType;
+import com.bubble.gui.IElement;
 import com.bubble.std.Color;
 import com.bubble.std.Dimension;
 import com.bubble.std.Point;
@@ -25,12 +27,13 @@ public class Layout {
         return elements;
     }
 
-    public static List<Element> load(String path) {
+    public static List<IElement> load(String path) {
         return new Gson()
         .fromJson(new FileLoader(path).load(), Layout.class)
         .getElements()
         .stream()
         .map(LayoutElement::toElement)
+        .map(ElementConverer::morph)
         .collect(Collectors.toList());
     }
 
@@ -48,7 +51,7 @@ public class Layout {
 
         private List<LayoutElement> children;
 
-        public Element toElement() {
+        public IElement toElement() {
             return new ElementBuilder()
                 .setId(id)
                 .setType(getType())
@@ -87,7 +90,7 @@ public class Layout {
             else return new Dimension(size.width, size.height);
         }
         
-        private List<Element> getChildren() {
+        private List<IElement> getChildren() {
             if (children == null) return new ArrayList<>();
             else return children.stream().map(LayoutElement::toElement).collect(Collectors.toList());
         }

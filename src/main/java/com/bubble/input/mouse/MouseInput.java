@@ -1,35 +1,43 @@
 package com.bubble.input.mouse;
 
 import com.bubble.gui.Element;
+import com.bubble.gui.IElement;
+import com.bubble.gui.IGuiManager;
 import com.bubble.gui.IMenu;
 import com.bubble.std.Dimension;
 import com.bubble.std.Math;
 import com.bubble.std.Point;
 
 public class MouseInput implements IMouseInputListener {
-    private Element currentElement;
-    private IMenu menu;
+    private IElement currentElement;
+    private IGuiManager gui;
+    private IMouseListener listener;
 
     public MouseInput(IWindowInput window) {
         listen(window);
     }
 
-    public void setMenu(IMenu menu) {
-        this.menu = menu;
+    public void setGuiManager(IGuiManager gui) {
+        this.gui = gui;
     }
 
     public void listen(IWindowInput input) {
         input.setListener(this);
     }
 
+    public void setListener(IMouseListener listener) {
+        this.listener = listener;
+    }
+
     @Override
     public void onMouseClick(MouseState mouse) {
-        if (menu != null) menu.onMouseClick(mouse);
+        // if (gui != null) gui.onMouseClick(mouse);
         getMouseListener().onMouseClick(mouse);
+        if (gui != null) gui.clicked(findCurrentElement(mouse));
     }
 
     public void onMouseRelease(MouseState mouse) {
-        if (menu != null) menu.onMouseRelease(mouse);
+        // if (gui != null) gui.onMouseRelease(mouse);
         getMouseListener().onMouseRelease(mouse);
     }
 
@@ -40,10 +48,12 @@ public class MouseInput implements IMouseInputListener {
         else return new IMouseAdapter(){ };
     }
 
-    public Element findCurrentElement(MouseState state) {
-        return menu
-            .getLayout()
-            .findAllElements()
+    public IElement findCurrentElement(MouseState state) {
+        if (gui == null) {
+            return null;
+        }
+        return gui
+            .getAllElementsOnScreen()
             .parallelStream()
             .filter(e -> checkInRange(state.getPosition(), e))
             .sorted((a, b) -> a.getChildren().size() - b.getChildren().size())
@@ -53,12 +63,12 @@ public class MouseInput implements IMouseInputListener {
 
     @Override
     public void onMouseMove(MouseState mouse) {
-        if (menu != null) menu.onMouseMove(mouse);
+        // if (gui != null) gui.onMouseMove(mouse);
         checkMouseExit(mouse);
     }
     
     private void checkMouseExit(MouseState mouse) {
-        final Element e = findCurrentElement(mouse);
+        final IElement e = findCurrentElement(mouse);
         if (e != null && e != currentElement) {
             onMouseExit(mouse);
             currentElement = e;
@@ -81,7 +91,7 @@ public class MouseInput implements IMouseInputListener {
     
     // checks mouse boundary
 
-    public boolean checkInRange(Point mousePos, Element element) {
+    public boolean checkInRange(Point mousePos, IElement element) {
         if (element == null) return false;
         final Dimension size = element.getSize();
         final Point loc = element.getPosition();

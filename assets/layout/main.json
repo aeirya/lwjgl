@@ -21,7 +21,7 @@
             "children": [
                 {
                     "id": "console",
-                    "type": "panel",
+                    "type": "textbox",
                     "size": {
                         "width": 2.0,
                         "height": 0.1

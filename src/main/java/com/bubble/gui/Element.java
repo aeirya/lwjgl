@@ -23,12 +23,12 @@ public class Element implements IElement {
     private boolean isHidden;
     private IMouseListener listener;
 
-    private List<Element> children;
+    private List<IElement> children;
 
     public Element() { }
 
     public Element(String id, ElementType type, Point position, Dimension size, String text, String font, Color color,
-            String texture, boolean isDisabled, boolean isHidden, List<Element> children) {
+            String texture, boolean isDisabled, boolean isHidden, List<IElement> children) {
         this.id = id;
         this.type = type;
         this.position = position;
@@ -97,6 +97,10 @@ public class Element implements IElement {
         this.text = text;
     }
 
+    public void addText(String text) {
+        this.text += text;
+    }
+
     public String getFont() {
         return font;
     }
@@ -137,11 +141,11 @@ public class Element implements IElement {
         this.isHidden = isHidden;
     }
 
-    public List<Element> getChildren() {
+    public List<IElement> getChildren() {
         return children;
     }
 
-    public void setChildren(List<Element> children) {
+    public void setChildren(List<IElement> children) {
         this.children = children;
     }
 
@@ -161,6 +165,7 @@ public class Element implements IElement {
                 r.drawButton(this);
                 break;
                 case PANEL:
+                case TEXTBOX:
                 r.drawPanel(this);
                 break;
                 default:

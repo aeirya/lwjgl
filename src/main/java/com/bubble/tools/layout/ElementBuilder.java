@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.bubble.gui.Element;
 import com.bubble.gui.ElementType;
+import com.bubble.gui.IElement;
 import com.bubble.std.Color;
 import com.bubble.std.Dimension;
 import com.bubble.std.Point;
@@ -20,7 +21,7 @@ public class ElementBuilder {
     private boolean isDisabled;
     private boolean isHidden;
 
-    private List<Element> children;
+    private List<IElement> children;
 
     public ElementBuilder setId(String id) {
         this.id = id;
@@ -72,12 +73,12 @@ public class ElementBuilder {
         return this;
     }
 
-    public ElementBuilder setChildren(List<Element> children) {
+    public ElementBuilder setChildren(List<IElement> children) {
         this.children = children;
         return this;
     }
 
-    public Element toElement() {
+    public IElement toElement() {
         return new Element(id, type, position, size, text, font, color, texture, isDisabled, isHidden, children);
     }
 }

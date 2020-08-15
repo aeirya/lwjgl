@@ -18,8 +18,13 @@ public interface IElement {
     String getTexture();
     boolean isDisabled();
     boolean isHidden();
-    void setMouseListener(IMouseListener listener);
     IMouseListener getMouseListener();
-    List<Element> getChildren();
+    List<IElement> getChildren();
+    
+    void setText(String text);
+    void setChildren(List<IElement> children);
+    void addText(String text);
+    
+    void setMouseListener(IMouseListener listener);
     void paintComponent(IGuiRenderer r);
 }

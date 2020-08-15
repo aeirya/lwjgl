@@ -8,30 +8,30 @@ import java.util.stream.Stream;
 import com.bubble.tools.layout.Layout;
 
 public class MenuLayout {
-    protected List<Element> elements;
+    protected List<IElement> elements;
 
     public MenuLayout(String path) {
         elements = Layout.load(path);
     }
 
-    public List<Element> getElements() {
+    public List<IElement> getElements() {
         return elements;
     }
 
-    public Element getElement(String id) {
+    public IElement getElement(String id) {
         return elements.stream().filter(e -> e.getId() != null).filter(e -> e.getId().equals(id)).findAny().orElse(null);
     }
 
-    public Element findInChildren(String id) {
+    public IElement findInChildren(String id) {
         return findInChildren(id, elements);
     }
 
-    private Element findInChildren(String id, List<Element> elements) {
-        Element elem = elements.stream().filter(e -> e.getId() != null).filter(e -> e.getId().equals(id)).findAny().orElse(null);
+    private IElement findInChildren(String id, List<IElement> elements) {
+        IElement elem = elements.stream().filter(e -> e.getId() != null).filter(e -> e.getId().equals(id)).findAny().orElse(null);
         if(elem != null) return elem;
         elem = elements
             .stream()
-            .map(Element::getChildren)
+            .map(IElement::getChildren)
             .filter(Objects::nonNull)
             .map(list -> findInChildren(id, list))
             .filter(Objects::nonNull)
@@ -40,19 +40,19 @@ public class MenuLayout {
         return elem;
     }
 
-    public List<Element> getElementsOfType(ElementType type) {
+    public List<IElement> getElementsOfType(ElementType type) {
         return elements.stream().filter(e -> e.getType().equals(type)).collect(Collectors.toList());
     }
 
-    public List<Element> findAllElements() {
+    public List<IElement> findAllElements() {
         return flattened().collect(Collectors.toList());
     }
 
-    public Stream<Element> flattened() {
+    public Stream<IElement> flattened() {
         return flattened(elements.get(0), elements.get(0).getChildren());
     }
 
-    private Stream<Element> flattened(Element current, List<Element> children) {
+    private Stream<IElement> flattened(IElement current, List<IElement> children) {
         return Stream.concat(
             Stream.of(current), 
             children.stream().flatMap(e -> flattened(e, e.getChildren())));
