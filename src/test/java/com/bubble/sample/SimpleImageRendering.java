@@ -17,7 +17,7 @@ public class SimpleImageRendering {
         // window.setRenderer(renderer);
         Shader.initiateShaders();
         Graphics g = new Graphics();
-        final Texture cat = textManager.getTexture("container");
+        final Texture cat = textManager.getTexture("bear");
         // g.drawSimpleRect(-0.25f, 0.0f, 0.5f, 0.75f);
         g.drawImage(-0.5f, -0.5f, 0.24f, 0.3f, cat);
         g.drawImage(-1.0f, 1.0f, 1.0f, 1.0f,  cat);

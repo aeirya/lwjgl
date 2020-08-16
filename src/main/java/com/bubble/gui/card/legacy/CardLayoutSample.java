@@ -26,6 +26,6 @@ public class CardLayoutSample extends CardLayout {
         
     }
 
-    private static final FieldFont sampleFont = new FieldFont("font", 20);
+    public static final FieldFont sampleFont = new FieldFont("font", 20);
     
 }
