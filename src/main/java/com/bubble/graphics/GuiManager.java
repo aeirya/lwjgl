@@ -2,6 +2,9 @@ package com.bubble.graphics;
 
 import java.util.List;
 
+import com.bubble.athena.client.gui.menu.GameMenuLauncher;
+import com.bubble.graphics.menu.IMenuLauncher;
+import com.bubble.graphics.menu.MenuType;
 import com.bubble.gui.GuiInputManager;
 import com.bubble.gui.IGuiManager;
 import com.bubble.gui.IMenu;
@@ -16,10 +19,12 @@ import com.bubble.std.Point;
 
 public class GuiManager implements IGuiManager {
     private final GuiInputManager inputManager;
+    private final IMenuLauncher launcher; 
     private IMenu currentMenu;
 
     public GuiManager() {
         inputManager = new GuiInputManager(this);
+        launcher = new GameMenuLauncher(this);
     }
 
     @Override
@@ -33,8 +38,16 @@ public class GuiManager implements IGuiManager {
         inputManager.bind(input);
     }
 
+    public void launch(MenuType menu) {
+        launcher.launch(menu);
+    }
+
     @Override
     public void launch(IMenu menu) {
+        this.currentMenu = menu;
+    }
+
+    private void setMenu(IMenu menu) {
         this.currentMenu = menu;
     }
 

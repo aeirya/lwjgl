@@ -8,9 +8,9 @@ public class Menu implements IMenu {
 
     private final MenuLayout layout;
 
-    public Menu() {
-        layout = new MenuLayout(Config.getLayoutPath() + "game.json");
-        new MenuListenerMap(layout).apply();
+    protected Menu(String layoutName) {
+        this.layout = new MenuLayout(Config.getLayoutPath() + layoutName);
+        new MenuListenerMap().apply(layout);
     }
 
     public MenuLayout getLayout() {
