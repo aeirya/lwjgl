@@ -46,6 +46,10 @@ public class GlfwWindow implements IWindowInput {
         glfwMakeContextCurrent(window);
         glfwSetFramebufferSizeCallback(window, this::framebufferSizeCallback);
         GL.createCapabilities();
+        enableAlpha();
+    }
+
+    private void enableAlpha() {
         GL11.glEnable(GL11.GL_BLEND);
         GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
     }

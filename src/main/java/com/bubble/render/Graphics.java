@@ -14,11 +14,16 @@ public class Graphics implements IRenderer, IAdvancedGraphics {
     public Graphics() {
         gbb = new GraphicsBufferBuilder();
         memory = new GraphicsMemory();
-        color = Color.GRAY;
+        resetColor();
+    }
+    
+    private void resetColor() {
+        color = Color.WHITE;
     }
 
     public void clear() {
         memory.clear();
+        resetColor();
     }
 
     public void setColor(float r, float g, float b, float a) {

@@ -67,6 +67,9 @@ public class GuiRenderer implements IGuiRenderer {
 
     public void render() {
         elements.forEach(this::render);
+        g.drawImage(0, -0.5f, 0.3f, 0.5f, textures.getTexture("card"));
+        g.drawImage(-0.3f, -0.5f, 0.3f, 0.5f, textures.getTexture("card"));
+        g.drawImage(-0.8f, -0.2f, 0.5f, 0.83f, textures.getTexture("card"));
         g.render();
         clearMemory();
     }

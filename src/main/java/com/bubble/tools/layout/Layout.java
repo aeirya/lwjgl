@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.bubble.gui.element.Element;
 import com.bubble.gui.element.ElementConverer;
 import com.bubble.gui.element.ElementType;
 import com.bubble.gui.element.IElement;
