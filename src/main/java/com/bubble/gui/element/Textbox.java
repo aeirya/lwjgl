@@ -25,8 +25,8 @@ public class Textbox extends Element implements ITextbox {
     }
 
     @Override
-    public void paintComponent(IGuiRenderer r) {
-        super.paintComponent(r);
+    public void renderComponent(IGuiRenderer r) {
+        super.renderComponent(r);
         r.drawText(this.getText(), this.getPosition(), this.getFont());
     }
 }

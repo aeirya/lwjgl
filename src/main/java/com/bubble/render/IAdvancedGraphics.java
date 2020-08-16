@@ -31,4 +31,12 @@ public interface IAdvancedGraphics extends IGraphics {
     default void drawElement(Point position, Dimension size, Texture texture) {
         drawElement(position.x, position.y, size.width, size.height, texture);
     }
+
+    default void setFont(String font) {
+        // nothing for now!
+    }
+
+    default void drawText(String text, Point location, float scale) {
+        drawText(text, location.x, location.y , scale);
+    }
 }

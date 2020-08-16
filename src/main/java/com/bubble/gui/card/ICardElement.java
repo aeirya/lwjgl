@@ -7,11 +7,11 @@ import com.bubble.std.Dimension;
 import com.bubble.std.Point;
 
 public interface ICardElement {
-    String getId();
+    String getName();
     CardType getType();
     Point getPosition();
     Dimension getSize();
-    String getText();
+    String getDescription();
     Color getColor();
     String getFont();
     String getTexture();

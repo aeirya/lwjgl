@@ -16,4 +16,7 @@ public class Math {
         else return (value < end) && (value > start);
     }
 
+    public static Point toPoint(Dimension dim) {
+        return new Point(dim.width, dim.height);
+    }
 }

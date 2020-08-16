@@ -10,7 +10,7 @@ public interface IButton extends IElement {
     }
 
     @Override
-    default void paintComponent(IGuiRenderer r) {
+    default void renderComponent(IGuiRenderer r) {
         r.drawButton(this);
     }
 }

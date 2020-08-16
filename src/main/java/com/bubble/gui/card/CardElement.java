@@ -11,47 +11,51 @@ import com.bubble.std.Dimension;
 import com.bubble.std.Point;
 
 public class CardElement implements ICardElement{
-    private String id;
+    private String name;
     private CardType type;
     private Point position;
     private Dimension size;
-    private String text;
+    private String description;
     private Color color;
     private String font;
     private String texture;
     private IMouseListener listener;
+
+    private int manaCost;
+    private int health;
+    private int attack;
     
     public CardElement() {}
 
-    public CardElement(String id, CardType type, Point position, Dimension size, String text, String font, Color color,
+    public CardElement(String name, CardType type, Point position, Dimension size, String descrption, String font, Color color,
     String texture) {
-        this.id = id;
+        this.name = name;
         this.type = type;
         this.position = position;
         this.size = size;
-        this.text = text;
+        this.description = descrption;
         this.color = color;
         this.font = font;
         this.texture = texture;
     }
 
     public CardElement(ICardElement ce) {
-        this.id = ce.getId();
+        this.name = ce.getName();
         this.type = ce.getType();
         this.position = ce.getPosition();
         this.size = ce.getSize();
-        this.text = ce.getText();
+        this.description = ce.getDescription();
         this.color = ce.getColor();
         this.font = ce.getFont();
         this.texture = ce.getTexture();
     }
 
-    public String getId() {
-        return id;
+    public String getName() {
+        return name;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setName(String id) {
+        this.name = id;
     }
 
     public CardType getType() {
@@ -78,12 +82,12 @@ public class CardElement implements ICardElement{
         this.size = size;
     }
 
-    public String getText() {
-        return text;
+    public String getDescription() {
+        return description;
     }
 
     public void setText(String text) {
-        this.text = text;
+        this.description = text;
     }
 
     public String getFont() {
