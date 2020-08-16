@@ -31,12 +31,12 @@ public class CardLayout {
     }
 
     private void renderImage(Graphics g, Texture image, Texture background, GuiElement element) {
-        g.drawImage(element.getLocation(), element.getSize(), background);
         g.drawImage(
-            imageLocation.scale(0.1f).mul(Math.toPoint(imageSize)).sum(element.getLocation()),
+            imageLocation.scale(0.1f).mul(new Point(1, -1)).mul(Math.toPoint(element.getSize())).sum(element.getLocation()),
             imageSize.scaled(0.1f).scaled(element.getWidth(), element.getHeight()),
             image
         );
+        g.drawImage(element.getLocation(), element.getSize(), background);
     }
 
     private void renderTexts(Graphics g, Card card, GuiElement element) {

@@ -2,7 +2,7 @@ package com.bubble.util.resource;
 
 public enum EnumTexture {
     BUTTON_LG, BUTTON_MD, BUTTON_XS,
-    CARD;
+    CARD, MONSTER_BACKGROUND;
 
     public String get() {
         return get(this);
@@ -18,6 +18,8 @@ public enum EnumTexture {
             return "button-md";
             case CARD:
             return "card";
+            case MONSTER_BACKGROUND:
+            return "minion";
             default:
             return null;
         }
