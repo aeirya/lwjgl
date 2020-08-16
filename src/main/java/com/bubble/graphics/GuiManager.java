@@ -1,6 +1,5 @@
 package com.bubble.graphics;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.bubble.gui.GuiInputManager;
@@ -50,11 +49,10 @@ public class GuiManager implements IGuiManager {
             new CardElement(
                 new GuiElement(
                     new Point(0, 0),
-                    new Dimension(1, 1)
+                    new Dimension(0.3f, 0.6f)
                     ),
                 new Card("bear")
                 )
         );
-        // return new ArrayList<>();
     }
 }

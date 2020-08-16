@@ -9,8 +9,8 @@ public class CardLayoutSample extends CardLayout {
 
     public CardLayoutSample() {
         super(
-            new Dimension(10, 4),
-            new Point(0, 1),
+            new Dimension(8.2f, 3.75f),
+            new Point(0.55f, 1.75f),
             new CardFieldLayoutConfig(
                 Map.of(
                     CardField.NAME, new Point(1, 5),

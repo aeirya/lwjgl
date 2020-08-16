@@ -45,6 +45,5 @@ public class GuiRenderer extends Renderer implements IGuiRenderer {
     @Override
     public void drawText(String text, Point position, String font) {
         // TODO Auto-generated method stub
-
     }
 }

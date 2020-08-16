@@ -10,8 +10,8 @@ public class CardRenderer extends Renderer implements ICardRenderer {
 
     public CardRenderer(TextureManager textures) {
         super(textures);
-        // layout = new CardLayoutSample();
-        layout = new MinionLayoutSample();
+        layout = new CardLayoutSample();
+        // layout = new MinionLayoutSample();
     }
 
     public void render(ICardElement card) {
