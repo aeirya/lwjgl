@@ -1,7 +1,5 @@
 package com.bubble.sample;
 
-import com.bubble.gui.Menu;
-
 public class LoadLayoutTes extends GraphicsTest {
     LoadLayoutTes() {
         super();
@@ -10,7 +8,7 @@ public class LoadLayoutTes extends GraphicsTest {
     }
 
     void test() {
-        new Menu().addTo(g);
+        // new Menu().addTo(g);
     }
 
     public static void main(String[] args) {

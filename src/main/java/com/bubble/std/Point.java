@@ -30,6 +30,26 @@ public class Point {
         );
     }
 
+    public Point scale(float rX, float rY) {
+        return new Point(
+            rX * x, rY * y
+        );
+    }
+    
+    public Point scale(float r) {
+        return scale(r, r);
+    }
+
+    public static Point mul(Point a, Point b) {
+        return new Point(
+            a.x * b.x, a.y * b.y
+        );
+    }
+
+    public Point mul(Point point) {
+        return mul(this, point);
+    }
+
     public String toString() {
         return x + ", " + y;
     }

@@ -62,4 +62,9 @@ public class Graphics implements IRenderer, IAdvancedGraphics {
     public void render() {
         draw();
     }
+
+    @Override
+    public void drawText(String text, float x, float y, float scale) {
+        System.err.println("drawing " + text);
+    }
 }

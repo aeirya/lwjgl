@@ -10,9 +10,13 @@ public class Dimension {
         this.height = height;
     }
 
-    public Dimension scaled(double ratio) {
+    public Dimension scaled(Float ratio) {
         return new Dimension(
-            (float) (ratio * width), (float) (ratio * height));
+            (ratio * width), (ratio * height));
+    }
+
+    public Dimension scaled(float rX, float rY) {
+        return new Dimension(width * rX, height * rY);
     }
 
     @Override

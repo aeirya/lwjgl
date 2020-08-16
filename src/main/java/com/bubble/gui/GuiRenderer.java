@@ -1,43 +1,24 @@
 package com.bubble.gui;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.bubble.gui.element.IElement;
 import com.bubble.opengl.Texture;
-import com.bubble.render.Graphics;
 import com.bubble.std.Point;
 import com.bubble.util.resource.TextureManager;
 import com.bubble.util.resource.UiManager;
 
-public class GuiRenderer implements IGuiRenderer {
-    private final Graphics g;
-    private List<IElement> elements;
-    private final TextureManager textures;
+public class GuiRenderer extends Renderer implements IGuiRenderer {
     private final UiManager ui;
 
-    public GuiRenderer() {
-        g = new Graphics();
-        elements = new ArrayList<>();
-        textures = new TextureManager();
+    public GuiRenderer(TextureManager textures) {
+        super(textures);
         ui = new UiManager(textures);
-    }
-
-    public void addElement(IElement e) {
-        elements.add(e);
-    }
-
-    public void addElements(List<? extends IElement> e) {
-        elements.addAll(e);
-    }
-
-    public void removeElement(IElement e) {
-        elements.remove(e);
     }
 
     @Override
     public void drawElement(IElement element) {
-        element.paintComponent(this);
+        element.renderComponent(this);
     }
     
     public void drawButton(IElement button) {
@@ -48,33 +29,22 @@ public class GuiRenderer implements IGuiRenderer {
     public void drawPanel(IElement e) {
         g.drawElement(e.getPosition(), e.getSize(), getTexture(e), e.getColor());
     }
-    
+
     private Texture getTexture(IElement e) {
         return textures.getTexture(e.getTexture());
     }
 
-    public void drawText(String text, Point position, String font) {
-        // not implemented
-    }
-    
     public void render(IElement element) {
         drawElement(element);
     }
 
-    private void clearMemory() {
-        g.clear();
-    }
-
-    public void render() {
+    public void render(List<IElement> elements) {
         elements.forEach(this::render);
-        g.drawImage(0, -0.5f, 0.3f, 0.5f, textures.getTexture("card"));
-        g.drawImage(-0.3f, -0.5f, 0.3f, 0.5f, textures.getTexture("card"));
-        g.drawImage(-0.8f, -0.2f, 0.5f, 0.83f, textures.getTexture("card"));
-        g.render();
-        clearMemory();
     }
 
-    public Graphics getGraphics() {
-        return g;
+    @Override
+    public void drawText(String text, Point position, String font) {
+        // TODO Auto-generated method stub
+
     }
 }

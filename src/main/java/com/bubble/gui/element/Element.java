@@ -154,7 +154,7 @@ public class Element implements IElement {
         this.listener = listener;
     }
 
-    public void paintComponent(IGuiRenderer r) {
+    public void renderComponent(IGuiRenderer r) {
         if (isHidden) return;
         if (type != null) {
             switch(type) {
@@ -171,7 +171,7 @@ public class Element implements IElement {
             }
         }
         if (children != null) {
-            children.forEach(c -> c.paintComponent(r));
+            children.forEach(c -> c.renderComponent(r));
         }
     }
 

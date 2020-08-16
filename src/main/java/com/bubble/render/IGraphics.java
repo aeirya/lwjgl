@@ -10,5 +10,8 @@ public interface IGraphics {
     void drawSimpleRect(float x, float y, float w, float h);
     void drawElement(float x, float y, float w, float h, Texture texture);
 
+    void setFont(String font);
+    void drawText(String text, float x, float y, float scale);
+
     void clear();
 }

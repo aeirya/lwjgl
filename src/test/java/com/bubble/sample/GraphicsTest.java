@@ -3,6 +3,7 @@ package com.bubble.sample;
 import com.bubble.glfw.GlfwWindow;
 import com.bubble.gui.GuiRenderer;
 import com.bubble.render.Shader;
+import com.bubble.util.resource.TextureManager;
 
 public abstract class GraphicsTest {
 
@@ -12,7 +13,7 @@ public abstract class GraphicsTest {
     GraphicsTest() {
         window = new GlfwWindow();
         Shader.initiateShaders();
-        g = new GuiRenderer();
+        g = new GuiRenderer(new TextureManager());
         window.setRenderer(g);
     }
 

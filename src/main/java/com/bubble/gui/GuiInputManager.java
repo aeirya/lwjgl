@@ -5,24 +5,21 @@ import java.util.List;
 import com.bubble.gui.element.IElement;
 import com.bubble.input.GameInput;
 
-public class GuiInputManager implements IGuiManager {
+public class GuiInputManager {
     
+    private final IGuiManager gui;
     private final KeyInputRegisterer keyRegisterer;
-    private IMenu currentMenu;
     private IElement active;
 
-    public GuiInputManager() {
+    public GuiInputManager(IGuiManager gui) {
+        this.gui = gui;
         keyRegisterer = new KeyInputRegisterer(this);
     }
 
     public void bind(GameInput input) {
         input.bindListener(keyRegisterer);
-        input.bindGuiManager(this);
     }
 
-    public void launch(IMenu menu) {
-        this.currentMenu = menu;
-    }
 
     public void setActive(IElement element) {
         active = element;
@@ -37,6 +34,6 @@ public class GuiInputManager implements IGuiManager {
     }
 
     public List<IElement> getAllElementsOnScreen() {
-        return currentMenu.getLayout().findAllElements();
+        return gui.getAllElementsOnScreen();
     }
 }

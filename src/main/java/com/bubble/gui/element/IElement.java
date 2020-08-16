@@ -26,5 +26,5 @@ public interface IElement {
     void setChildren(List<IElement> children);
 
     void setMouseListener(IMouseListener listener);
-    void paintComponent(IGuiRenderer r);
+    void renderComponent(IGuiRenderer r);
 }
