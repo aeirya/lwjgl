@@ -66,6 +66,6 @@ public class CharGlyphInfo
 	{
 		ByteBuffer buffer = BufferUtils.createByteBuffer(this.width * this.height);
 		STBTruetype.stbtt_MakeGlyphBitmap(this.font.getFontInfo(), buffer, this.width, this.height, this.width, this.font.getScale(), this.font.getScale(), this.glyphIndex);
-		this.font.getTexture().uploadSub(buffer, 0, offsetX, offsetY, this.width, this.height, GL11.GL_FLOAT, GL11.GL_UNSIGNED_BYTE);
+		this.font.getTexture().uploadSub(buffer, 0, offsetX, offsetY, this.width, this.height, GL11.GL_RED, GL11.GL_UNSIGNED_BYTE);
 	}
 }

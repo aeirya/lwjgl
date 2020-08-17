@@ -26,6 +26,13 @@ public class FontTexture extends Texture
 	public void uploadSub(ByteBuffer data, int level, int offsetX, int offsetY, int width, int height, int format, int type)
 	{
 		glTexSubImage2D(GL_TEXTURE_2D, level, offsetX, offsetY, width, height, format, type, data);
+		// int counter = 0;
+		// for (int j = 0; j < height; j++) {
+		// 	for (int i = 0; i < width; i++) {
+		// 		System.out.print("0123456789abcdef".charAt(((int) (data.get(counter++) & 255)) >> 4));
+		// 	}
+		// 	System.out.println();
+		// }
 	}
 
 	public void upload() {

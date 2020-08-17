@@ -44,6 +44,10 @@ public class Graphics implements IRenderer, IAdvancedGraphics {
         memory.add(gbb.drawImageBuffer(x, y, w, h), Shader.getTextureShader(), texture);
     }
     
+    public void drawFont(float x, float y, float w, float h, Texture texture, float startU, float endU, float startV, float endV) {
+        memory.add(gbb.drawTextBuffer(x, y, w, h, startU, endU, startV, endV), Shader.getTextureShader(), texture);
+    }
+    
     public void drawElement(float x, float y, float w, float h, Texture texture) {
         if (texture == null) drawRect(x, y, w, h);
         else memory.add(gbb.drawElementBuffer(x, y, w, h, color), Shader.getElementShader(), texture);

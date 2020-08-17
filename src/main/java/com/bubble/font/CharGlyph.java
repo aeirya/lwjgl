@@ -3,12 +3,12 @@ package com.bubble.font;
 @SuppressWarnings("all")
 public class CharGlyph
 {
-	private Font font;
-	private CharGlyphInfo info;
-	private float textureStartU;
-	private float textureStartV;
-	private float textureEndU;
-	private float textureEndV;
+	public Font font;
+	public CharGlyphInfo info;
+	public float textureStartU;
+	public float textureStartV;
+	public float textureEndU;
+	public float textureEndV;
 
 	public CharGlyph(Font font, CharGlyphInfo info, float u0, float v0, float u1, float v1)
 	{
