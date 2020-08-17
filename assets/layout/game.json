@@ -189,6 +189,7 @@
                     }
                 },
                 {
+                    "id": "friends_button",
                     "type": "button",
                     "size": {
                         "width": 0.14,

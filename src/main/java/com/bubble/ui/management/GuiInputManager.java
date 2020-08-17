@@ -35,4 +35,8 @@ class GuiInputManager {
     public List<IElement> getAllElementsOnScreen() {
         return gui.getAllElementsOnScreen();
     }
+
+    public void reset() {
+        active = null;
+    }
 }

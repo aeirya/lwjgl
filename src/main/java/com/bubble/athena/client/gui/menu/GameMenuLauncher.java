@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 
 import com.bubble.ui.management.IGuiManager;
 import com.bubble.ui.menu.IMenu;
+import com.bubble.ui.menu.IMenuLauncher;
 import com.bubble.ui.menu.MenuLauncher;
 import com.bubble.ui.menu.MenuType;
 
@@ -29,7 +30,7 @@ public class GameMenuLauncher extends MenuLauncher {
 
     private IMenu make(Class<? extends IMenu> menu) {
         try {
-            return menu.getConstructor().newInstance();
+            return menu.getConstructor(IMenuLauncher.class).newInstance(this);
         } catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
                 | NoSuchMethodException | SecurityException e) {
             e.printStackTrace();

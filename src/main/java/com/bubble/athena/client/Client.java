@@ -3,17 +3,23 @@ package com.bubble.athena.client;
 import com.bubble.athena.client.event.EventHandler;
 import com.bubble.athena.client.event.EventSystem;
 import com.bubble.athena.client.event.IEventHandler;
+import com.bubble.athena.client.services.ServiceLocator;
 import com.bubble.graphics.GameGraphics;
+import com.bubble.util.resource.TextureManager;
 
 public class Client {
     
-    private final GameGraphics graphics;
-    private final IEventHandler eventHandler;
-
     public Client() {
-        eventHandler = new EventHandler();
+        initiateSubsystems();
+    }
+    
+    private void initiateSubsystems() {
+        IEventHandler eventHandler = new EventHandler();
+        GameGraphics graphics = new GameGraphics();
+        TextureManager textures = new TextureManager();
+        
         EventSystem.start(eventHandler);
-        graphics = new GameGraphics();
+        ServiceLocator.getInstance().provideTextureManager(textures);
         graphics.start();
     }
 

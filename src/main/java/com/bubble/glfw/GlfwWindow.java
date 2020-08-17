@@ -17,9 +17,9 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.system.MemoryUtil;
 
 public class GlfwWindow implements IWindowInput {
-    private final Screen screen;
-    private final int width;
-    private final int height;
+    private final Screen screenDefaultSettings;
+    private int width;
+    private int height;
     private long window;
     private int refreshWait;
     private String title = Constants.SCREEN_TITLE;
@@ -29,12 +29,12 @@ public class GlfwWindow implements IWindowInput {
     private IRenderer renderer;
 
     public GlfwWindow() {
-        screen = GameConfig.getScreen();
-        width = screen.getSize().getWidth();
-        height = screen.getSize().getHeight();
-        refreshWait = screen.getRefreshWait();
+        screenDefaultSettings = GameConfig.getScreen();
+        width = screenDefaultSettings.getSize().getWidth();
+        height = screenDefaultSettings.getSize().getHeight();
+        refreshWait = screenDefaultSettings.getRefreshWait();
         init();
-        setAspectRatio(screen.getRatio().W, screen.getRatio().H);
+        setAspectRatio(screenDefaultSettings.getRatio().W, screenDefaultSettings.getRatio().H);
         input = new GlfwMouseInput(this);
         keyboard = new GlfwKeyboardInput(this);
     }
@@ -44,7 +44,7 @@ public class GlfwWindow implements IWindowInput {
         macOsSupportTweak();
         window = glfwCreateWindow(width, height, title, MemoryUtil.NULL, MemoryUtil.NULL);
         glfwMakeContextCurrent(window);
-        glfwSetFramebufferSizeCallback(window, this::framebufferSizeCallback);
+        glfwSetWindowSizeCallback(window, this::setWindowSizeCallback);
         GL.createCapabilities();
         enableAlpha();
     }
@@ -83,8 +83,12 @@ public class GlfwWindow implements IWindowInput {
     }
 
     // events
-    private void framebufferSizeCallback(long window, int width, int height) {
-        GL11.glViewport(0, 0, width, height);
+    private void setWindowSizeCallback(long window, int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+    
+    public void logSize() {
         Logger.getGlobal().info(() -> "changed size to " + width + "," + height);
     }
 
