@@ -23,6 +23,9 @@ public class GameGraphics {
         gui = new GuiManager();
         gui.bind(input);
         renderer = new GameRenderer(gui);
+    }
+
+    public void start() {
         launch(MenuType.MAIN);
         init();
     }

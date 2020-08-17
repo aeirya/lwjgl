@@ -1,5 +1,6 @@
 package com.bubble.athena.client.gui.menu;
 
+import com.bubble.athena.client.event.EventSystem;
 import com.bubble.input.mouse.MenuListenerMap;
 import com.bubble.input.mouse.MouseListener;
 import com.bubble.ui.menu.Menu;
@@ -18,6 +19,7 @@ public class MainMenu extends Menu {
                 new MouseListener()
                     .setOnClick(a -> {
                         System.out.println("clicked start");
+                        EventSystem.push(h -> System.out.println("hi mate!"));
                         })
                     .setOnMove(a -> System.out.println("moooving to " + a.getPosition()))
                     .setOnMouseEnter(a -> System.out.println("enter!"))
