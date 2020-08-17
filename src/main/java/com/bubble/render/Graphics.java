@@ -3,6 +3,8 @@ package com.bubble.render;
 import java.util.List;
 
 import com.bubble.opengl.Texture;
+import com.bubble.render.gmemory.GraphicsMemory;
+import com.bubble.render.gmemory.IDrawable;
 import com.bubble.std.Color;
 
 public class Graphics implements IRenderer, IAdvancedGraphics {
@@ -16,14 +18,14 @@ public class Graphics implements IRenderer, IAdvancedGraphics {
         memory = new GraphicsMemory();
         resetColor();
     }
-    
-    private void resetColor() {
-        color = Color.WHITE;
-    }
 
     public void clear() {
         memory.clear();
         resetColor();
+    }
+    
+    private void resetColor() {
+        color = Color.WHITE;
     }
 
     public void setColor(float r, float g, float b, float a) {
@@ -47,6 +49,10 @@ public class Graphics implements IRenderer, IAdvancedGraphics {
         else memory.add(gbb.drawElementBuffer(x, y, w, h, color), Shader.getElementShader(), texture);
     }
 
+    public void drawText(String text, float x, float y, float scale) {
+        // not implemented
+    }
+
     private void draw(List<IDrawable> drawables) {
         drawables.forEach(IDrawable::draw);
     }
@@ -61,10 +67,5 @@ public class Graphics implements IRenderer, IAdvancedGraphics {
     
     public void render() {
         draw();
-    }
-
-    @Override
-    public void drawText(String text, float x, float y, float scale) {
-        System.err.println("drawing " + text);
     }
 }

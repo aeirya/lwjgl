@@ -39,4 +39,9 @@ public interface IAdvancedGraphics extends IGraphics {
     default void drawText(String text, Point location, float scale) {
         drawText(text, location.x, location.y , scale);
     }
+
+    default void drawText(String text, Point location, float scale, String font) {
+        setFont(font);
+        drawText(text, location, scale);
+    }
 }

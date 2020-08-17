@@ -1,15 +1,15 @@
 package com.bubble.input.mouse;
 
-import com.bubble.gui.IGuiManager;
-import com.bubble.gui.element.IElement;
 import com.bubble.std.Dimension;
 import com.bubble.std.Math;
 import com.bubble.std.Point;
+import com.bubble.ui.element.IElement;
+import com.bubble.ui.management.IGuiManager;
 
 public class MouseInput implements IMouseInputListener {
     private IElement currentElement;
     private IGuiManager gui;
-    private IMouseListener listener;
+    private IMouseListener externalListener;
 
     public MouseInput(IWindowInput window) {
         listen(window);
@@ -24,18 +24,18 @@ public class MouseInput implements IMouseInputListener {
     }
 
     public void setListener(IMouseListener listener) {
-        this.listener = listener;
+        this.externalListener = listener;
     }
 
     @Override
     public void onMouseClick(MouseState mouse) {
-        // if (gui != null) gui.onMouseClick(mouse);
+        if (externalListener != null) externalListener.onMouseClick(mouse);
         getMouseListener().onMouseClick(mouse);
         if (gui != null) gui.clicked(findCurrentElement(mouse));
     }
 
     public void onMouseRelease(MouseState mouse) {
-        // if (gui != null) gui.onMouseRelease(mouse);
+        if (externalListener != null) externalListener.onMouseRelease(mouse);
         getMouseListener().onMouseRelease(mouse);
     }
 
@@ -61,7 +61,7 @@ public class MouseInput implements IMouseInputListener {
 
     @Override
     public void onMouseMove(MouseState mouse) {
-        // if (gui != null) gui.onMouseMove(mouse);
+        if (externalListener != null) externalListener.onMouseMove(mouse);
         checkMouseExit(mouse);
     }
     

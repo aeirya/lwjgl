@@ -1,11 +1,13 @@
 package com.bubble.graphics;
 
 import com.bubble.glfw.GlfwWindow;
-import com.bubble.graphics.menu.MenuType;
-import com.bubble.gui.IGuiManager; 
 import com.bubble.input.GameInput;
 import com.bubble.render.IRenderer;
 import com.bubble.render.Shader;
+import com.bubble.ui.GameRenderer;
+import com.bubble.ui.management.GuiManager;
+import com.bubble.ui.management.IGuiManager;
+import com.bubble.ui.menu.MenuType;
 import com.bubble.util.config.Config;
 
 public class GameGraphics {

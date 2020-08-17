@@ -2,8 +2,8 @@ package com.bubble.sample;
 
 import com.bubble.opengl.Program;
 import com.bubble.opengl.Texture;
-import com.bubble.opengl.Vec2D;
-import com.bubble.opengl.Vertex;
+import com.bubble.opengl.Vec2;
+import com.bubble.opengl.Vec3;
 import com.bubble.opengl.VertexBuffer;
 import com.bubble.opengl.VertexBufferBuilder;
 import com.bubble.render.IRenderer;
@@ -39,24 +39,24 @@ public class Renderer implements IRenderer {
         vbb.begin();
 
         // Top Right
-        vbb.addVertex(new Vertex(0.5f, 0.5f, 0.0f));
-        vbb.addVertex(new Vertex(1.0f, 1.0f, 0.0f));
-        vbb.addVertex(new Vec2D(1.0f, 1.0f));
+        vbb.addVertex(new Vec3(0.5f, 0.5f, 0.0f));
+        vbb.addVertex(new Vec3(1.0f, 1.0f, 0.0f));
+        vbb.addVertex(new Vec2(1.0f, 1.0f));
         
         // Bottom Right
-        vbb.addVertex(new Vertex(0.5f, -0.5f, 0.0f));
-        vbb.addVertex(new Vertex(1.0f, 0.0f, 0.0f));
-        vbb.addVertex(new Vec2D(1.0f, 0.0f));
+        vbb.addVertex(new Vec3(0.5f, -0.5f, 0.0f));
+        vbb.addVertex(new Vec3(1.0f, 0.0f, 0.0f));
+        vbb.addVertex(new Vec2(1.0f, 0.0f));
         
         // Bottom Left
-        vbb.addVertex(new Vertex(-0.5f, -0.5f, 0.0f));
-        vbb.addVertex(new Vertex(0.0f, 0.0f, 1.0f));
-        vbb.addVertex(new Vec2D(0.0f, 0.0f));
+        vbb.addVertex(new Vec3(-0.5f, -0.5f, 0.0f));
+        vbb.addVertex(new Vec3(0.0f, 0.0f, 1.0f));
+        vbb.addVertex(new Vec2(0.0f, 0.0f));
         
         // Top Left
-        vbb.addVertex(new Vertex(-0.5f, 0.5f, 0.0f));
-        vbb.addVertex(new Vertex(0.0f, 1.0f, 0.0f));
-        vbb.addVertex(new Vec2D(0.0f, 1.0f));
+        vbb.addVertex(new Vec3(-0.5f, 0.5f, 0.0f));
+        vbb.addVertex(new Vec3(0.0f, 1.0f, 0.0f));
+        vbb.addVertex(new Vec2(0.0f, 1.0f));
         
         vbb.addTriangle(0, 1, 3);
         vbb.addTriangle(1, 2, 3);

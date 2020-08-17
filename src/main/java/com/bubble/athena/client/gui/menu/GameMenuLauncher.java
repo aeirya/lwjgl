@@ -2,10 +2,10 @@ package com.bubble.athena.client.gui.menu;
 
 import java.lang.reflect.InvocationTargetException;
 
-import com.bubble.graphics.menu.MenuLauncher;
-import com.bubble.graphics.menu.MenuType;
-import com.bubble.gui.IGuiManager;
-import com.bubble.gui.IMenu;
+import com.bubble.ui.management.IGuiManager;
+import com.bubble.ui.menu.IMenu;
+import com.bubble.ui.menu.MenuLauncher;
+import com.bubble.ui.menu.MenuType;
 
 public class GameMenuLauncher extends MenuLauncher {
     private IGuiManager gui;

@@ -1,8 +1,8 @@
 package com.bubble.sample;
 
 import com.bubble.glfw.GlfwWindow;
-import com.bubble.gui.GuiRenderer;
 import com.bubble.render.Shader;
+import com.bubble.ui.GuiRenderer;
 import com.bubble.util.resource.TextureManager;
 
 public class SimpleElementRendererT {

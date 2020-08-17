@@ -1,7 +1,7 @@
 package com.bubble.athena.client.gui.menu;
 
-import com.bubble.gui.Menu;
 import com.bubble.input.mouse.MenuListenerMap;
+import com.bubble.ui.menu.Menu;
 
 public class ArenaMenu extends Menu {
 

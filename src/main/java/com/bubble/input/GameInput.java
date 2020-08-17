@@ -1,11 +1,11 @@
 package com.bubble.input;
 
-import com.bubble.gui.IGuiManager;
 import com.bubble.input.keyboard.IKeyListener;
 import com.bubble.input.keyboard.KeyboardInput;
 import com.bubble.input.mouse.IMouseListener;
 import com.bubble.input.mouse.IWindowInput;
 import com.bubble.input.mouse.MouseInput;
+import com.bubble.ui.management.IGuiManager;
 
 public class GameInput implements IGameInput {
 
@@ -18,16 +18,6 @@ public class GameInput implements IGameInput {
         keyboard = new KeyboardInput(window);
     }
 
-    public void setListener(MouseInput listener) {
-        this.mouse = listener;
-        bind(window);
-    }
-
-    public void setListener(KeyboardInput listener) {
-        this.keyboard = listener;
-        bind(window);
-    }
-
     public void bindListener(IKeyListener listener) {
         keyboard.setListener(listener);
     }
@@ -36,8 +26,18 @@ public class GameInput implements IGameInput {
         mouse.setListener(listener);
     }
 
-    public void bindGuiManager(IGuiManager gui) {
+    public void provideGuiManager(IGuiManager gui) {
         mouse.setGuiManager(gui);
+    }
+
+    public void changeListener(MouseInput listener) {
+        this.mouse = listener;
+        bind(window);
+    }
+
+    public void changeListener(KeyboardInput listener) {
+        this.keyboard = listener;
+        bind(window);
     }
 
     @Override

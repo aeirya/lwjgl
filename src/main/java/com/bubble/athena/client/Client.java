@@ -12,7 +12,7 @@ public class Client {
 
     public Client() {
         // eventHandler = new EventHandler();
-        EventSystem.start(eventHandler);
+        // EventSystem.start(eventHandler);
         graphics = new GameGraphics();
     }
 

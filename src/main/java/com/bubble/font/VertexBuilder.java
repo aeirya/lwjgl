@@ -1,7 +1,7 @@
 package com.bubble.font;
 
-import com.bubble.opengl.Vec2D;
-import com.bubble.opengl.Vec4D;
+import com.bubble.opengl.Vec2;
+import com.bubble.opengl.Vec4;
 import com.bubble.opengl.VertexBuffer;
 import com.bubble.opengl.VertexBufferBuilder;
 
@@ -36,11 +36,11 @@ public class VertexBuilder {
 
     public void vertex(float x, float y, float u, float v) {
         //do:  check for format
-        vbb.addVertex(new Vec2D(x, y));
+        vbb.addVertex(new Vec2(x, y));
         if (hasColor) {
-            vbb.addVertex(new Vec4D(r, g, b, a));
+            vbb.addVertex(new Vec4(r, g, b, a));
         }
-        vbb.addVertex(new Vec2D(u, v));
+        vbb.addVertex(new Vec2(u, v));
     }
 
     public void addTriangle(int a, int b, int c) {

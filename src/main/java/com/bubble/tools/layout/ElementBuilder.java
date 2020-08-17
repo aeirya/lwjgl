@@ -2,12 +2,12 @@ package com.bubble.tools.layout;
 
 import java.util.List;
 
-import com.bubble.gui.element.Element;
-import com.bubble.gui.element.ElementType;
-import com.bubble.gui.element.IElement;
 import com.bubble.std.Color;
 import com.bubble.std.Dimension;
 import com.bubble.std.Point;
+import com.bubble.ui.element.Element;
+import com.bubble.ui.element.ElementType;
+import com.bubble.ui.element.IElement;
 
 public class ElementBuilder {
     private String id;

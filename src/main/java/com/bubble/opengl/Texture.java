@@ -24,10 +24,4 @@ public abstract class Texture {
     public void destroy() {
         glDeleteTextures(id);
     }
-
-    // TODO: move to texture manager
-
-    public enum TextureType {
-        TEXTURE_2D, TEXTURE_ARRAY
-    }
 }

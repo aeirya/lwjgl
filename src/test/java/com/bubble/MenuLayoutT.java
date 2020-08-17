@@ -2,7 +2,7 @@ package com.bubble;
 
 import java.util.stream.Collectors;
 
-import com.bubble.gui.element.MenuLayout;
+import com.bubble.ui.menu.MenuLayout;
 
 public class MenuLayoutT {
     public static void main(String[] args) {
