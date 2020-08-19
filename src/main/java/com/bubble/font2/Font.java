@@ -128,7 +128,7 @@ public class Font
 		return height;
 	}
 
-	public Texture2D getTexture()
+	public FontTexture getTexture()
 	{
 		return this.texture;
 	}
