@@ -43,8 +43,8 @@ public class CharGlyph
 		// builder.addVertex(new Vertex(maxX, maxY, 0.0f));
 		// builder.addVertex(new Vec2D(this.textureEndU, this.textureStartU));
         // builder.addVertex(new Vertex(color.r, color.g, color.b));
-		builder.addTriangle(1, 0, 2);
-		builder.addTriangle(1, 2, 3);
+		builder.triangle(1, 0, 2);
+		builder.triangle(1, 2, 3);
 		builder.end();
 	}
 

@@ -43,7 +43,7 @@ public class VertexBuilder {
         vbb.addVertex(new Vec2(u, v));
     }
 
-    public void addTriangle(int a, int b, int c) {
+    public void triangle(int a, int b, int c) {
         vbb.addTriangle(a, b, c);
     }
 

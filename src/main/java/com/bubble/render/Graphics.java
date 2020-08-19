@@ -61,7 +61,7 @@ public class Graphics implements IRenderer, IAdvancedGraphics {
         drawables.forEach(IDrawable::draw);
     }
     
-    private void draw() {
+    protected void draw() {
         memory.fetch().forEach(
             (shader, items) -> {
             shader.bind();
