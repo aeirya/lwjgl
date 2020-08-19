@@ -1,6 +1,7 @@
 package com.bubble.util.resource;
 
 import java.util.Map;
+import java.awt.image.BufferedImage;
 
 import com.bubble.opengl.Texture;
 import com.bubble.util.config.Config;
@@ -18,6 +19,10 @@ public class TextureManager {
 
     public Texture getTexture(EnumTexture texture) {
         return getTexture(texture.get());
+    }
+    
+    public Texture loadBufferedImage(BufferedImage image) {
+        return new ImageLoader().loadBufferedImage(image);
     }
 
     private Map<String, Texture> loadTextures(String path) {

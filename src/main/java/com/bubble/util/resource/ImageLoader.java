@@ -21,6 +21,10 @@ public class ImageLoader implements IResourceLoader<Texture> {
 
     public Texture2D loadTexure2D(String path) {
         final BufferedImage image = loadImage(path);
+        return loadBufferedImage(image);
+    }
+
+    public Texture2D loadBufferedImage(BufferedImage image) {
         if (image != null) {
             return new Texture2D(image.getWidth(), image.getHeight(), convertImage(image));
         } else return null;
