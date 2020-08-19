@@ -64,7 +64,7 @@ public class Font
 	}
 
 	public IGlyph getGlyph(char c)
-	{
+	{`
 		return this.charGlyphs.get(c);
 	}
 
