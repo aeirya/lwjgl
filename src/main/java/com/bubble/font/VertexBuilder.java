@@ -49,7 +49,7 @@ public class VertexBuilder {
 
     public VertexBuffer flush() {
         VertexBuffer buffer = vbb.getVAO();
-        //vbb.clear();
+        vbb.clear();
         return buffer;
     }
 

@@ -32,7 +32,7 @@ public class VertexBufferBuilder {
     }
 
     public void begin() {
-        beginningIndex = vertices.size();
+        beginningIndex = vertices.size() / 3;
     }
 
     public void end() {
