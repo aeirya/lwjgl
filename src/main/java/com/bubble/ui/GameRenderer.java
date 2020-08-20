@@ -1,6 +1,9 @@
 package com.bubble.ui;
 
+import com.bubble.font2.Font;
+import com.bubble.font2.TextRenderer;
 import com.bubble.render.IRenderer;
+import com.bubble.render.Shader;
 import com.bubble.ui.card.legacy.CardRenderer;
 import com.bubble.ui.management.IGuiManager;
 import com.bubble.util.resource.TextureManager;
@@ -10,12 +13,22 @@ public class GameRenderer implements IRenderer {
     private final IGuiRenderer guiRenderer;
     private final CardRenderer cardRenderer;
     private final IGuiManager gui;
+    private final TextRenderer textRenderer;
 
     public GameRenderer(IGuiManager gui) {
         this.gui = gui;
+        Shader.initiateShaders();
         textures = new TextureManager();
-        guiRenderer = new GuiRenderer(textures);
+        textRenderer = setupTextRenderer();
+        guiRenderer = new GuiRenderer(textures, textRenderer);
         cardRenderer = new CardRenderer(textures);
+    }
+
+    private TextRenderer setupTextRenderer() {
+        TextRenderer t = new TextRenderer(Shader.getFontShader());
+        Font font = new Font("OpenSans-Regular.ttf", 1024, 1024, 64);
+        t.setFont(font);
+        return t;
     }
 
     public void render() {

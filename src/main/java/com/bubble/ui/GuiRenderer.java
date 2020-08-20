@@ -3,18 +3,22 @@ package com.bubble.ui;
 import java.util.List;
 import java.util.logging.Logger;
 
+import com.bubble.font2.TextRenderer;
 import com.bubble.opengl.Texture;
 import com.bubble.render.Renderer;
+import com.bubble.render.Shader;
 import com.bubble.ui.element.IElement;
 import com.bubble.util.resource.TextureManager;
 import com.bubble.util.resource.UiManager;
 
 public class GuiRenderer extends Renderer implements IGuiRenderer {
     private final UiManager ui;
+    private final TextRenderer textRenderer;
 
-    public GuiRenderer(TextureManager textures) {
+    public GuiRenderer(TextureManager textures, TextRenderer textRenderer) {
         super(textures);
         ui = new UiManager(textures);
+        this.textRenderer = textRenderer;
     }
 
     @Override
@@ -50,6 +54,12 @@ public class GuiRenderer extends Renderer implements IGuiRenderer {
     public void drawButton(IElement button) {
         final Texture tex = ui.getButtonTexture(button.getSize());
         g.drawElement(button.getPosition(), button.getSize(), tex, button.getColor());
+        textRenderer.drawText(
+                button.getText(),
+                button.getPosition().x + button.getSize().width / 4,
+                button.getPosition().y + button.getSize().height, 
+                0.002f, 
+                1, 1, 1, 1, true);
     }
     
     public void drawPanel(IElement e) {

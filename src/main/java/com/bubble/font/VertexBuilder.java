@@ -37,10 +37,10 @@ public class VertexBuilder {
     public void vertex(float x, float y, float u, float v) {
         //do:  check for format
         vbb.addVertex(new Vec2(x, y));
+        vbb.addVertex(new Vec2(u, v));
         if (hasColor) {
             vbb.addVertex(new Vec4(r, g, b, a));
         }
-        vbb.addVertex(new Vec2(u, v));
     }
 
     public void triangle(int a, int b, int c) {
@@ -48,6 +48,12 @@ public class VertexBuilder {
     }
 
     public VertexBuffer flush() {
-        return vbb.getVAO();
+        VertexBuffer buffer = vbb.getVAO();
+        //vbb.clear();
+        return buffer;
+    }
+
+    public void clear() {
+        // vbb.clear();
     }
 }

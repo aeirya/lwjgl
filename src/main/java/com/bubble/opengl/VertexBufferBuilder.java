@@ -67,4 +67,10 @@ public class VertexBufferBuilder {
         vb.upload(vert, ind, attr);
         return vb;
     }
+
+    public void clear()
+    {
+        this.vertices.clear();
+        this.indices.clear();
+    }
 }

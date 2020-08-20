@@ -31,15 +31,15 @@ public class CharGlyph implements IGlyph
 		STBTTAlignedQuad q = STBTTAlignedQuad.create();
 		STBTruetype.stbtt_GetBakedQuad(this.bakedChars, font.getWidth(), font.getHeight(), this.charIndex, xPos, yPos, q, true);
 		float x0 = (q.x0() - x) * scale + x;
-		float y0 = (q.y0() - y) * scale + y;
+		float y0 = -(q.y0() - y) * scale + y;
 		float x1 = (q.x1() - x) * scale + x;
-		float y1 = (q.y1() - y) * scale + y;
+		float y1 = -(q.y1() - y) * scale + y;
 
 		builder.begin();
-		builder.vertex(x0, y0, q.s0(), q.t1());
-		builder.vertex(x0, y1, q.s0(), q.t0());
-		builder.vertex(x1, y0, q.s1(), q.t1());
-		builder.vertex(x1, y1, q.s1(), q.t0());
+		builder.vertex(x0, y1, q.s0(), q.t1());
+		builder.vertex(x0, y0, q.s0(), q.t0());
+		builder.vertex(x1, y1, q.s1(), q.t1());
+		builder.vertex(x1, y0, q.s1(), q.t0());
 		builder.triangle(0, 1, 2);
 		builder.triangle(2, 1, 3);
 		builder.end();

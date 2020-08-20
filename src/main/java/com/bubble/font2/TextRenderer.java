@@ -12,7 +12,7 @@ import org.lwjgl.opengl.GL13;
 
 public class TextRenderer
 {
-	public static final VertexFormat TEXT_VERTEX_FORMAT = new VertexFormat(List.of(VertexFormatElement.POSITION_2D, VertexFormatElement.COLOR, VertexFormatElement.UV));
+	public static final VertexFormat TEXT_VERTEX_FORMAT = new VertexFormat(List.of(VertexFormatElement.POSITION_2D, VertexFormatElement.UV, VertexFormatElement.COLOR));
 
 	private Font font;
 	private Shader shader;
@@ -50,9 +50,13 @@ public class TextRenderer
 		this.shader.setInt("font", 0);
 		GL13.glActiveTexture(GL13.GL_TEXTURE0);
 		this.font.getTexture().bind();
+
+		buffer.bind();
 		buffer.draw();
+
 		this.font.getTexture().unbind();
 		buffer.destroy();
+		// vertexBuilder.clear();
 	}
 
 	public VertexBuilder getVertexBuilder() { return this.vertexBuilder; }

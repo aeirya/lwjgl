@@ -1,5 +1,7 @@
 package com.bubble.opengl;
 
+import org.lwjgl.opengl.GL11;
+
 import static org.lwjgl.opengl.GL15.*;
 import static org.lwjgl.opengl.GL30.*;
 
@@ -19,10 +21,11 @@ public class VertexBuffer {
 
     public void upload(float[] vertices, int[] indices, VertexAttribute... attributes) {
         this.indices = indices.length;
-        
-        bind();
-        
+
+        glBindVertexArray(vao);
+        glBindBuffer(GL_ARRAY_BUFFER, vbo);
         glBufferData(GL_ARRAY_BUFFER, vertices, GL_STATIC_DRAW);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices, GL_STATIC_DRAW);
 
         for (VertexAttribute attr : attributes) {
@@ -37,9 +40,14 @@ public class VertexBuffer {
     }
 
     public void bind() {
+
         glBindVertexArray(vao);
-        glBindBuffer(GL_ARRAY_BUFFER, vbo);
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
+        // these can be safely removed
+        // glBindBuffer(GL_ARRAY_BUFFER, vbo);
+        // glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
+        // for debugging
+        int err = GL11.glGetError();
+        if (err != GL11.GL_NO_ERROR) throw new RuntimeException(String.valueOf(err));
     }
 
     public void unbind() {
