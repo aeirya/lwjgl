@@ -8,6 +8,7 @@ import com.bubble.font.VertexFormatElement;
 import com.bubble.opengl.VertexBuffer;
 import com.bubble.render.Shader;
 
+import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
 
 public class TextRenderer
@@ -50,13 +51,15 @@ public class TextRenderer
 		this.shader.setInt("font", 0);
 		GL13.glActiveTexture(GL13.GL_TEXTURE0);
 		this.font.getTexture().bind();
-
 		buffer.bind();
 		buffer.draw();
 
 		this.font.getTexture().unbind();
 		buffer.destroy();
-		// vertexBuilder.clear();
+	}
+
+	public void clear() {
+		vertexBuilder.clear();
 	}
 
 	public VertexBuilder getVertexBuilder() { return this.vertexBuilder; }

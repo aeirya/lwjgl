@@ -54,6 +54,6 @@ public class VertexBuilder {
     }
 
     public void clear() {
-        // vbb.clear();
+        vbb.clear();
     }
 }

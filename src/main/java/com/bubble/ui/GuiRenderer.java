@@ -54,12 +54,6 @@ public class GuiRenderer extends Renderer implements IGuiRenderer {
     public void drawButton(IElement button) {
         final Texture tex = ui.getButtonTexture(button.getSize());
         g.drawElement(button.getPosition(), button.getSize(), tex, button.getColor());
-        textRenderer.drawText(
-                button.getText(),
-                button.getPosition().x + button.getSize().width / 4,
-                button.getPosition().y + button.getSize().height, 
-                0.002f, 
-                1, 1, 1, 1, true);
     }
     
     public void drawPanel(IElement e) {

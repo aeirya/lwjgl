@@ -1,6 +1,7 @@
 {
     "elements": [
         {
+            "id": "profile",
             "type": "panel",
             "size": {
                 "width": 1.42,
@@ -10,7 +11,6 @@
                 "x": -0.71,
                 "y": 0.9
             },
-            "text": "Profile",
             "color": {
                 "r": 140,
                 "g": 200,
@@ -21,6 +21,7 @@
             "isDisabled": false,
             "children": [
                 {
+                    "id": "enemy_hero",
                     "type": "panel",
                     "size": {
                         "width": 0.2,
@@ -30,7 +31,6 @@
                         "x": -0.1,
                         "y": 0.84
                     },
-                    "text": "Enemy Hero",
                     "color": {
                         "r": 250,
                         "g": 250,
@@ -40,6 +40,7 @@
                     "texture": "hero_slot"
                 },
                 {
+                    "id": "enemy_power",
                     "type": "panel",
                     "size": {
                         "width": 0.15,
@@ -49,7 +50,6 @@
                         "x": 0.12,
                         "y": 0.73
                     },
-                    "text": "Enemy Power",
                     "color": {
                         "r": 250,
                         "g": 250,
@@ -59,6 +59,7 @@
                     "isHidden": true
                 },
                 {
+                    "id": "your_hero",
                     "type": "panel",
                     "size": {
                         "width": 0.2,
@@ -68,7 +69,6 @@
                         "x": -0.1,
                         "y": -0.38
                     },
-                    "text": "Your Hero",
                     "color": {
                         "r": 250,
                         "g": 250,
@@ -78,6 +78,7 @@
                     "texture": "hero_slot"
                 },
                 {
+                    "id": "your_power",
                     "type": "panel",
                     "size": {
                         "width": 0.15,
@@ -87,7 +88,6 @@
                         "x": 0.12,
                         "y": -0.52
                     },
-                    "text": "Your Power",
                     "color": {
                         "r": 250,
                         "g": 250,
@@ -97,6 +97,7 @@
                     "isHidden": true
                 },
                 {
+                    "id": "events",
                     "type": "panel",
                     "size": {
                         "width": 0.08,
@@ -106,7 +107,6 @@
                         "x": -0.76,
                         "y": 0.56
                     },
-                    "text": "Events",
                     "color": {
                         "r": 140,
                         "g": 200,
@@ -116,6 +116,7 @@
                     "isHidden": true
                 },
                 {
+                    "id": "battlefield",
                     "type": "panel",
                     "size": {
                         "width": 1.3,
@@ -125,7 +126,6 @@
                         "x": -0.60,
                         "y": 0.53
                     },
-                    "text": "Battle Field :D",
                     "color": {
                         "r": 140,
                         "g": 200,
@@ -135,6 +135,7 @@
                     "isHidden": true
                 },
                 {
+                    "id": "end_turn_button",
                     "type": "button",
                     "size": {
                         "width": 0.2,
@@ -144,7 +145,6 @@
                         "x": 0.74,
                         "y": 0.08
                     },
-                    "text": "End Turn",
                     "color": {
                         "r": 250,
                         "g": 250,
@@ -153,6 +153,7 @@
                     }
                 },
                 {
+                    "id": "enemy_cards",
                     "type": "panel",
                     "size": {
                         "width": 0.2,
@@ -162,7 +163,6 @@
                         "x": 0.74,
                         "y": 0.6
                     },
-                    "text": "Enemy Cards",
                     "color": {
                         "r": 250,
                         "g": 250,
@@ -171,6 +171,7 @@
                     }
                 },
                 {
+                    "id": "my_cards",
                     "type": "panel",
                     "size": {
                         "width": 0.2,
@@ -180,7 +181,6 @@
                         "x": 0.74,
                         "y": -0.2
                     },
-                    "text": "Your Cards",
                     "color": {
                         "r": 250,
                         "g": 250,

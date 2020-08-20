@@ -6,5 +6,6 @@ public enum MenuType {
     DECKS,
     SHOP,
     SETTINGS,
-    ARENA
+    ARENA,
+    PROFILE
 }

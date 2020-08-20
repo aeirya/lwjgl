@@ -33,7 +33,7 @@ public class GuiManager implements IGuiManager {
 
     @Override
     public List<IElement> getAllElementsOnScreen() {
-        return currentMenu.getLayout().findAllElements();
+        return currentMenu.getAllElementsOnScreen();
     }
 
     public void launch(MenuType menu) {

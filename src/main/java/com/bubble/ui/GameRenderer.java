@@ -26,7 +26,7 @@ public class GameRenderer implements IRenderer {
 
     private TextRenderer setupTextRenderer() {
         TextRenderer t = new TextRenderer(Shader.getFontShader());
-        Font font = new Font("OpenSans-Regular.ttf", 1024, 1024, 64);
+        Font font = new Font("assets/fonts/GrandHotel-Regular.otf", 1024, 1024, 64);
         t.setFont(font);
         return t;
     }
@@ -34,6 +34,7 @@ public class GameRenderer implements IRenderer {
     public void render() {
         renderGui();
         renderCards();
+        renderTexts();
     }
     
     private void renderGui() {
@@ -42,7 +43,20 @@ public class GameRenderer implements IRenderer {
     }
 
     private void renderCards() {
-        cardRenderer.render(gui.getPlayerHand());
+        // cardRenderer.render(gui.getPlayerHand());
         cardRenderer.render();
+    }
+
+    private void renderTexts() {
+        gui.getAllElementsOnScreen().forEach(
+            e -> {
+                if (e.getText() == null) return;
+                textRenderer.drawText(
+                    e.getText(), 
+                    e.getPosition().x + e.getSize().width / 4, 
+                    e.getPosition().y - e.getSize().height / 2, 
+                    0.0017f, 1, 1, 1, 1, true);
+            }
+        );
     }
 }
