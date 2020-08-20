@@ -6,10 +6,10 @@ import com.bubble.ui.menu.IMenuLauncher;
 import com.bubble.ui.menu.Menu;
 import com.bubble.ui.menu.MenuType;
 
-public class ProfileMenu extends Menu {
+public class DeckMenu extends Menu {
 
-    public ProfileMenu(IMenuLauncher launcher) {
-        super("profile.json", launcher);
+    public DeckMenu(IMenuLauncher launcher) {
+        super("decks.json", launcher);
         new ProfileListenerMap().apply(this);
     }
     
