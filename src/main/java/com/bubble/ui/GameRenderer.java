@@ -26,8 +26,7 @@ public class GameRenderer implements IRenderer {
 
     private TextRenderer setupTextRenderer() {
         TextRenderer t = new TextRenderer(Shader.getFontShader());
-        Font font = new Font("assets/fonts/GrandHotel-Regular.otf", 1024, 1024, 64);
-        t.setFont(font);
+        t.setFont(Font.GRAND_HOTEL_REGULAR);
         return t;
     }
 
@@ -51,11 +50,13 @@ public class GameRenderer implements IRenderer {
         gui.getAllElementsOnScreen().forEach(
             e -> {
                 if (e.getText() == null) return;
+                if (e.getFont() != null) textRenderer.setFont(e.getFont());
                 textRenderer.drawText(
                     e.getText(), 
                     e.getPosition().x + e.getSize().width / 4, 
                     e.getPosition().y - e.getSize().height / 2, 
                     0.0017f, 1, 1, 1, 1, true);
+                textRenderer.setFont(Font.GRAND_HOTEL_REGULAR); // swap with reset function
             }
         );
     }

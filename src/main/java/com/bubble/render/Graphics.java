@@ -2,6 +2,7 @@ package com.bubble.render;
 
 import java.util.List;
 
+import com.bubble.font2.Font;
 import com.bubble.opengl.Texture;
 import com.bubble.render.gmemory.GraphicsMemory;
 import com.bubble.render.gmemory.IDrawable;
@@ -12,6 +13,7 @@ public class Graphics implements IRenderer, IAdvancedGraphics {
     private final GraphicsBufferBuilder gbb;
     private final GraphicsMemory memory;
     private Color color;
+    private Font font;
 
     public Graphics() {
         gbb = new GraphicsBufferBuilder();
@@ -46,6 +48,14 @@ public class Graphics implements IRenderer, IAdvancedGraphics {
     
     public void drawFont(float x, float y, float w, float h, Texture texture, float startU, float endU, float startV, float endV) {
         memory.add(gbb.drawTextBuffer(x, y, w, h, startU, endU, startV, endV), Shader.getTextureShader(), texture);
+    }
+
+    public void setFont(Font font) {
+        this.font = font;
+    }
+
+    public void resetFont() {
+        // not implemented
     }
     
     public void drawElement(float x, float y, float w, float h, Texture texture) {

@@ -2,6 +2,7 @@ package com.bubble.tools.layout;
 
 import java.util.List;
 
+import com.bubble.font2.Font;
 import com.bubble.std.Color;
 import com.bubble.std.Dimension;
 import com.bubble.std.Point;
@@ -15,7 +16,7 @@ public class ElementBuilder {
     private Point position;
     private Dimension size;
     private String text;
-    private String font;
+    private Font font;
     private Color color;
     private String texture;
     private boolean isDisabled;
@@ -48,7 +49,7 @@ public class ElementBuilder {
         return this;
     }
 
-    public ElementBuilder setFont(String font) {
+    public ElementBuilder setFont(Font font) {
         this.font = font;
         return this;
     }

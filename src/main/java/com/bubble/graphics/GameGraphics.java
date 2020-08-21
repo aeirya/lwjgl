@@ -1,6 +1,5 @@
 package com.bubble.graphics;
 
-import com.bubble.athena.client.gui.menu.ProfileMenu;
 import com.bubble.glfw.GlfwWindow;
 import com.bubble.input.GameInput;
 import com.bubble.render.IRenderer;

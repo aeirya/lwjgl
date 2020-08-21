@@ -33,6 +33,7 @@ public class FriendsMenu extends Menu {
         }
 
         private Object activeTextBox() {
+            System.out.println("talking from the mapper");
             return null;
         }
     }

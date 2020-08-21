@@ -55,6 +55,10 @@
                         "b": 250,
                         "a": 1.0
                     },
+                    "font": {
+                        "name": "OpenSans-Regular",
+                        "size": 100
+                    },
                     "isDisabled": false
                 },
                 {

@@ -55,10 +55,11 @@
                         "b": 100,
                         "a": 1.0
                     },
-                    "isDisabled": false
-                },
+                    "isDisabled": false,
+                    "children": [
+
                 {
-                    "type": "panel",
+                    "type": "textbox",
                     "size": {
                         "width": 0.785,
                         "height": 1.02
@@ -72,7 +73,7 @@
                         "r": 250,
                         "g": 250,
                         "b": 250,
-                        "a": 1.0
+                        "a": 0.5
                     },
                     "isDisabled": false
                 },
@@ -91,7 +92,7 @@
                         "r": 250,
                         "g": 250,
                         "b": 250,
-                        "a": 1.0
+                        "a": 0.5
                     },
                     "isDisabled": false
                 },
@@ -153,6 +154,8 @@
                         "a": 1.0
                     },
                     "isDisabled": false
+                }
+                    ]
                 }
             ]
         }

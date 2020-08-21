@@ -1,8 +1,11 @@
 package com.bubble.ui.element;
 
+import com.bubble.input.mouse.IMouseAdapter;
+
 public class Textbox extends Element implements ITextbox {
     public Textbox(IElement element) {
         super(element);
+        setMouseListener(new TextboxMouseListener());
     }
 
     public void write(String text) {
@@ -18,7 +21,11 @@ public class Textbox extends Element implements ITextbox {
     }
 
     private static String removeLastCharacter(String str) {
-        if (str.length() == 0) return "";
+        if (str == null || str.length() == 0) return "";
         else return str.substring(0, str.length() - 1);
+    }
+
+    private class TextboxMouseListener implements IMouseAdapter {
+        
     }
 }

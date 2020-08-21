@@ -2,6 +2,7 @@ package com.bubble.ui.element;
 
 import java.util.List;
 
+import com.bubble.font2.Font;
 import com.bubble.input.mouse.IMouseListener;
 import com.bubble.render.Graphics;
 import com.bubble.std.Color;
@@ -15,9 +16,10 @@ public class Element implements IElement {
     private Point position;
     private Dimension size;
     private String text;
-    private String font;
+    private Font font;
     private Color color;
     private String texture;
+    private Margin textMargin;
     private boolean isDisabled;
     private boolean isHidden;
     private IMouseListener listener;
@@ -26,7 +28,7 @@ public class Element implements IElement {
 
     public Element() { }
 
-    public Element(String id, ElementType type, Point position, Dimension size, String text, String font, Color color,
+    public Element(String id, ElementType type, Point position, Dimension size, String text, Font font, Color color,
             String texture, boolean isDisabled, boolean isHidden, List<IElement> children) {
         this.id = id;
         this.type = type;
@@ -96,11 +98,11 @@ public class Element implements IElement {
         this.text = text;
     }
 
-    public String getFont() {
+    public Font getFont() {
         return font;
     }
 
-    public void setFont(String font) {
+    public void setFont(Font font) {
         this.font = font;
     }
 

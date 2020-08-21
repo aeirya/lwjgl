@@ -50,4 +50,17 @@ class KeyInputRegisterer implements IKeyAdapter {
             }
         }
     }
+
+    @Override
+    public void onKeyHold(IKeyEvent event) {
+        keyHold(event, getActiveTextbox());
+    }
+
+    private void keyHold(IKeyEvent event, ITextbox textbox) {
+        if (textbox != null) {
+            if (event.getKey() == GLFW.GLFW_KEY_BACKSPACE) {
+                textbox.clear();
+            }
+        }
+    }
 }

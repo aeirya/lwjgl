@@ -1,5 +1,6 @@
 package com.bubble.render;
 
+import com.bubble.font2.Font;
 import com.bubble.opengl.Texture;
 import com.bubble.std.Color;
 import com.bubble.std.Dimension;
@@ -32,15 +33,11 @@ public interface IAdvancedGraphics extends IGraphics {
         drawElement(position.x, position.y, size.width, size.height, texture);
     }
 
-    default void setFont(String font) {
-        // nothing for now!
-    }
-
     default void drawText(String text, Point location, float scale) {
         drawText(text, location.x, location.y , scale);
     }
 
-    default void drawText(String text, Point location, float scale, String font) {
+    default void drawText(String text, Point location, float scale, Font font) {
         setFont(font);
         drawText(text, location, scale);
     }

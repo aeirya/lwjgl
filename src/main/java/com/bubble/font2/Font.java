@@ -132,4 +132,6 @@ public class Font
 	{
 		return this.texture;
 	}
+
+	public static final Font GRAND_HOTEL_REGULAR = new Font("assets/fonts/GrandHotel-Regular.otf", 1024, 1024, 64);
 }

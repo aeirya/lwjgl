@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.bubble.font2.Font;
 import com.bubble.std.Color;
 import com.bubble.std.Dimension;
 import com.bubble.std.Point;
 import com.bubble.ui.element.ElementType;
 import com.bubble.ui.element.IElement;
 import com.bubble.util.file.FileLoader;
+import com.bubble.util.resource.FontManager;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -41,7 +43,7 @@ public class Layout {
         private ElementPosition position;
         private ElementDimension size;
         private String text;
-        private String font;
+        private ElementFont font;
         private ElementColor color;
         private String texture;
         private boolean isHidden;
@@ -57,7 +59,7 @@ public class Layout {
                 .setSize(getDimension())
                 .setColor(getColor())
                 .setText(text)
-                .setFont(font)
+                .setFont(getFont())
                 .setTexture(texture)
                 .setDisabled(isDisabled)
                 .setHidden(isHidden)
@@ -87,6 +89,12 @@ public class Layout {
             if (size == null) return null;
             else return new Dimension(size.width, size.height);
         }
+
+        private Font getFont() {
+            if (font != null)
+                return FontManager.loadFont(font.name, font.size);
+            else return null;
+        }
         
         private List<IElement> getChildren() {
             if (children == null) return new ArrayList<>();
@@ -114,6 +122,16 @@ public class Layout {
         private int g;
         private int b;
         private float a;
+    }
+
+    // TODO: add this
+    protected enum Margin {
+        LEFT, RIGHT, CENTER
+    }
+
+    protected class ElementFont {
+        String name;
+        float size;
     }
 
     @Override
