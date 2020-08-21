@@ -8,7 +8,6 @@ import com.bubble.font.VertexFormatElement;
 import com.bubble.opengl.VertexBuffer;
 import com.bubble.render.Shader;
 
-import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
 
 public class TextRenderer
@@ -31,7 +30,8 @@ public class TextRenderer
 		{
 			char c = text.charAt(i);
 			IGlyph glyph = this.font.getGlyph(c);
-			float advance = glyph.draw(this.vertexBuilder, x, y, scale);
+			glyph.draw(this.vertexBuilder, x, y, scale);
+			float advance = glyph.getWidth(x, scale);
 			x += advance;
 		}
 
@@ -88,6 +88,23 @@ public class TextRenderer
 		if (immediate)
 			this.flushAndRelease();
 	}
+
+	// public void drawFullText(String text, float x, float y, float scale, float r, float g, float b, float a,
+	// 	float maxWidth, boolean immediate, boolean seperateWords) {
+		
+	// 	int i = 0;
+	// 	while (i < text.length()) {
+	// 		int len = 0;
+	// 		while (len < maxWidth) {
+	// 			char nextChar = text.charAt(i);
+	// 			IGlyph glyph = this.font.getGlyph(nextChar);
+	// 			len += glyph.getWidth(x, scale);
+	// 		}
+	// 		text.substring(beginIndex, endIndex)
+	// 		text.substring(i)
+			
+	// 	}
+	// }
 
 	public VertexBuffer flush()
 	{

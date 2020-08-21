@@ -47,6 +47,8 @@ class KeyInputRegisterer implements IKeyAdapter {
                 textbox.delete();
             } else if(event.getKey() == GLFW.GLFW_KEY_ESCAPE) {
                 textbox.clear();
+            } else if (event.getKey() == GLFW.GLFW_KEY_ENTER) {
+                textbox.nextLine();
             }
         }
     }

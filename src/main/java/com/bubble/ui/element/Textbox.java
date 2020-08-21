@@ -20,6 +20,10 @@ public class Textbox extends Element implements ITextbox {
         setText("");
     }
 
+    public void nextLine() {
+        setText(getText() + "\n");
+    }
+
     private static String removeLastCharacter(String str) {
         if (str == null || str.length() == 0) return "";
         else return str.substring(0, str.length() - 1);
