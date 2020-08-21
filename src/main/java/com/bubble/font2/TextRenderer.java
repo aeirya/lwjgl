@@ -24,8 +24,10 @@ public class TextRenderer
 		this.shader = shader;
 	}
 
-	public void drawText(String text, float x, float y, float scale, float r, float g, float b, float a, boolean immediate)
+	public float drawText(String text, float x, float y, float scale, float r, float g, float b, float a, boolean immediate)
 	{
+		float length = 0f;
+
 		this.vertexBuilder.color(r, g, b, a);
 		for (int i = 0; i < text.length(); ++i)
 		{
@@ -33,10 +35,13 @@ public class TextRenderer
 			IGlyph glyph = this.font.getGlyph(c);
 			float advance = glyph.draw(this.vertexBuilder, x, y, scale);
 			x += advance;
+			length += advance;
 		}
 
 		if (immediate)
 			this.flushAndRelease();
+
+		return length;
 	}
 
 	public VertexBuffer flush()

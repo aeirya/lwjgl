@@ -51,11 +51,12 @@ public class GameRenderer implements IRenderer {
             e -> {
                 if (e.getText() == null) return;
                 if (e.getFont() != null) textRenderer.setFont(e.getFont());
-                textRenderer.drawText(
+                float textLength = textRenderer.drawText(
                     e.getText(), 
                     e.getPosition().x + e.getSize().width / 4, 
                     e.getPosition().y - e.getSize().height / 2, 
                     0.0017f, 1, 1, 1, 1, true);
+                // System.out.println(textLength);
                 textRenderer.setFont(Font.GRAND_HOTEL_REGULAR); // swap with reset function
             }
         );
