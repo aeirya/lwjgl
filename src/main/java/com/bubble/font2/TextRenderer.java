@@ -24,8 +24,25 @@ public class TextRenderer
 		this.shader = shader;
 	}
 
-	public float drawText(String text, float x, float y, float scale, float r, float g, float b, float a, boolean immediate)
+	public void drawText(String text, float x, float y, float scale, float r, float g, float b, float a, boolean immediate)
 	{
+		this.vertexBuilder.color(r, g, b, a);
+		for (int i = 0; i < text.length(); ++i)
+		{
+			char c = text.charAt(i);
+			IGlyph glyph = this.font.getGlyph(c);
+			float advance = glyph.draw(this.vertexBuilder, x, y, scale);
+			x += advance;
+		}
+
+		if (immediate)
+			this.flushAndRelease();
+	}
+
+	public void drawMultilineText(String text, float x, float y, float scale, float r, float g, float b, float a,
+		float maxWidth, boolean immediate, boolean seperateWords)
+	{
+		float startX = x;
 		float length = 0f;
 
 		this.vertexBuilder.color(r, g, b, a);
@@ -35,13 +52,41 @@ public class TextRenderer
 			IGlyph glyph = this.font.getGlyph(c);
 			float advance = glyph.draw(this.vertexBuilder, x, y, scale);
 			x += advance;
-			length += advance;
+
+			if (i+1 < text.length()) {
+				char nextChar = text.charAt(i+1);
+				glyph = this.font.getGlyph(nextChar);
+				length += glyph.getWidth(x, scale);
+
+				if (length > maxWidth) {
+					length = 0f;
+					x = startX;
+					y -= 0.09f;
+				}
+			}
+
+			if (!seperateWords && (c == '\t' || c == ' ')) {
+				float wordLength = 0f;
+				for (int j = i; j < text.length(); ++j) {
+					char nextChar = text.charAt(j);
+					glyph = this.font.getGlyph(nextChar);
+
+					if (nextChar == '\t' || nextChar == ' ') {
+						if (length + wordLength > maxWidth) {
+							length = 0f;
+							x = startX;
+							y -= 0.09f;
+						}
+						break;
+					}
+
+					wordLength += glyph.getWidth(x, scale);
+				}
+			}
 		}
 
 		if (immediate)
 			this.flushAndRelease();
-
-		return length;
 	}
 
 	public VertexBuffer flush()

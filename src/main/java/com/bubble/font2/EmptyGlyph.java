@@ -30,4 +30,10 @@ public class EmptyGlyph implements IGlyph
 		STBTruetype.stbtt_GetBakedQuad(this.bakedChars, font.getWidth(), font.getHeight(), (int)' ', xPos, yPos, q, true);
 		return (xPos.get() - x) * scale;
 	}
+
+	@Override
+	public float getWidth(float x, float scale)
+	{
+		return 0;
+	}
 }
