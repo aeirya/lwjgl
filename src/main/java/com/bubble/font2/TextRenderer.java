@@ -25,14 +25,29 @@ public class TextRenderer
 
 	public void drawText(String text, float x, float y, float scale, float r, float g, float b, float a, boolean immediate)
 	{
+		drawText(text, x, y, scale, r, g, b, a, 2 - x + 0.5f, immediate);
+	}
+
+	public void drawText(String text, float x, float y, float scale, float r, float g, float b, float a, float maxWidth, boolean immediate)
+	{
+		float startX = x;
+		float length = 0f;
+
 		this.vertexBuilder.color(r, g, b, a);
 		for (int i = 0; i < text.length(); ++i)
 		{
 			char c = text.charAt(i);
 			IGlyph glyph = this.font.getGlyph(c);
-			glyph.draw(this.vertexBuilder, x, y, scale);
-			float advance = glyph.getWidth(x, scale);
+			float advance = glyph.draw(this.vertexBuilder, x, y, scale);
 			x += advance;
+
+			if (i+1 < text.length()) {
+				char nextChar = text.charAt(i+1);
+				if (length >= maxWidth) {
+					glyph = this.font.getGlyph(nextChar);
+					length += glyph.getWidth(x, scale);
+				}
+			}
 		}
 
 		if (immediate)
@@ -50,7 +65,7 @@ public class TextRenderer
 		{
 			char c = text.charAt(i);
 			IGlyph glyph = this.font.getGlyph(c);
-			
+
 			if (c == '\n') {
 				length = 0f;
 				x = startX;
