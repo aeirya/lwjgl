@@ -50,8 +50,15 @@ public class TextRenderer
 		{
 			char c = text.charAt(i);
 			IGlyph glyph = this.font.getGlyph(c);
-			float advance = glyph.draw(this.vertexBuilder, x, y, scale);
-			x += advance;
+			
+			if (c == '\n') {
+				length = 0f;
+				x = startX;
+				y -= 0.09f;
+			} else {
+				float advance = glyph.draw(this.vertexBuilder, x, y, scale);
+				x += advance;
+			}
 
 			if (i+1 < text.length()) {
 				char nextChar = text.charAt(i+1);
