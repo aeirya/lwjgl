@@ -59,8 +59,8 @@ public class GameRenderer implements IRenderer {
                 if (e.getAlign() == Align.CENTER) x = e.getPosition().x + e.getSize().width / 2 - Math.getTextWidth(e.getText(), scale, e.getFont()) / 2;
                 else x = e.getPosition().x + 0.01f * e.getSize().width;
                 float y;
-                if (e.getAlign() == Align.TOP_LEFT) y = e.getPosition().y - e.getFont().getSize() * scale / 3;
-                else y = e.getPosition().y - e.getSize().height / 2 - e.getFont().getSize() * scale / 3;
+                if (e.getAlign() == Align.TOP_LEFT) y = e.getPosition().y - e.getFont().getSize() * scale / 4;
+                else y = e.getPosition().y - e.getSize().height / 2 - e.getFont().getSize() * scale / 4;
                 if (e.getType() == ElementType.TEXT_AREA)
                     textRenderer.drawMultilineText(
                         e.getText(), 
@@ -74,7 +74,7 @@ public class GameRenderer implements IRenderer {
                         y,
                         scale,
                         1, 1, 1, 1, 
-                        e.getSize().width * 0.9f, 
+                        e.getSize().width - 0.08f, 
                         true);
                 textRenderer.setFont(Font.GRAND_HOTEL_REGULAR); // swap with reset function
             }

@@ -47,6 +47,9 @@ public class TextRenderer
 					glyph = this.font.getGlyph(nextChar);
 					length += glyph.getWidth(x, scale);
 				}
+				else {
+					break;
+				}
 			}
 		}
 

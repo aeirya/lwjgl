@@ -5,6 +5,7 @@ import com.bubble.input.mouse.IMouseAdapter;
 public class Textbox extends Element implements ITextbox {
     
     protected boolean isMultiline;
+    protected int maxChars = 0; 
 
     public Textbox(IElement element) {
         super(element);
@@ -14,7 +15,10 @@ public class Textbox extends Element implements ITextbox {
     }
 
     public void write(String text) {
-        setText(getText() + text);
+        if (maxChars != 0 && getText().length() >= maxChars) return;
+        if (getText() != null)
+            setText(getText() + text);
+        else setText(text);
     }
 
     public void delete() {
