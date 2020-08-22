@@ -1,0 +1,163 @@
+{
+    "elements": [
+        {
+            "type": "panel",
+            "size": {
+                "width": 2,
+                "height": 2
+            },
+            "position": {
+                "x": -1,
+                "y": 1
+            },
+            "text": "Profile",
+            "color": {
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "a" : 0.5
+            },
+            "isDisabled": false,
+            "children": [
+                {
+                    "type": "panel",
+                    "size": {
+                        "width": 0.45,
+                        "height": 1.36
+                    },
+                    "position": {
+                        "x": 0.23,
+                        "y": 0.68
+                    },
+                    "text": "Panel",
+                    "color": {
+                        "r": 100,
+                        "g": 100,
+                        "b": 100,
+                        "a": 1.0
+                    },
+                    "isDisabled": false
+                },
+                {
+                    "type": "panel",
+                    "size": {
+                        "width": 0.88,
+                        "height": 1.36
+                    },
+                    "position": {
+                        "x": -0.7,
+                        "y": 0.68
+                    },
+                    "text": "Panel",
+                    "color": {
+                        "r": 100,
+                        "g": 100,
+                        "b": 100,
+                        "a": 1.0
+                    },
+                    "isDisabled": false,
+                    "children": [
+
+                {
+                    "id": "text_panel",
+                    "type": "text_area",
+                    "align": "top_left",
+                    "size": {
+                        "width": 0.785,
+                        "height": 1.02
+                    },
+                    "position": {
+                        "x": -0.65,
+                        "y": 0.6
+                    },
+                    "color": {
+                        "r": 250,
+                        "g": 250,
+                        "b": 250,
+                        "a": 0.5
+                    },
+                    "isDisabled": false
+                },
+                {
+                    "type": "textbox",
+                    "size": {
+                        "width": 0.56,
+                        "height": 0.14
+                    },
+                    "align": "left",
+                    "position": {
+                        "x": -0.65,
+                        "y": -0.48
+                    },
+                    "id": "text_box",
+                    "color": {
+                        "r": 250,
+                        "g": 250,
+                        "b": 250,
+                        "a": 0.5
+                    },
+                    "isDisabled": false
+                },
+                {
+                    "type": "button",
+                    "size": {
+                        "width": 0.20,
+                        "height": 0.14
+                    },
+                    "position": {
+                        "x": -0.06,
+                        "y": -0.48
+                    },
+                    "text": "Send",
+                    "id": "send",
+                    "color": {
+                        "r": 100,
+                        "g": 150,
+                        "b": 250,
+                        "a": 1.0
+                    },
+                    "isDisabled": false
+                }
+            ]},
+            {
+                "type": "button",
+                "size": {
+                    "width": 0.14,
+                    "height": 0.14
+                },
+                "position": {
+                    "x": -0.96,
+                    "y": -0.80
+                },
+                "text": "Back",
+                "id": "back",
+                "color": {
+                    "r": 100,
+                    "g": 150,
+                    "b": 250,
+                    "a": 1.0
+                },
+                "isDisabled": false
+            },
+            {
+                "type": "button",
+                "size": {
+                    "width": 0.14,
+                    "height": 0.14
+                },
+                "position": {
+                    "x": 0.82,
+                    "y": -0.80
+                },
+                "text": "Exit",
+                "color": {
+                    "r": 100,
+                    "g": 150,
+                    "b": 250,
+                    "a": 1.0
+                },
+                "isDisabled": false
+            }
+        ]}
+    ]
+}

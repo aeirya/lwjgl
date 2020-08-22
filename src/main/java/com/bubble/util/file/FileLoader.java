@@ -1,6 +1,7 @@
 package com.bubble.util.file;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -31,6 +32,7 @@ public class FileLoader implements IFileReader<String> {
     }
 
     public String load() {
+        if (! new File(path).exists()) return "";
         final StringBuilder builder = new StringBuilder();
         final BufferedReader br = new BufferedReader(getReader());
         String line;

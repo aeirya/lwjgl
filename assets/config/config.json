@@ -1,0 +1,13 @@
+{
+  "screen": {
+    "screensize": {
+      "width": 1080,
+      "height": 720
+    },
+    "ratio": {
+      "W": 15,
+      "H": 10
+    },
+    "fps": 30
+  }
+}

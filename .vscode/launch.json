@@ -6,12 +6,60 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - GameConfig",
+            "request": "launch",
+            "mainClass": "com.bubble.util.config.GameConfig",
+            "projectName": "lwjgl"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - GlfwWindow",
+            "request": "launch",
+            "mainClass": "com.bubble.glfw.GlfwWindow",
+            "projectName": "lwjgl"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MenuLayout",
+            "request": "launch",
+            "mainClass": "com.bubble.gui.MenuLayout",
+            "projectName": "lwjgl"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Graphics",
+            "request": "launch",
+            "mainClass": "com.bubble.sample.Graphics",
+            "projectName": "lwjgl"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - LoadLayoutTes",
+            "request": "launch",
+            "mainClass": "com.bubble.sample.LoadLayoutTes",
+            "projectName": "lwjgl"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DummyLayout",
+            "request": "launch",
+            "mainClass": "com.bubble.tools.layout.DummyLayout",
+            "projectName": "lwjgl"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SimpleImageRendering",
+            "request": "launch",
+            "mainClass": "com.bubble.sample.SimpleImageRendering",
+            "projectName": "lwjgl"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - SimpleImageRendering",
             "request": "launch",
             "mainClass": "com.bubble.opengl.sample.SimpleImageRendering",
             "projectName": "lwjgl",
             "vmArgs": "-XstartOnFirstThread"
-    
         },
         {
             "type": "java",

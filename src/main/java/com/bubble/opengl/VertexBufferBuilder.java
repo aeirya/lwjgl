@@ -1,12 +1,13 @@
 package com.bubble.opengl;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class VertexBufferBuilder {
     private final List<IVertex> vertices;
     private final List<Integer> indices;
-    private final List<VertexAttribute> attributes;
+    protected final List<VertexAttribute> attributes;
     private int beginningIndex = 0;
     private int offset = 0;
 
@@ -25,8 +26,16 @@ public class VertexBufferBuilder {
         offset += size;
     }
 
+    // do not call set attrib afterwards
+    public void setAttributes(List<VertexAttribute> attributes) {
+        this.attributes.addAll(attributes);
+    }
+
     public void begin() {
-        beginningIndex = vertices.size();
+        // oh!
+        beginningIndex = vertices.size() / 3;
+        // vertex positions
+        // possible bug here, fix this
     }
 
     public void end() {
@@ -39,9 +48,13 @@ public class VertexBufferBuilder {
         indices.add(c + beginningIndex);
     }
 
+    private int getBiggestAttribSize() {
+        return attributes.stream().parallel().map(VertexAttribute::getSize).max(Comparator.naturalOrder()).orElse(0);
+    }
+
     public VertexBuffer getVAO() {
         final VertexBuffer vb = new VertexBuffer();
-        final float[] vert = new float[vertices.size() * vertices.get(0).getSize()];
+        final float[] vert = new float[vertices.size() * getBiggestAttribSize()];
         int i = 0;
         for (IVertex v : vertices) {
             v.append(vert, i);
@@ -56,5 +69,11 @@ public class VertexBufferBuilder {
         final VertexAttribute[] attr = attributes.toArray(new VertexAttribute[0]);
         vb.upload(vert, ind, attr);
         return vb;
+    }
+
+    public void clear()
+    {
+        this.vertices.clear();
+        this.indices.clear();
     }
 }

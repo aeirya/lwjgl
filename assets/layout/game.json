@@ -1,0 +1,250 @@
+{
+    "elements": [
+        {
+            "id": "profile",
+            "type": "panel",
+            "size": {
+                "width": 1.42,
+                "height": 1.65
+            },
+            "position": {
+                "x": -0.71,
+                "y": 0.9
+            },
+            "color": {
+                "r": 140,
+                "g": 200,
+                "b": 200,
+                "a" : 1
+            },
+            "texture": "board",
+            "isDisabled": false,
+            "children": [
+                {
+                    "id": "enemy_hero",
+                    "type": "panel",
+                    "size": {
+                        "width": 0.2,
+                        "height": 0.3
+                    },
+                    "position": {
+                        "x": -0.1,
+                        "y": 0.84
+                    },
+                    "color": {
+                        "r": 250,
+                        "g": 250,
+                        "b": 250,
+                        "a" : 1
+                    },
+                    "texture": "hero_slot"
+                },
+                {
+                    "id": "enemy_power",
+                    "type": "panel",
+                    "size": {
+                        "width": 0.15,
+                        "height": 0.25
+                    },
+                    "position": {
+                        "x": 0.12,
+                        "y": 0.73
+                    },
+                    "color": {
+                        "r": 250,
+                        "g": 250,
+                        "b": 250,
+                        "a" : 1
+                    },
+                    "isHidden": true
+                },
+                {
+                    "id": "your_hero",
+                    "type": "panel",
+                    "size": {
+                        "width": 0.2,
+                        "height": 0.3
+                    },
+                    "position": {
+                        "x": -0.1,
+                        "y": -0.38
+                    },
+                    "color": {
+                        "r": 250,
+                        "g": 250,
+                        "b": 250,
+                        "a" : 1
+                    },
+                    "texture": "hero_slot"
+                },
+                {
+                    "id": "your_power",
+                    "type": "panel",
+                    "size": {
+                        "width": 0.15,
+                        "height": 0.25
+                    },
+                    "position": {
+                        "x": 0.12,
+                        "y": -0.52
+                    },
+                    "color": {
+                        "r": 250,
+                        "g": 250,
+                        "b": 250,
+                        "a" : 1
+                    },
+                    "isHidden": true
+                },
+                {
+                    "id": "events",
+                    "type": "panel",
+                    "size": {
+                        "width": 0.08,
+                        "height": 1.1
+                    },
+                    "position": {
+                        "x": -0.76,
+                        "y": 0.56
+                    },
+                    "color": {
+                        "r": 140,
+                        "g": 200,
+                        "b": 200,
+                        "a" : 1
+                    },
+                    "isHidden": true
+                },
+                {
+                    "id": "battlefield",
+                    "type": "panel",
+                    "size": {
+                        "width": 1.3,
+                        "height": 1.1
+                    },
+                    "position": {
+                        "x": -0.60,
+                        "y": 0.53
+                    },
+                    "color": {
+                        "r": 140,
+                        "g": 200,
+                        "b": 200,
+                        "a" : 1
+                    },
+                    "isHidden": true
+                },
+                {
+                    "id": "end_turn_button",
+                    "type": "button",
+                    "size": {
+                        "width": 0.2,
+                        "height": 0.1
+                    },
+                    "position": {
+                        "x": 0.74,
+                        "y": 0.08
+                    },
+                    "color": {
+                        "r": 250,
+                        "g": 250,
+                        "b": 250,
+                        "a" : 1.0
+                    }
+                },
+                {
+                    "id": "enemy_cards",
+                    "type": "panel",
+                    "size": {
+                        "width": 0.2,
+                        "height": 0.4
+                    },
+                    "position": {
+                        "x": 0.74,
+                        "y": 0.6
+                    },
+                    "color": {
+                        "r": 250,
+                        "g": 250,
+                        "b": 250,
+                        "a" : 1
+                    }
+                },
+                {
+                    "id": "my_cards",
+                    "type": "panel",
+                    "size": {
+                        "width": 0.2,
+                        "height": 0.4
+                    },
+                    "position": {
+                        "x": 0.74,
+                        "y": -0.2
+                    },
+                    "color": {
+                        "r": 250,
+                        "g": 250,
+                        "b": 250,
+                        "a" : 1
+                    }
+                },
+                {
+                    "id": "friends_button",
+                    "type": "button",
+                    "size": {
+                        "width": 0.14,
+                        "height": 0.14
+                    },
+                    "position": {
+                        "x": -0.96,
+                        "y": -0.80
+                    },
+                    "text": "Friends",
+                    "color": {
+                        "r": 100,
+                        "g": 150,
+                        "b": 250,
+                        "a": 1.0
+                    },
+                    "isDisabled": false
+                },
+                {
+                    "type": "panel",
+                    "size": {
+                        "width": 0.115,
+                        "height": 0.26
+                    },
+                    "position": {
+                        "x": -0.14,
+                        "y": 0.42
+                    },
+                    "texture": "minion",
+                    "color": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255,
+                        "a": 1.0
+                    }
+                },
+                {
+                    "type": "panel",
+                    "size": {
+                        "width": 0.115,
+                        "height": 0.26
+                    },
+                    "position": {
+                        "x": 0.02,
+                        "y": 0.42
+                    },
+                    "texture": "minion",
+                    "color": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255,
+                        "a": 1.0
+                    }
+                }
+            ]
+        }
+    ]
+}
