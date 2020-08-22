@@ -48,6 +48,10 @@ public class MainMenu extends Menu {
                 "profile", 
                 new MouseListener().setOnClick(a -> launch(MenuType.PROFILE))
                 );
+            listenerMap.put(
+                "lobby", 
+                new MouseListener().setOnClick(a -> launch(MenuType.LOBBY))
+                );
         }
 
         private void activeConsole() {
