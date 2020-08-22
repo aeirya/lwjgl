@@ -15,7 +15,7 @@ public class Textbox extends Element implements ITextbox {
     }
 
     public void write(String text) {
-        if (maxChars != 0 && getText().length() >= maxChars) return;
+        if (maxChars != 0 && getText() != null && getText().length() >= maxChars) return;
         if (getText() != null)
             setText(getText() + text);
         else setText(text);
