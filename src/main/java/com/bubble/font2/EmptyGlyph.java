@@ -36,4 +36,10 @@ public class EmptyGlyph implements IGlyph
 	{
 		return 0;
 	}
+	
+	@Override
+	public float getHeight(float y, float scale)
+	{
+		return 0;
+	}
 }

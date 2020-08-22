@@ -8,5 +8,6 @@ public enum MenuType {
     SETTINGS,
     ARENA,
     PROFILE,
-    FRIENDS
+    FRIENDS,
+    LOBBY
 }

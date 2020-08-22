@@ -71,7 +71,8 @@
                         "x": 0.66,
                         "y": 0.86
                     },
-                    "text": "Scoreboard",
+                    "text": "Lobby",
+                    "id": "lobby",
                     "color": {
                         "r": 100,
                         "g": 150,

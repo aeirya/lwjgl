@@ -23,6 +23,7 @@ public class GameMenuLauncher extends MenuLauncher {
         mapper.put(MenuType.FRIENDS, FriendsMenu.class);
         mapper.put(MenuType.PROFILE, ProfileMenu.class);
         mapper.put(MenuType.DECKS, DeckMenu.class);
+        mapper.put(MenuType.LOBBY, LobbyMenu.class);
     }
 
     @Override
