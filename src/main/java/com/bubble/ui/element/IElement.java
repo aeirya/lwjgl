@@ -26,6 +26,7 @@ public interface IElement {
     
     void setText(String text);
     void setChildren(List<IElement> children);
+    void setPosition(Point position);
 
     void setMouseListener(IMouseListener listener);
     void renderComponent(Graphics g);
