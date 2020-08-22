@@ -20,6 +20,10 @@ public class GameMenuLauncher extends MenuLauncher {
     private void init() {
         mapper.put(MenuType.MAIN, MainMenu.class);
         mapper.put(MenuType.ARENA, ArenaMenu.class);
+        mapper.put(MenuType.FRIENDS, FriendsMenu.class);
+        mapper.put(MenuType.PROFILE, ProfileMenu.class);
+        mapper.put(MenuType.DECKS, DeckMenu.class);
+        mapper.put(MenuType.LOBBY, LobbyMenu.class);
     }
 
     @Override

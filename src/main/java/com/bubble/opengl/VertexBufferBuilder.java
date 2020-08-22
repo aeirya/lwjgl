@@ -32,7 +32,10 @@ public class VertexBufferBuilder {
     }
 
     public void begin() {
-        beginningIndex = vertices.size();
+        // oh!
+        beginningIndex = vertices.size() / 3;
+        // vertex positions
+        // possible bug here, fix this
     }
 
     public void end() {
@@ -66,5 +69,11 @@ public class VertexBufferBuilder {
         final VertexAttribute[] attr = attributes.toArray(new VertexAttribute[0]);
         vb.upload(vert, ind, attr);
         return vb;
+    }
+
+    public void clear()
+    {
+        this.vertices.clear();
+        this.indices.clear();
     }
 }

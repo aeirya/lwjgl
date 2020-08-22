@@ -13,7 +13,7 @@ public abstract class GraphicsTest {
     GraphicsTest() {
         window = new GlfwWindow();
         Shader.initiateShaders();
-        g = new GuiRenderer(new TextureManager());
+        // g = new GuiRenderer(new TextureManager());
         window.setRenderer(g);
     }
 

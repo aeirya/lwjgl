@@ -42,6 +42,7 @@ public class MouseInput implements IMouseInputListener {
     private IMouseListener getMouseListener(MouseState mouse) {
         currentElement = findCurrentElement(mouse);
         if (currentElement != null && currentElement.getMouseListener() != null) {
+            System.out.println(currentElement.getId());
             return currentElement.getMouseListener();
         } 
         else return new IMouseAdapter(){ };

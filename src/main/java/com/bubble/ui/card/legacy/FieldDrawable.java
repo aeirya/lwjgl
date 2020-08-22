@@ -17,7 +17,7 @@ public class FieldDrawable {
     }
 
     public void render(Graphics g, GuiElement reference) {
-        g.setFont(font);
+        // g.setFont(font); TODO
         g.drawText(
             text, 
             location.x / 10 * reference.getWidth() + reference.getX(), 

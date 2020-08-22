@@ -1,5 +1,8 @@
 package com.bubble.std;
 
+import com.bubble.font2.Font;
+import com.bubble.font2.IGlyph;
+
 public class Math {
     private Math() { }
 
@@ -18,5 +21,19 @@ public class Math {
 
     public static Point toPoint(Dimension dim) {
         return new Point(dim.width, dim.height);
+    }
+
+    public static float getTextWidth(String text, float scale, Font font) {
+		float length = 0f;
+
+		for (int i = 0; i < text.length(); ++i)
+		{
+			char c = text.charAt(i);
+			IGlyph glyph = font.getGlyph(c);
+			float advance = glyph.getWidth(0, scale);
+			length += advance;
+		}
+            
+        return length;
     }
 }

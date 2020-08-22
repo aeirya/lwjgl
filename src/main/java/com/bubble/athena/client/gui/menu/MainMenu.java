@@ -30,13 +30,28 @@ public class MainMenu extends Menu {
             listenerMap.put(
                 "decks", 
                 new MouseListener()
-                    .setOnClick(a -> System.out.println("decksss"))
+                    .setOnClick(a -> {
+                        System.out.println("decksss");
+                        launch(MenuType.DECKS);
+                    })
                     .setOnMouseEnter(a -> System.out.println("hi"))
                     .setOnMouseExit(a -> System.out.println("bye")));
             listenerMap.put(
                 "console",
                 new MouseListener().setOnClick(a -> activeConsole())
-                );                
+                );
+            listenerMap.put(
+                "friends", 
+                new MouseListener().setOnClick(a -> launch(MenuType.FRIENDS))
+                );
+            listenerMap.put(
+                "profile", 
+                new MouseListener().setOnClick(a -> launch(MenuType.PROFILE))
+                );
+            listenerMap.put(
+                "lobby", 
+                new MouseListener().setOnClick(a -> launch(MenuType.LOBBY))
+                );
         }
 
         private void activeConsole() {

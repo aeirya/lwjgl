@@ -10,7 +10,6 @@
                 "x": -0.75,
                 "y": 0.75
             },
-            "text": "Hello",
             "color": {
                 "r": 140,
                 "g": 200,
@@ -56,6 +55,10 @@
                         "b": 250,
                         "a": 1.0
                     },
+                    "font": {
+                        "name": "OpenSans-Regular",
+                        "size": 100
+                    },
                     "isDisabled": false
                 },
                 {
@@ -68,7 +71,8 @@
                         "x": 0.66,
                         "y": 0.86
                     },
-                    "text": "Scoreboard",
+                    "text": "Lobby",
+                    "id": "lobby",
                     "color": {
                         "r": 100,
                         "g": 150,
@@ -78,6 +82,7 @@
                     "isDisabled": false
                 },
                 {
+                    "id": "friends",
                     "type": "button",
                     "size": {
                         "width": 0.14,
@@ -106,7 +111,7 @@
                         "x": 0.56,
                         "y": 0.7
                     },
-                    "text": "friends panel",
+                    "id": "friends_panel",
                     "color": {
                         "r": 200,
                         "g": 150,
@@ -126,7 +131,7 @@
                         "x": -0.4,
                         "y": 0.7
                     },
-                    "text": "title",
+                    "text": "Athena ?",
                     "color": {
                         "r": 200,
                         "g": 150,
@@ -186,6 +191,7 @@
                         "y": -0.28
                     },
                     "text": "Profile",
+                    "id": "profile",
                     "color": {
                         "r": 100,
                         "g": 150,
@@ -223,7 +229,7 @@
                         "x": 0.66,
                         "y": -0.80
                     },
-                    "text": "Log-Out",
+                    "text": "Out",
                     "color": {
                         "r": 100,
                         "g": 150,

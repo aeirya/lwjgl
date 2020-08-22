@@ -7,6 +7,7 @@ import com.bubble.std.Point;
 
 import org.lwjgl.glfw.GLFWCursorPosCallback;
 import org.lwjgl.glfw.GLFWMouseButtonCallback;
+import org.lwjgl.glfw.GLFWScrollCallback;
 
 import static org.lwjgl.glfw.GLFW.*;
 
@@ -60,6 +61,13 @@ class GlfwMouseInput {
         }
     };
 
+    private final GLFWScrollCallback scrollCallback = new GLFWScrollCallback(){
+        @Override
+        public void invoke(long w, double xoffset, double yoffset) {
+            System.out.println(xoffset + " : " + yoffset);
+        }
+    };
+
     public void bind(GlfwWindow window) {
         window.bind(this);
         this.window = window;
@@ -68,11 +76,13 @@ class GlfwMouseInput {
     public void bind(long window) {
         cursorPosCallback.set(window);
         mouseButtonCallback.set(window);
+        scrollCallback.set(window);
     }
 
     public void unbind() {
         cursorPosCallback.set(0);
         mouseButtonCallback.set(0);
+        scrollCallback.set(0);
     }
 
     private MouseState getState() {

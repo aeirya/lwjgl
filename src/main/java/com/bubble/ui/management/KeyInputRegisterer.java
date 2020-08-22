@@ -28,7 +28,7 @@ class KeyInputRegisterer implements IKeyAdapter {
     private ITextbox getActiveTextbox() {
         final IElement active = gui.getActiveElement();
         if (active == null) return null;
-        if (active.getType() == ElementType.TEXTBOX) return (ITextbox) active;
+        if (active.getType() == ElementType.TEXTBOX || active.getType() == ElementType.TEXT_AREA) return (ITextbox) active;
         else return null;
     }
 
@@ -46,6 +46,21 @@ class KeyInputRegisterer implements IKeyAdapter {
             if (event.getKey() == GLFW.GLFW_KEY_BACKSPACE) {
                 textbox.delete();
             } else if(event.getKey() == GLFW.GLFW_KEY_ESCAPE) {
+                textbox.clear();
+            } else if (event.getKey() == GLFW.GLFW_KEY_ENTER) {
+                textbox.nextLine();
+            }
+        }
+    }
+
+    @Override
+    public void onKeyHold(IKeyEvent event) {
+        keyHold(event, getActiveTextbox());
+    }
+
+    private void keyHold(IKeyEvent event, ITextbox textbox) {
+        if (textbox != null) {
+            if (event.getKey() == GLFW.GLFW_KEY_BACKSPACE) {
                 textbox.clear();
             }
         }

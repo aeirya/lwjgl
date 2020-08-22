@@ -3,18 +3,22 @@ package com.bubble.ui;
 import java.util.List;
 import java.util.logging.Logger;
 
+import com.bubble.font2.TextRenderer;
 import com.bubble.opengl.Texture;
 import com.bubble.render.Renderer;
+import com.bubble.render.Shader;
 import com.bubble.ui.element.IElement;
 import com.bubble.util.resource.TextureManager;
 import com.bubble.util.resource.UiManager;
 
 public class GuiRenderer extends Renderer implements IGuiRenderer {
     private final UiManager ui;
+    private final TextRenderer textRenderer;
 
-    public GuiRenderer(TextureManager textures) {
+    public GuiRenderer(TextureManager textures, TextRenderer textRenderer) {
         super(textures);
         ui = new UiManager(textures);
+        this.textRenderer = textRenderer;
     }
 
     @Override
@@ -33,6 +37,7 @@ public class GuiRenderer extends Renderer implements IGuiRenderer {
             break;
 
             case TEXTBOX:
+            case TEXT_AREA:
             drawTextbox(element);
             break;
 

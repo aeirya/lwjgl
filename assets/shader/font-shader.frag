@@ -11,5 +11,5 @@ void main()
 {
 	float t = texture(font, uv).r;
 	vec3 c = color.rgb * t;
-	fragColor = vec4(c, color.a);
+	fragColor = vec4(c, color.a * t);
 }

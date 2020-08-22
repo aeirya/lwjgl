@@ -55,10 +55,13 @@
                         "b": 100,
                         "a": 1.0
                     },
-                    "isDisabled": false
-                },
+                    "isDisabled": false,
+                    "children": [
+
                 {
-                    "type": "panel",
+                    "id": "text_panel",
+                    "type": "text_area",
+                    "align": "top_left",
                     "size": {
                         "width": 0.785,
                         "height": 1.02
@@ -67,31 +70,31 @@
                         "x": -0.65,
                         "y": 0.6
                     },
-                    "text": "Send",
                     "color": {
                         "r": 250,
                         "g": 250,
                         "b": 250,
-                        "a": 1.0
+                        "a": 0.5
                     },
                     "isDisabled": false
                 },
                 {
-                    "type": "panel",
+                    "type": "textbox",
                     "size": {
                         "width": 0.56,
                         "height": 0.14
                     },
+                    "align": "left",
                     "position": {
                         "x": -0.65,
                         "y": -0.48
                     },
-                    "text": "Send",
+                    "id": "text_box",
                     "color": {
                         "r": 250,
                         "g": 250,
                         "b": 250,
-                        "a": 1.0
+                        "a": 0.5
                     },
                     "isDisabled": false
                 },
@@ -106,44 +109,7 @@
                         "y": -0.48
                     },
                     "text": "Send",
-                    "color": {
-                        "r": 100,
-                        "g": 150,
-                        "b": 250,
-                        "a": 1.0
-                    },
-                    "isDisabled": false
-                },
-                {
-                    "type": "button",
-                    "size": {
-                        "width": 0.14,
-                        "height": 0.14
-                    },
-                    "position": {
-                        "x": -0.96,
-                        "y": -0.80
-                    },
-                    "text": "Back",
-                    "color": {
-                        "r": 100,
-                        "g": 150,
-                        "b": 250,
-                        "a": 1.0
-                    },
-                    "isDisabled": false
-                },
-                {
-                    "type": "button",
-                    "size": {
-                        "width": 0.14,
-                        "height": 0.14
-                    },
-                    "position": {
-                        "x": 0.82,
-                        "y": -0.80
-                    },
-                    "text": "Exit",
+                    "id": "send",
                     "color": {
                         "r": 100,
                         "g": 150,
@@ -152,7 +118,46 @@
                     },
                     "isDisabled": false
                 }
-            ]
-        }
+            ]},
+            {
+                "type": "button",
+                "size": {
+                    "width": 0.14,
+                    "height": 0.14
+                },
+                "position": {
+                    "x": -0.96,
+                    "y": -0.80
+                },
+                "text": "Back",
+                "id": "back",
+                "color": {
+                    "r": 100,
+                    "g": 150,
+                    "b": 250,
+                    "a": 1.0
+                },
+                "isDisabled": false
+            },
+            {
+                "type": "button",
+                "size": {
+                    "width": 0.14,
+                    "height": 0.14
+                },
+                "position": {
+                    "x": 0.82,
+                    "y": -0.80
+                },
+                "text": "Exit",
+                "color": {
+                    "r": 100,
+                    "g": 150,
+                    "b": 250,
+                    "a": 1.0
+                },
+                "isDisabled": false
+            }
+        ]}
     ]
 }
