@@ -23,6 +23,8 @@ public class TableElement extends Element {
     private List<RowElement> children;
     private RowElement header;
 
+    private int start = 0;
+
     TableElement() { }
 
     TableElement(String id, Point position, Dimension size, Align align, Color color,
@@ -40,20 +42,6 @@ public class TableElement extends Element {
         arrangeChilderen();
     }
 
-    // TableElement(IElement e) {
-    //     this.id = e.getId();
-    //     this.type = e.getType();
-    //     this.position = e.getPosition();
-    //     this.size = e.getSize();
-    //     this.color = e.getColor();
-    //     this.texture = e.getText();
-    //     this.isDisabled = e.isDisabled();
-    //     this.isHidden = e.isHidden();
-    //     this.children = e.getChildren();
-    //     this.listener = e.getMouseListener();
-    //     this.textAlign = e.getAlign();
-    // }
-
     private void arrangeChilderen() {
         float x = position.x + 0.08f;
         float y = position.y - 0.04f;
@@ -66,7 +54,9 @@ public class TableElement extends Element {
         }
         y -= yOffset + 0.02f;
 
-        for (RowElement child : this.children) {
+        for (int i = start; i < this.children.size(); ++i) {
+            RowElement child = this.children.get(i);
+
             x = position.x + 0.08f;
             xOffset = getElementXOffset(child);
 
@@ -80,6 +70,17 @@ public class TableElement extends Element {
 
     private float getElementXOffset(RowElement e) {
         return size.width / e.getElement().size();
+    }
+
+    public void scrollUp(int n) {
+        start -= n;
+        if (start < 0) start = 0;
+    }
+
+    public void scrollDown(int n) {
+        start += n;
+        if (start > this.children.size()-1) start = this.children.size()-1;
+        if (start < 0) start = 0;
     }
     
     @Override
@@ -108,6 +109,6 @@ public class TableElement extends Element {
     }
 
     public void removeRow() {
-        removeRow(children.size()-1);
+        removeRow(this.children.size()-1);
     }
 }
