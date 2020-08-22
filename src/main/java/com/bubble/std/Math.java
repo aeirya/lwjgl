@@ -23,7 +23,7 @@ public class Math {
         return new Point(dim.width, dim.height);
     }
 
-    public float getTextWidth(String text, float scale, Font font) {
+    public static float getTextWidth(String text, float scale, Font font) {
 		float length = 0f;
 
 		for (int i = 0; i < text.length(); ++i)

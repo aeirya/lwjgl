@@ -29,6 +29,10 @@ public class Font
 	private FontTexture texture;
 	private int width;
 	private int height;
+
+	private int lineGap;
+	private float size;
+
 	private Map<Character, IGlyph> charGlyphs = new HashMap<>();
 
 	public Font(String path, int width, int height, float size)
@@ -36,10 +40,17 @@ public class Font
 		this.width = width;
 		this.height = height;
 
+		this.size = size;
+
 		try
 		{
 			ByteBuffer data = ioResourceToByteBuffer(path, 4096);
 			ByteBuffer textureData = MemoryUtil.memAlloc(width * height);
+
+			float[] lineGap = new float[1];
+			STBTruetype.stbtt_GetScaledFontVMetrics(data, 0, 1024, new float[1],new float[1], lineGap);
+			this.lineGap = (int)lineGap[0];
+
 			STBTTBakedChar.Buffer chars = STBTTBakedChar.malloc(128);
 			STBTruetype.stbtt_BakeFontBitmap(data, size, textureData, width, height, 0, chars);
 			this.texture = new FontTexture(width, height);
@@ -131,6 +142,14 @@ public class Font
 	public FontTexture getTexture()
 	{
 		return this.texture;
+	}
+
+	public int getLineGap() {
+		return lineGap;
+	}
+
+	public float getSize() {
+		return size;
 	}
 
 	public static final Font GRAND_HOTEL_REGULAR = new Font("assets/fonts/GrandHotel-Regular.otf", 1024, 1024, 64);

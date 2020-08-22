@@ -28,7 +28,7 @@ class KeyInputRegisterer implements IKeyAdapter {
     private ITextbox getActiveTextbox() {
         final IElement active = gui.getActiveElement();
         if (active == null) return null;
-        if (active.getType() == ElementType.TEXTBOX) return (ITextbox) active;
+        if (active.getType() == ElementType.TEXTBOX || active.getType() == ElementType.TEXT_AREA) return (ITextbox) active;
         else return null;
     }
 

@@ -57,21 +57,20 @@ public class CharGlyph implements IGlyph
 
 		STBTTAlignedQuad q = STBTTAlignedQuad.create();
 		STBTruetype.stbtt_GetBakedQuad(this.bakedChars, font.getWidth(), font.getHeight(), this.charIndex, xPos, yPos, q, true);
-
 		return (xPos.get() - x) * scale;
 	}
 
-	@Override
-	public float getHeight(float y, float scale)
-	{
-		float x = 0;
+	// @Override
+	// public float getHeight(float y, float scale)
+	// {
+	// 	float x = 0;
 		
-		FloatBuffer xPos = MemoryUtil.memAllocFloat(1).put(x).flip();
-		FloatBuffer yPos = MemoryUtil.memAllocFloat(1).put(y).flip();
+	// 	FloatBuffer xPos = MemoryUtil.memAllocFloat(1).put(x).flip();
+	// 	FloatBuffer yPos = MemoryUtil.memAllocFloat(1).put(y).flip();
 
-		STBTTAlignedQuad q = STBTTAlignedQuad.create();
-		STBTruetype.stbtt_GetBakedQuad(this.bakedChars, font.getWidth(), font.getHeight(), this.charIndex, xPos, yPos, q, true);
+	// 	STBTTAlignedQuad q = STBTTAlignedQuad.create();
+	// 	STBTruetype.stbtt_GetBakedQuad(this.bakedChars, font.getWidth(), font.getHeight(), this.charIndex, xPos, yPos, q, true);
 
-		return (yPos.get() - y) * scale;
-	}
+	// 	return (yPos.get() - y) * scale;
+	// }
 }

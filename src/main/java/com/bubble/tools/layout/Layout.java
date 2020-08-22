@@ -8,6 +8,7 @@ import com.bubble.font2.Font;
 import com.bubble.std.Color;
 import com.bubble.std.Dimension;
 import com.bubble.std.Point;
+import com.bubble.ui.element.Align;
 import com.bubble.ui.element.ElementType;
 import com.bubble.ui.element.IElement;
 import com.bubble.util.file.FileLoader;
@@ -43,6 +44,7 @@ public class Layout {
         private ElementPosition position;
         private ElementDimension size;
         private String text;
+        private String align;
         private ElementFont font;
         private ElementColor color;
         private String texture;
@@ -60,6 +62,7 @@ public class Layout {
                 .setColor(getColor())
                 .setText(text)
                 .setFont(getFont())
+                .setAlign(getAlign())
                 .setTexture(texture)
                 .setDisabled(isDisabled)
                 .setHidden(isHidden)
@@ -93,7 +96,12 @@ public class Layout {
         private Font getFont() {
             if (font != null)
                 return FontManager.loadFont(font.name, font.size);
-            else return null;
+            else return Font.GRAND_HOTEL_REGULAR;
+        }
+
+        private Align getAlign() {
+            if (align == null) return null;
+            return Align.valueOf(align.toUpperCase());
         }
         
         private List<IElement> getChildren() {
@@ -124,10 +132,6 @@ public class Layout {
         private float a;
     }
 
-    // TODO: add this
-    protected enum Margin {
-        LEFT, RIGHT, CENTER
-    }
 
     protected class ElementFont {
         String name;

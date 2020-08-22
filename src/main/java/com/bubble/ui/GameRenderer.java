@@ -4,7 +4,10 @@ import com.bubble.font2.Font;
 import com.bubble.font2.TextRenderer;
 import com.bubble.render.IRenderer;
 import com.bubble.render.Shader;
+import com.bubble.std.Math;
 import com.bubble.ui.card.legacy.CardRenderer;
+import com.bubble.ui.element.Align;
+import com.bubble.ui.element.ElementType;
 import com.bubble.ui.management.IGuiManager;
 import com.bubble.util.resource.TextureManager;
 
@@ -49,13 +52,30 @@ public class GameRenderer implements IRenderer {
     private void renderTexts() {
         gui.getAllElementsOnScreen().forEach(
             e -> {
+                float scale = 0.0017f;
                 if (e.getText() == null) return;
                 if (e.getFont() != null) textRenderer.setFont(e.getFont());
-                textRenderer.drawMultilineText(
-                    e.getText(), 
-                    e.getPosition().x + e.getSize().width / 4, 
-                    e.getPosition().y - e.getSize().height / 2, 
-                    0.0017f, 1, 1, 1, 1, 1f, true, false);
+                float x;
+                if (e.getAlign() == Align.CENTER) x = e.getPosition().x + e.getSize().width / 2 - Math.getTextWidth(e.getText(), scale, e.getFont()) / 2;
+                else x = e.getPosition().x + 0.01f * e.getSize().width;
+                float y;
+                if (e.getAlign() == Align.TOP_LEFT) y = e.getPosition().y - e.getFont().getSize() * scale / 3;
+                else y = e.getPosition().y - e.getSize().height / 2 - e.getFont().getSize() * scale / 3;
+                if (e.getType() == ElementType.TEXT_AREA)
+                    textRenderer.drawMultilineText(
+                        e.getText(), 
+                        x, 
+                        y, 
+                        scale, 1, 1, 1, 1, e.getSize().width * 0.9f, true, false);
+                else 
+                    textRenderer.drawText(
+                        e.getText(),
+                        x, 
+                        y,
+                        scale,
+                        1, 1, 1, 1, 
+                        e.getSize().width * 0.9f, 
+                        true);
                 textRenderer.setFont(Font.GRAND_HOTEL_REGULAR); // swap with reset function
             }
         );

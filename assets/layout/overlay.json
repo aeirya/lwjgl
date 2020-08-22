@@ -59,7 +59,9 @@
                     "children": [
 
                 {
-                    "type": "textbox",
+                    "id": "text_panel",
+                    "type": "text_area",
+                    "align": "top_left",
                     "size": {
                         "width": 0.785,
                         "height": 1.02
@@ -68,7 +70,6 @@
                         "x": -0.65,
                         "y": 0.6
                     },
-                    "id": "text_panel",
                     "color": {
                         "r": 250,
                         "g": 250,
@@ -83,6 +84,7 @@
                         "width": 0.56,
                         "height": 0.14
                     },
+                    "align": "left",
                     "position": {
                         "x": -0.65,
                         "y": -0.48

@@ -6,6 +6,7 @@ import com.bubble.font2.Font;
 import com.bubble.std.Color;
 import com.bubble.std.Dimension;
 import com.bubble.std.Point;
+import com.bubble.ui.element.Align;
 import com.bubble.ui.element.Element;
 import com.bubble.ui.element.ElementType;
 import com.bubble.ui.element.IElement;
@@ -17,6 +18,7 @@ public class ElementBuilder {
     private Dimension size;
     private String text;
     private Font font;
+    private Align align;
     private Color color;
     private String texture;
     private boolean isDisabled;
@@ -59,6 +61,11 @@ public class ElementBuilder {
         return this;
     }
 
+    public ElementBuilder setAlign(Align align) {
+        this.align = align;
+        return this;
+    }
+
     public ElementBuilder setTexture(String texture) {
         this.texture = texture;
         return this;
@@ -80,6 +87,6 @@ public class ElementBuilder {
     }
 
     public IElement toElement() {
-        return new Element(id, type, position, size, text, font, color, texture, isDisabled, isHidden, children);
+        return new Element(id, type, position, size, text, font, align, color, texture, isDisabled, isHidden, children);
     }
 }

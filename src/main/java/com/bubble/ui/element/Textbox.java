@@ -3,9 +3,14 @@ package com.bubble.ui.element;
 import com.bubble.input.mouse.IMouseAdapter;
 
 public class Textbox extends Element implements ITextbox {
+    
+    protected boolean isMultiline;
+
     public Textbox(IElement element) {
         super(element);
         setMouseListener(new TextboxMouseListener());
+        setAlign(Align.LEFT);
+        isMultiline = false;
     }
 
     public void write(String text) {
@@ -21,7 +26,7 @@ public class Textbox extends Element implements ITextbox {
     }
 
     public void nextLine() {
-        setText(getText() + "\n");
+        if (isMultiline) setText(getText() + "\n");
     }
 
     private static String removeLastCharacter(String str) {

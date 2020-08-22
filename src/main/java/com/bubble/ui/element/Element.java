@@ -19,7 +19,7 @@ public class Element implements IElement {
     private Font font;
     private Color color;
     private String texture;
-    private Margin textMargin;
+    private Align textAlign;
     private boolean isDisabled;
     private boolean isHidden;
     private IMouseListener listener;
@@ -28,7 +28,7 @@ public class Element implements IElement {
 
     public Element() { }
 
-    public Element(String id, ElementType type, Point position, Dimension size, String text, Font font, Color color,
+    public Element(String id, ElementType type, Point position, Dimension size, String text, Font font, Align align, Color color,
             String texture, boolean isDisabled, boolean isHidden, List<IElement> children) {
         this.id = id;
         this.type = type;
@@ -128,6 +128,14 @@ public class Element implements IElement {
 
     public void setDisabled(boolean isDisabled) {
         this.isDisabled = isDisabled;
+    }
+
+    public void setAlign(Align align) {
+        this.textAlign = align;
+    }
+
+    public Align getAlign() {
+        return textAlign;
     }
 
     public boolean isHidden() {

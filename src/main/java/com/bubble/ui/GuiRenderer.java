@@ -37,6 +37,7 @@ public class GuiRenderer extends Renderer implements IGuiRenderer {
             break;
 
             case TEXTBOX:
+            case TEXT_AREA:
             drawTextbox(element);
             break;
 

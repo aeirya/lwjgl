@@ -17,6 +17,7 @@ public interface IElement {
     String getText();
     Color getColor();
     Font getFont();
+    Align getAlign();
     String getTexture();
     boolean isDisabled();
     boolean isHidden();

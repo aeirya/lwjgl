@@ -43,7 +43,7 @@ public class TextRenderer
 
 			if (i+1 < text.length()) {
 				char nextChar = text.charAt(i+1);
-				if (length >= maxWidth) {
+				if (length < maxWidth) {
 					glyph = this.font.getGlyph(nextChar);
 					length += glyph.getWidth(x, scale);
 				}
