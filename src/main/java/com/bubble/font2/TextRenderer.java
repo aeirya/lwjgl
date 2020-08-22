@@ -30,27 +30,27 @@ public class TextRenderer
 
 	public void drawText(String text, float x, float y, float scale, float r, float g, float b, float a, float maxWidth, boolean immediate)
 	{
-		float startX = x;
 		float length = 0f;
+		int i;
+
+		for (i = text.length()-1; i >= 0; --i) {
+			char c = text.charAt(i);
+			IGlyph glyph = font.getGlyph(c);
+			float advance = glyph.getWidth(0, scale);
+			length += advance;
+
+			if (length > maxWidth) {
+				break;
+			}
+		}
 
 		this.vertexBuilder.color(r, g, b, a);
-		for (int i = 0; i < text.length(); ++i)
+		for (++i; i < text.length(); ++i)
 		{
 			char c = text.charAt(i);
 			IGlyph glyph = this.font.getGlyph(c);
 			float advance = glyph.draw(this.vertexBuilder, x, y, scale);
 			x += advance;
-
-			if (i+1 < text.length()) {
-				char nextChar = text.charAt(i+1);
-				if (length < maxWidth) {
-					glyph = this.font.getGlyph(nextChar);
-					length += glyph.getWidth(x, scale);
-				}
-				else {
-					break;
-				}
-			}
 		}
 
 		if (immediate)
