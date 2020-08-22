@@ -57,17 +57,17 @@ public class GameRenderer implements IRenderer {
                 if (e.getFont() != null) textRenderer.setFont(e.getFont());
                 float x;
                 if (e.getAlign() == Align.CENTER) x = e.getPosition().x + e.getSize().width / 2 - Math.getTextWidth(e.getText(), scale, e.getFont()) / 2;
-                else x = e.getPosition().x + 0.01f * e.getSize().width;
+                else x = e.getPosition().x + 0.04f * e.getSize().width;
                 float y;
-                if (e.getAlign() == Align.TOP_LEFT) y = e.getPosition().y - e.getFont().getSize() * scale / 4;
+                if (e.getAlign() == Align.TOP_LEFT) y = e.getPosition().y - e.getFont().getSize() * scale - 0.01f;
                 else y = e.getPosition().y - e.getSize().height / 2 - e.getFont().getSize() * scale / 4;
                 if (e.getType() == ElementType.TEXT_AREA)
                     textRenderer.drawMultilineText(
                         e.getText(), 
                         x, 
                         y, 
-                        scale, 1, 1, 1, 1, e.getSize().width * 0.9f, true, false);
-                else 
+                        scale * 0.8f , 1, 1, 1, 1, e.getSize().width * 0.9f, true, false);
+                else if (e.getType() == ElementType.TEXTBOX)
                     textRenderer.drawText(
                         e.getText(),
                         x, 
@@ -76,6 +76,9 @@ public class GameRenderer implements IRenderer {
                         1, 1, 1, 1, 
                         e.getSize().width - 0.08f, 
                         true);
+                else 
+                    textRenderer.drawText(
+                        e.getText(), x, y, scale, 1, 1, 1, 1, true);
                 textRenderer.setFont(Font.GRAND_HOTEL_REGULAR); // swap with reset function
             }
         );

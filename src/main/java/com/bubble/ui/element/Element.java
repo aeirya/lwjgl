@@ -49,6 +49,7 @@ public class Element implements IElement {
         this.position = e.getPosition();
         size = e.getSize();
         text = e.getText();
+        textAlign = e.getAlign();
         font = e.getFont();
         color = e.getColor();
         texture = e.getText();
