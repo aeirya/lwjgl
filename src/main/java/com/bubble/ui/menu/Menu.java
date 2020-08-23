@@ -23,8 +23,16 @@ public class Menu implements IMenu {
         launcher.launch(menu);
     }
 
+    public void addElement(IElement element) {
+        elements.add(element);
+    }
+
     public List<IElement> getAllElementsOnScreen() {
         return elements;
+    }
+
+    public IElement getElement(String id) {
+        return layout.findInChildren(id);
     }
 
     public MenuLayout getLayout() {

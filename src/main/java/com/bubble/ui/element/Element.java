@@ -11,20 +11,19 @@ import com.bubble.std.Point;
 import com.bubble.tools.debug.LoudMouseAdaptor;
 
 public class Element implements IElement {
-    private String id;
-    private ElementType type;
-    private Point position;
-    private Dimension size;
-    private String text;
-    private Font font;
-    private Color color;
-    private String texture;
-    private Align textAlign;
-    private boolean isDisabled;
-    private boolean isHidden;
-    private IMouseListener listener;
-
-    private List<IElement> children;
+    protected String id;
+    protected ElementType type;
+    protected Point position;
+    protected Dimension size;
+    protected String text;
+    protected Font font;
+    protected Color color;
+    protected String texture;
+    protected Align textAlign;
+    protected boolean isDisabled;
+    protected boolean isHidden;
+    protected IMouseListener listener;
+    protected List<IElement> children;
 
     public Element() { }
 
@@ -163,6 +162,7 @@ public class Element implements IElement {
         this.listener = listener;
     }
 
+    @Override
     public void renderComponent(Graphics g) {
         // nothing
     }

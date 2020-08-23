@@ -1,45 +1,31 @@
 package com.bubble.ui.element;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import com.bubble.input.mouse.IMouseListener;
+import com.bubble.font2.Font;
 import com.bubble.render.Graphics;
 import com.bubble.std.Color;
 import com.bubble.std.Dimension;
 import com.bubble.std.Point;
 
 public class TableElement extends Element {
-    private String id;
-    private int col = 1;
-    private Point position;
-    private Dimension size;
-    private Color color;
-    private String texture;
-    private Align textAlign;
-    private boolean isDisabled;
-    private boolean isHidden;
-    private IMouseListener listener;
 
-    private List<RowElement> children;
     private RowElement header;
 
     private int start = 0;
 
-    TableElement() { }
+    public TableElement() { }
 
-    TableElement(String id, Point position, Dimension size, Align align, Color color,
-            String texture, boolean isDisabled, boolean isHidden, List<RowElement> children) {
-        this.id = id;
-        this.position = position;
-        this.size = size;
-        this.color = color;
-        this.texture = texture;
-        this.isDisabled = isDisabled;
-        this.isHidden = isHidden;
-        this.children = children;
-        // this.textAlign = align;
-
-        arrangeChilderen();
+    public TableElement(String id, Point position, Dimension size, Font font, Color color) {
+        setId(id);
+        setPosition(position);
+        setSize(size);
+        setColor(color);
+        setFont(font);
+        setChildren(new ArrayList<>());
+        setType(ElementType.TABLE);
+        // arrangeChilderen();
     }
 
     private void arrangeChilderen() {
@@ -55,7 +41,7 @@ public class TableElement extends Element {
         y -= yOffset + 0.02f;
 
         for (int i = start; i < this.children.size(); ++i) {
-            RowElement child = this.children.get(i);
+            RowElement child = (RowElement) this.children.get(i);
 
             x = position.x + 0.08f;
             xOffset = getElementXOffset(child);
@@ -82,22 +68,9 @@ public class TableElement extends Element {
         if (start > this.children.size()-1) start = this.children.size()-1;
         if (start < 0) start = 0;
     }
-    
-    @Override
-    public void renderComponent(Graphics g) {
-        // nothing
-    }
 
     public void setHeader(List<String> s) {
         header = new RowElement(s);
-    }
-
-    public void setColNumber(int n) {
-        this.col = n;
-    }
-
-    public int getColNumber() {
-        return this.col;
     }
 
     public void addRow(List<String> s) {
@@ -110,5 +83,13 @@ public class TableElement extends Element {
 
     public void removeRow() {
         removeRow(this.children.size()-1);
+    }
+
+    @Override
+    public void renderComponent(Graphics g) {
+        arrangeChilderen();
+        header.renderComponent(g);
+        children.forEach(c -> c.renderComponent(g));
+        g.render();
     }
 }

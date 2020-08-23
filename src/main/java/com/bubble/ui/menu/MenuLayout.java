@@ -38,6 +38,7 @@ public class MenuLayout {
             .filter(Objects::nonNull)
             .map(list -> findInChildren(id, list))
             .filter(Objects::nonNull)
+            .filter(e -> e != Element.NULL)
             .findAny()
             .orElse(Element.NULL);
         return elem;

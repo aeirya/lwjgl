@@ -1,9 +1,12 @@
 package com.bubble.ui.element;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
+import com.bubble.render.Graphics;
+import com.bubble.tools.layout.ElementBuilder;
 
 public class RowElement extends Element {
-    private List<IElement> elements;
     private List<String> content;
 
     RowElement() { }
@@ -19,20 +22,25 @@ public class RowElement extends Element {
     }
 
     private void setElements() {
-        elements.clear();
-        for (String c : this.content) {
-            IElement e = new Element();
-            e.setText(c);
-            elements.add(e);
-        }
+        // children.clear();
+        // for (String c : this.content) {
+        //     IElement e = new Element();
+        //     e.setText(c);
+        //     e.setFont(font);
+        //     children.add(e);
+        // }
+
+        children = content.stream().map(str -> 
+            new ElementBuilder().setText(str).setFont(font).toElement()
+        ).map(e -> new RowEntity(e)).collect(Collectors.toList());
     }
 
     public List<IElement> getElement() {
-        return elements;
+        return children;
     }
 
     public IElement getElement(int index) {
-        return elements.get(index);
+        return children.get(index);
     }
 
     public void addElement(String s) {
@@ -41,7 +49,26 @@ public class RowElement extends Element {
     }
 
     public void addElement(IElement e) {
-        elements.add(e);
+        children.add(e);
         content.add(e.getText());
+    }
+
+    @Override
+    public void renderComponent(Graphics g) {
+        // setElements();
+        children.forEach(c -> c.renderComponent(g));
+    }
+
+    class RowEntity extends Element {
+
+        RowEntity(IElement element) {
+            super(element);
+        }
+
+        @Override
+        public void renderComponent(Graphics g) {
+            float scale = 0.0017f;
+            g.drawText(text, position, scale);
+        }
     }
 }

@@ -89,7 +89,7 @@
                         "x": -0.65,
                         "y": -0.48
                     },
-                    "id": "text_box",
+                    "id": "message_textbox",
                     "color": {
                         "r": 250,
                         "g": 250,
