@@ -24,6 +24,8 @@ public interface IElement {
     IMouseListener getMouseListener();
     List<IElement> getChildren();
     
+    void addElemenet(IElement element);
+
     void setText(String text);
     void setChildren(List<IElement> children);
     void setPosition(Point position);

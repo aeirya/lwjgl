@@ -19,6 +19,7 @@
             "isDisabled": false,
             "children": [
                 {
+                    "id": "side_panel",
                     "type": "panel",
                     "size": {
                         "width": 0.45,

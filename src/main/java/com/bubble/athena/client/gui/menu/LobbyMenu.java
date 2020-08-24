@@ -25,7 +25,8 @@ public class LobbyMenu extends Menu {
         TableElement table = new TableElement("table", new Point(0, 0), new Dimension(1, 1), Font.GRAND_HOTEL_REGULAR, new Color(1, 1, 1));
         table.setHeader(List.of("header1", "header2"));
         table.addRow(List.of("aeirya", "ali"));
-        addElement(table);
+        getElement("main_panel").addElemenet(table);
+        // addElement(table);
     }
 
     private class LobbyListenerMap extends MenuListenerMap {

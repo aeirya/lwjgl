@@ -69,6 +69,7 @@ public class RowElement extends Element {
         public void renderComponent(Graphics g) {
             float scale = 0.0017f;
             g.drawText(text, position, scale);
+            g.render();
         }
     }
 }

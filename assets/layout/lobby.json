@@ -1,6 +1,7 @@
 {
     "elements": [
         {
+            "id": "main_panel",
             "type": "panel",
             "size": {
                 "width": 2,

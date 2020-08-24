@@ -1,11 +1,16 @@
 package com.bubble.athena.client.gui.menu;
 
+import java.util.List;
+
 import com.bubble.athena.client.controller.IFriendship;
 import com.bubble.athena.client.controller.Network;
 import com.bubble.athena.client.controller.ServerApi;
 import com.bubble.athena.client.event.EventSystem;
 import com.bubble.input.mouse.MenuListenerMap;
 import com.bubble.input.mouse.MouseListener;
+import com.bubble.ui.element.Button;
+import com.bubble.ui.element.HorizontalBox;
+import com.bubble.ui.element.IElement;
 import com.bubble.ui.element.ITextbox;
 import com.bubble.ui.menu.IMenuLauncher;
 import com.bubble.ui.menu.Menu;
@@ -19,6 +24,10 @@ public class FriendsMenu extends Menu {
         super("overlay.json", lnchr);
         friendship = Network.getApi();
         new FriendsListenerMap().apply(this);
+
+        IElement element = new HorizontalBox(getElement("side_panel"));
+        element.setChildren(List.of(new Button(), new Button()));
+        addElement(element);
     }
 
     private class FriendsListenerMap extends MenuListenerMap {

@@ -173,4 +173,9 @@ public class Element implements IElement {
             return new LoudMouseAdaptor("null element");
         }
     };
+
+    @Override
+    public void addElemenet(IElement element) {
+        children.add(element);
+    }
 }
