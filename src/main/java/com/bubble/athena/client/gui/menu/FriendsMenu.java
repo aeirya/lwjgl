@@ -1,9 +1,12 @@
 package com.bubble.athena.client.gui.menu;
 
 import com.bubble.athena.client.controller.IFriendship;
+import com.bubble.athena.client.controller.Network;
 import com.bubble.athena.client.controller.ServerApi;
+import com.bubble.athena.client.event.EventSystem;
 import com.bubble.input.mouse.MenuListenerMap;
 import com.bubble.input.mouse.MouseListener;
+import com.bubble.ui.element.ITextbox;
 import com.bubble.ui.menu.IMenuLauncher;
 import com.bubble.ui.menu.Menu;
 import com.bubble.ui.menu.MenuType;
@@ -14,7 +17,7 @@ public class FriendsMenu extends Menu {
 
     public FriendsMenu(IMenuLauncher lnchr) {
         super("overlay.json", lnchr);
-        friendship = new ServerApi();
+        friendship = Network.getApi();
         new FriendsListenerMap().apply(this);
     }
 
@@ -35,11 +38,19 @@ public class FriendsMenu extends Menu {
         }
 
         private void sendMessage() {
-            friendship.sendMessage(getMessage());
+            final String message = getMessage();
+            if (message != null && ! message.equals("")) {
+                friendship.sendMessage(getMessage());
+                getMessageTextbox().clear();
+            }
+        }
+
+        private ITextbox getMessageTextbox() {
+            return (ITextbox) getElement("message_textbox");
         }
         
         private String getMessage() {
-            return getElement("message_textbox").getText();
+            return getMessageTextbox().getText();
         }
 
         private Object activeTextBox() {
