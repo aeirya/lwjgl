@@ -13,19 +13,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.bubble.opengl.FontTexture;
-import com.bubble.opengl.Texture2D;
 
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL20;
+import static org.lwjgl.opengl.GL11.*;
 import org.lwjgl.stb.STBTTBakedChar;
 import org.lwjgl.stb.STBTruetype;
 import org.lwjgl.system.MemoryUtil;
 
 public class Font
 {
-	//private final static CharGlyphInfo SPACE_GLYPH =
-
-	//private ByteBuffer dataBuffer;
 	private FontTexture texture;
 	private int width;
 	private int height;
@@ -47,14 +42,14 @@ public class Font
 			ByteBuffer data = ioResourceToByteBuffer(path, 4096);
 			ByteBuffer textureData = MemoryUtil.memAlloc(width * height);
 
-			float[] lineGap = new float[1];
-			STBTruetype.stbtt_GetScaledFontVMetrics(data, 0, 1024, new float[1],new float[1], lineGap);
-			this.lineGap = (int)lineGap[0];
+			float[] lineGapf = new float[1];
+			STBTruetype.stbtt_GetScaledFontVMetrics(data, 0, 1024, new float[1],new float[1], lineGapf);
+			this.lineGap = (int)lineGapf[0];
 
 			STBTTBakedChar.Buffer chars = STBTTBakedChar.malloc(128);
 			STBTruetype.stbtt_BakeFontBitmap(data, size, textureData, width, height, 0, chars);
 			this.texture = new FontTexture(width, height);
-			this.texture.upload(textureData, GL11.GL_RED, GL11.GL_UNSIGNED_BYTE);
+			this.texture.upload(textureData, GL_RED, GL_UNSIGNED_BYTE);
 
 			for (int i = 0; i < 128; ++i)
 			{
@@ -74,8 +69,7 @@ public class Font
 		}
 	}
 
-	public IGlyph getGlyph(char c)
-	{
+	public IGlyph getGlyph(char c) {
 		return this.charGlyphs.get(c);
 	}
 
@@ -87,17 +81,16 @@ public class Font
 		File file = new File(resource);
 		if (file.isFile())
 		{
-			FileInputStream fis = new FileInputStream(file);
-			FileChannel fc = fis.getChannel();
-
-			buffer = MemoryUtil.memAlloc((int) fc.size() + 1);
-
-			//noinspection StatementWithEmptyBody
-			while (fc.read(buffer) != -1)
-			{}
-
-			fis.close();
-			fc.close();
+			try (FileInputStream fis = new FileInputStream(file))
+			{
+				FileChannel fc = fis.getChannel();
+				buffer = MemoryUtil.memAlloc((int) fc.size() + 1);
+				
+				//noinspection StatementWithEmptyBody
+				while (fc.read(buffer) != -1);
+				
+				fc.close();
+			}
 		}
 		else
 		{
@@ -116,9 +109,7 @@ public class Font
 							break;
 						size += bytes;
 						if (!buffer.hasRemaining())
-						{
 							buffer = MemoryUtil.memRealloc(buffer, size * 2);
-						}
 					}
 				}
 			}
@@ -129,18 +120,15 @@ public class Font
 		return buffer;
 	}
 
-	public int getWidth()
-	{
+	public int getWidth() {
 		return width;
 	}
 
-	public int getHeight()
-	{
+	public int getHeight() {
 		return height;
 	}
 
-	public FontTexture getTexture()
-	{
+	public FontTexture getTexture() {
 		return this.texture;
 	}
 
