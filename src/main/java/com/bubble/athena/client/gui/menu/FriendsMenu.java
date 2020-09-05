@@ -4,8 +4,6 @@ import java.util.List;
 
 import com.bubble.athena.client.controller.IFriendship;
 import com.bubble.athena.client.controller.Network;
-import com.bubble.athena.client.controller.ServerApi;
-import com.bubble.athena.client.event.EventSystem;
 import com.bubble.input.mouse.MenuListenerMap;
 import com.bubble.input.mouse.MouseListener;
 import com.bubble.ui.element.Button;

@@ -32,14 +32,7 @@ public class EmptyGlyph implements IGlyph
 	}
 
 	@Override
-	public float getWidth(float x, float scale)
-	{
+	public float getWidth(float x, float scale) {
 		return 0;
 	}
-	
-	// @Override
-	// public float getHeight(float y, float scale)
-	// {
-	// 	return 0;
-	// }
 }

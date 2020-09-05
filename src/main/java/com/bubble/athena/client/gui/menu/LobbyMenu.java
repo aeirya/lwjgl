@@ -1,6 +1,5 @@
 package com.bubble.athena.client.gui.menu;
 
-import java.util.Arrays;
 import java.util.List;
 
 import com.bubble.font2.Font;
