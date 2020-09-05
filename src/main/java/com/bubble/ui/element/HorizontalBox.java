@@ -1,6 +1,7 @@
 package com.bubble.ui.element;
 
 import com.bubble.render.Graphics;
+import com.bubble.std.Dimension;
 import com.bubble.std.Point;
 
 public class HorizontalBox extends Element {
@@ -10,15 +11,16 @@ public class HorizontalBox extends Element {
     }
 
     private void arrangeChilderen() {
-        float x = position.x + 0.08f;
-        float y = position.y - 0.04f;
-        float yOffset = 0.09f;
-
-        y -= yOffset + 0.02f;
+        float x = position.x;
+        float y = position.y;
+        float height = 0.09f;
+        float offset = 0.01f;
+        y -= height;
 
         for (IElement e : getChildren()) {
             e.setPosition(new Point(x, y));
-            y -= yOffset;
+            e.setSize(new Dimension(getSize().width, height));
+            y -= height + offset;
         }
     }
 

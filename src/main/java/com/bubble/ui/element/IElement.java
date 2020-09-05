@@ -29,8 +29,10 @@ public interface IElement {
     void setText(String text);
     void setChildren(List<IElement> children);
     void setPosition(Point position);
+    void setSize(Dimension size);
     void setType(ElementType type);
     void setFont(Font font);
+    void setColor(Color color);
     void setMouseListener(IMouseListener listener);
     void renderComponent(Graphics g);
 }

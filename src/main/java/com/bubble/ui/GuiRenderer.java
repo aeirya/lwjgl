@@ -26,6 +26,7 @@ public class GuiRenderer extends Renderer implements IGuiRenderer {
         if (element.isHidden()) return;
         
         element.renderComponent(g);
+        if (element.getType() == null) return;
         
         switch(element.getType()) {
             case BUTTON:
@@ -47,14 +48,19 @@ public class GuiRenderer extends Renderer implements IGuiRenderer {
         }
 
         if (element.getChildren() != null) {
-            element.getChildren().forEach(c -> c.renderComponent(g));
+            // element.getChildren().forEach(c -> c.renderComponent(g));
+            element.getChildren().forEach(c -> drawElement(c));
         }
 
     }
     
     public void drawButton(IElement button) {
         final Texture tex = ui.getButtonTexture(button.getSize());
-        g.drawElement(button.getPosition(), button.getSize(), tex, button.getColor());
+        if (button.getColor() != null) {
+            g.drawElement(button.getPosition(), button.getSize(), tex, button.getColor());
+        } else {
+            g.drawElement(button.getPosition(), button.getSize(), tex);
+        }
     }
     
     public void drawPanel(IElement e) {

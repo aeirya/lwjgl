@@ -61,7 +61,7 @@ public class Color {
     }
 
     private float higher(float i) {
-        return (i <= 0.75f) ? (i + 0.75f) : i;
+        return (i <= 0.25f) ? (i + 0.25f) : i;
     }
 
     public Color brighter() {

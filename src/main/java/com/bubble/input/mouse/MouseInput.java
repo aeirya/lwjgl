@@ -29,12 +29,13 @@ public class MouseInput implements IMouseInputListener {
 
     @Override
     public void onMouseClick(MouseState mouse) {
+        if (gui != null) gui.clicked(findCurrentElement(mouse));
         if (externalListener != null) externalListener.onMouseClick(mouse);
         getMouseListener(mouse).onMouseClick(mouse);
-        if (gui != null) gui.clicked(findCurrentElement(mouse));
     }
 
     public void onMouseRelease(MouseState mouse) {
+        if (gui != null) gui.released(findCurrentElement(mouse));
         if (externalListener != null) externalListener.onMouseRelease(mouse);
         getMouseListener(mouse).onMouseRelease(mouse);
     }

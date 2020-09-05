@@ -42,7 +42,7 @@ public class MainMenu extends Menu {
                 );
             listenerMap.put(
                 "friends", 
-                new MouseListener().setOnClick(a -> launch(MenuType.FRIENDS))
+                new MouseListener().setOnRelease(a -> launch(MenuType.FRIENDS))
                 );
             listenerMap.put(
                 "profile", 

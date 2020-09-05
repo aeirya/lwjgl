@@ -51,6 +51,11 @@ public class GuiManager implements IGuiManager {
     }
 
     @Override
+    public void released(IElement element) {
+        inputManager.released(element);
+    }
+
+    @Override
     public List<ICardElement> getPlayerHand() {
         return List.of(
             new CardElement(

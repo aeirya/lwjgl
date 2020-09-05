@@ -15,6 +15,7 @@ public interface IGuiManager {
     void bind(IGameInput input);
     
     void clicked(IElement element);
+    void released(IElement element);
     
     void launch(IMenu menu);
     void launch(MenuType menu);

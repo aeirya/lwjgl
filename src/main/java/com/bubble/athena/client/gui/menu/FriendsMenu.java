@@ -27,6 +27,7 @@ public class FriendsMenu extends Menu {
 
         IElement element = new HorizontalBox(getElement("side_panel"));
         element.setChildren(List.of(new Button(), new Button()));
+        element.setText("this is an element");
         addElement(element);
     }
 

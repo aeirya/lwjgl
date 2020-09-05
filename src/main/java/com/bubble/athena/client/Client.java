@@ -22,7 +22,7 @@ public class Client {
         
         ServerApi api = new ServerApi();
         Network.provideApi(api);
-        
+
         EventSystem.start(eventHandler);
         ServiceLocator.getInstance().provideTextureManager(textures);
         graphics.start();

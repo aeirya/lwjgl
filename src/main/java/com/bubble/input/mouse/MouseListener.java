@@ -30,6 +30,11 @@ public class MouseListener implements IMouseListener, IMouseEventDispatcher {
         return this;
     }
 
+    public MouseListener setOnRelease(IMouseReleaseListener listener) {
+        listeners.add(listener);
+        return this;
+    }
+
     public MouseListener setOnMove(IMouseMoveListener listener) {
         listeners.add(listener);
         return this;   

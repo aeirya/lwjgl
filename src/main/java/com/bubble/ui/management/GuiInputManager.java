@@ -24,8 +24,13 @@ class GuiInputManager {
         active = element;
     }
     
+    public void released(IElement element) {
+        element.setColor(element.getColor().brighter());
+    }
+    
     public void clicked(IElement element) {
         setActive(element);
+        element.setColor(element.getColor().darker());
     }
 
     public IElement getActiveElement() {
