@@ -26,11 +26,6 @@ public class VertexBufferBuilder {
         offset += size;
     }
 
-    // do not call set attrib afterwards
-    public void setAttributes(List<VertexAttribute> attributes) {
-        this.attributes.addAll(attributes);
-    }
-
     public void begin() {
         // oh!
         beginningIndex = vertices.size() / 3;

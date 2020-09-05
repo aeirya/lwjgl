@@ -15,7 +15,7 @@ public class VertexBuilder {
 
     public VertexBuilder(VertexFormat vertexFormat) {
         vbb = new VertexBufferBuilder();
-        vbb.setAttributes(vertexFormat.get());
+        vbb.setAttributes(vertexFormat.toVertAtrib());
     }
 
     public void begin() {
